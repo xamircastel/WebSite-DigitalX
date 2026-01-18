@@ -1,0 +1,182 @@
+---
+// Página de producto: HotSimp
+import MainLayout from '../../layouts/MainLayout.astro';
+---
+
+<MainLayout 
+  title="HotSimp | Plataforma de Contenido Exclusivo - Digital-X"
+  description="HotSimp es una plataforma de contenido exclusivo para adultos estilo suscripción. Conecta creadores con su audiencia."
+>
+  <!-- Hero -->
+  <section class="relative min-h-[70vh] flex items-center pt-24 overflow-hidden">
+    <div class="absolute inset-0 bg-[var(--color-bg-dark)]">
+      <div class="absolute inset-0 opacity-20" style="background-image: linear-gradient(rgba(255, 159, 67, 0.1) 1px, transparent 1px), linear-gradient(90deg, rgba(255, 159, 67, 0.1) 1px, transparent 1px); background-size: 50px 50px;"></div>
+      <div class="absolute top-1/4 right-1/4 w-[600px] h-[600px] bg-[var(--color-accent-orange)] rounded-full filter blur-[200px] opacity-20"></div>
+    </div>
+    
+    <div class="container-custom relative z-10">
+      <div class="grid lg:grid-cols-2 gap-12 items-center">
+        <div>
+          <nav class="flex items-center gap-2 text-sm text-[var(--color-text-muted)] mb-8">
+            <a href="/" class="hover:text-white transition-colors">Inicio</a>
+            <span>/</span>
+            <a href="/#productos" class="hover:text-white transition-colors">Productos</a>
+            <span>/</span>
+            <span class="text-[var(--color-accent-orange)]">HotSimp</span>
+          </nav>
+          
+          <!-- 18+ Badge -->
+          <div class="inline-flex items-center gap-2 px-4 py-2 rounded-full bg-red-500/20 border border-red-500/50 mb-6">
+            <span class="text-sm text-red-400 font-bold">🔞 Contenido para adultos (+18)</span>
+          </div>
+          
+          <h1 class="heading-xl mb-6">
+            <span class="text-[var(--color-accent-orange)]">Hot</span><span class="text-white">Simp</span>
+          </h1>
+          
+          <p class="text-xl text-[var(--color-text-secondary)] mb-8 leading-relaxed">
+            Contenido exclusivo. Plataforma estilo suscripción donde los creadores 
+            <span class="text-white font-semibold">conectan directamente</span> con su audiencia.
+          </p>
+          
+          <div class="grid grid-cols-3 gap-4 mb-8">
+            <div class="text-center p-4 rounded-xl bg-white/5 border border-white/10">
+              <div class="text-2xl font-bold text-[var(--color-accent-orange)]">100%</div>
+              <div class="text-xs text-[var(--color-text-muted)]">Exclusivo</div>
+            </div>
+            <div class="text-center p-4 rounded-xl bg-white/5 border border-white/10">
+              <div class="text-2xl font-bold text-[var(--color-accent-orange)]">Direct</div>
+              <div class="text-xs text-[var(--color-text-muted)]">Conexión</div>
+            </div>
+            <div class="text-center p-4 rounded-xl bg-white/5 border border-white/10">
+              <div class="text-2xl font-bold text-[var(--color-accent-orange)]">$$$</div>
+              <div class="text-xs text-[var(--color-text-muted)]">Monetiza</div>
+            </div>
+          </div>
+          
+          <div class="flex flex-wrap gap-4">
+            <a href="/#contacto" class="btn-primary" style="background: var(--color-accent-orange);">
+              Solicitar información
+            </a>
+          </div>
+        </div>
+        
+        <div class="relative flex items-center justify-center">
+          <div class="absolute inset-0 bg-[var(--color-accent-orange)] rounded-full filter blur-[100px] opacity-30 animate-pulse"></div>
+          <div class="relative w-64 h-64 md:w-80 md:h-80 rounded-3xl bg-gradient-to-br from-[var(--color-accent-orange)] to-[var(--color-accent-pink)] flex items-center justify-center shadow-2xl">
+            <svg xmlns="http://www.w3.org/2000/svg" width="100" height="100" viewBox="0 0 24 24" fill="white" stroke="none">
+              <path d="M20.84 4.61a5.5 5.5 0 0 0-7.78 0L12 5.67l-1.06-1.06a5.5 5.5 0 0 0-7.78 7.78l1.06 1.06L12 21.23l7.78-7.78 1.06-1.06a5.5 5.5 0 0 0 0-7.78z"></path>
+            </svg>
+          </div>
+        </div>
+      </div>
+    </div>
+  </section>
+  
+  <!-- Características -->
+  <section class="section-padding bg-[var(--color-bg-darker)]">
+    <div class="container-custom">
+      <div class="text-center max-w-3xl mx-auto mb-16">
+        <h2 class="heading-lg mb-4">¿Por qué <span class="text-[var(--color-accent-orange)]">HotSimp</span>?</h2>
+      </div>
+      
+      <div class="grid md:grid-cols-2 gap-8">
+        <!-- Para Creadores -->
+        <div class="card">
+          <h3 class="text-2xl font-bold text-white mb-6 flex items-center gap-3">
+            <span class="w-10 h-10 rounded-full bg-[var(--color-accent-orange)]/20 flex items-center justify-center">
+              <svg xmlns="http://www.w3.org/2000/svg" width="20" height="20" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2" class="text-[var(--color-accent-orange)]">
+                <path d="M12 2a3 3 0 0 0-3 3v4a3 3 0 0 0 6 0V5a3 3 0 0 0-3-3Z"></path>
+                <path d="M19 10v2a7 7 0 0 1-14 0v-2"></path>
+                <line x1="12" x2="12" y1="19" y2="22"></line>
+              </svg>
+            </span>
+            Para Creadores
+          </h3>
+          <ul class="space-y-4">
+            <li class="flex items-start gap-3">
+              <svg xmlns="http://www.w3.org/2000/svg" width="20" height="20" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2" class="text-[var(--color-accent-green)] shrink-0 mt-0.5">
+                <polyline points="20 6 9 17 4 12"></polyline>
+              </svg>
+              <span class="text-[var(--color-text-secondary)]">Monetiza tu contenido de forma directa</span>
+            </li>
+            <li class="flex items-start gap-3">
+              <svg xmlns="http://www.w3.org/2000/svg" width="20" height="20" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2" class="text-[var(--color-accent-green)] shrink-0 mt-0.5">
+                <polyline points="20 6 9 17 4 12"></polyline>
+              </svg>
+              <span class="text-[var(--color-text-secondary)]">Control total sobre tus suscripciones</span>
+            </li>
+            <li class="flex items-start gap-3">
+              <svg xmlns="http://www.w3.org/2000/svg" width="20" height="20" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2" class="text-[var(--color-accent-green)] shrink-0 mt-0.5">
+                <polyline points="20 6 9 17 4 12"></polyline>
+              </svg>
+              <span class="text-[var(--color-text-secondary)]">Herramientas de analítica avanzadas</span>
+            </li>
+            <li class="flex items-start gap-3">
+              <svg xmlns="http://www.w3.org/2000/svg" width="20" height="20" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2" class="text-[var(--color-accent-green)] shrink-0 mt-0.5">
+                <polyline points="20 6 9 17 4 12"></polyline>
+              </svg>
+              <span class="text-[var(--color-text-secondary)]">Pagos seguros y puntuales</span>
+            </li>
+          </ul>
+        </div>
+        
+        <!-- Para Fans -->
+        <div class="card">
+          <h3 class="text-2xl font-bold text-white mb-6 flex items-center gap-3">
+            <span class="w-10 h-10 rounded-full bg-[var(--color-accent-pink)]/20 flex items-center justify-center">
+              <svg xmlns="http://www.w3.org/2000/svg" width="20" height="20" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2" class="text-[var(--color-accent-pink)]">
+                <path d="M19 14c1.49-1.46 3-3.21 3-5.5A5.5 5.5 0 0 0 16.5 3c-1.76 0-3 .5-4.5 2-1.5-1.5-2.74-2-4.5-2A5.5 5.5 0 0 0 2 8.5c0 2.3 1.5 4.05 3 5.5l7 7Z"></path>
+              </svg>
+            </span>
+            Para Fans
+          </h3>
+          <ul class="space-y-4">
+            <li class="flex items-start gap-3">
+              <svg xmlns="http://www.w3.org/2000/svg" width="20" height="20" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2" class="text-[var(--color-accent-green)] shrink-0 mt-0.5">
+                <polyline points="20 6 9 17 4 12"></polyline>
+              </svg>
+              <span class="text-[var(--color-text-secondary)]">Acceso a contenido exclusivo</span>
+            </li>
+            <li class="flex items-start gap-3">
+              <svg xmlns="http://www.w3.org/2000/svg" width="20" height="20" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2" class="text-[var(--color-accent-green)] shrink-0 mt-0.5">
+                <polyline points="20 6 9 17 4 12"></polyline>
+              </svg>
+              <span class="text-[var(--color-text-secondary)]">Interacción directa con creadores</span>
+            </li>
+            <li class="flex items-start gap-3">
+              <svg xmlns="http://www.w3.org/2000/svg" width="20" height="20" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2" class="text-[var(--color-accent-green)] shrink-0 mt-0.5">
+                <polyline points="20 6 9 17 4 12"></polyline>
+              </svg>
+              <span class="text-[var(--color-text-secondary)]">Contenido personalizado a pedido</span>
+            </li>
+            <li class="flex items-start gap-3">
+              <svg xmlns="http://www.w3.org/2000/svg" width="20" height="20" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2" class="text-[var(--color-accent-green)] shrink-0 mt-0.5">
+                <polyline points="20 6 9 17 4 12"></polyline>
+              </svg>
+              <span class="text-[var(--color-text-secondary)]">Pagos seguros y discretos</span>
+            </li>
+          </ul>
+        </div>
+      </div>
+    </div>
+  </section>
+  
+  <!-- CTA -->
+  <section class="section-padding">
+    <div class="container-custom">
+      <div class="card p-12 text-center relative overflow-hidden">
+        <div class="absolute inset-0 bg-[var(--color-accent-orange)]/10"></div>
+        <div class="relative z-10">
+          <h2 class="heading-lg mb-4">¿Interesado en HotSimp?</h2>
+          <p class="text-[var(--color-text-secondary)] mb-8 max-w-2xl mx-auto">
+            Ya seas creador o fan, HotSimp es la plataforma perfecta para ti.
+          </p>
+          <a href="/#contacto" class="btn-primary inline-flex" style="background: var(--color-accent-orange);">
+            Solicitar información
+          </a>
+        </div>
+      </div>
+    </div>
+  </section>
+</MainLayout>

@@ -1,0 +1,31 @@
+# Archivo de configuración de Cloud Run
+# Usar con: gcloud run deploy --source .
+
+# Nombre del servicio
+service: digital-x-website
+
+# Configuración de runtime
+runtime: nginx
+
+# Configuración de recursos (mínimos para sitio estático)
+resources:
+  limits:
+    cpu: "1"
+    memory: "256Mi"
+
+# Configuración de scaling
+scaling:
+  minInstances: 0
+  maxInstances: 10
+
+# Permitir tráfico no autenticado (sitio público)
+allowUnauthenticated: true
+
+# Variables de entorno (si se necesitan)
+env: []
+
+# Timeout de requests
+timeout: 60s
+
+# Puerto
+containerPort: 8080

@@ -1,0 +1,192 @@
+---
+// Products Section - Grid de productos Digital-X
+interface Product {
+  name: string;
+  slug: string;
+  tagline: string;
+  description: string;
+  icon: string;
+  color: string;
+  featured?: boolean;
+}
+
+const products: Product[] = [
+  {
+    name: "LALA AI",
+    slug: "lala-ai",
+    tagline: "La IA en tu bolsillo",
+    description: "Chat con IA multi-modelo. Accede a GPT-4, Claude, Gemini y más a precios 50% más económicos.",
+    icon: "brain",
+    color: "primary",
+    featured: true
+  },
+  {
+    name: "VClub",
+    slug: "vclub",
+    tagline: "Tu streaming, tus reglas",
+    description: "Suscripción de streaming con créditos para múltiples plataformas. Entretenimiento sin límites.",
+    icon: "play",
+    color: "secondary"
+  },
+  {
+    name: "XafraChat",
+    slug: "xafrachat",
+    tagline: "Conexiones en vivo",
+    description: "Plataforma de live streaming para adultos. Contenido exclusivo y en tiempo real.",
+    icon: "video",
+    color: "pink"
+  },
+  {
+    name: "HotSimp",
+    slug: "hotsimp",
+    tagline: "Contenido exclusivo",
+    description: "Plataforma de contenido para adultos estilo suscripción. Creadores y fans conectados.",
+    icon: "heart",
+    color: "orange"
+  },
+  {
+    name: "Videntes del Fútbol",
+    slug: "videntes-futbol",
+    tagline: "Predice y gana",
+    description: "Predicciones de fútbol con recompensas. Demuestra tu conocimiento y gana premios.",
+    icon: "trophy",
+    color: "green"
+  }
+];
+
+const iconPaths: Record<string, string> = {
+  brain: "M12 2a8 8 0 0 0-8 8v4a8 8 0 0 0 16 0v-4a8 8 0 0 0-8-8zm0 2a6 6 0 0 1 6 6h-2a4 4 0 0 0-8 0H6a6 6 0 0 1 6-6z",
+  play: "M5 3l14 9-14 9V3z",
+  video: "M23 7l-7 5 7 5V7zM14 5H3a2 2 0 0 0-2 2v10a2 2 0 0 0 2 2h11a2 2 0 0 0 2-2V7a2 2 0 0 0-2-2z",
+  heart: "M20.84 4.61a5.5 5.5 0 0 0-7.78 0L12 5.67l-1.06-1.06a5.5 5.5 0 0 0-7.78 7.78l1.06 1.06L12 21.23l7.78-7.78 1.06-1.06a5.5 5.5 0 0 0 0-7.78z",
+  trophy: "M8 21h8m-4-4v4m-5-8a5 5 0 0 0 10 0V5H7v8zm-3-8h1V3h14v2h1a2 2 0 0 1 2 2v2a4 4 0 0 1-4 4h-.5M4 5H3a2 2 0 0 0-2 2v2a4 4 0 0 0 4 4h.5"
+};
+
+const colorClasses: Record<string, {bg: string, text: string, border: string}> = {
+  primary: {
+    bg: "bg-[var(--color-primary)]/10",
+    text: "text-[var(--color-primary)]",
+    border: "border-[var(--color-primary)]/30"
+  },
+  secondary: {
+    bg: "bg-[var(--color-secondary)]/10",
+    text: "text-[var(--color-secondary)]",
+    border: "border-[var(--color-secondary)]/30"
+  },
+  pink: {
+    bg: "bg-[var(--color-accent-pink)]/10",
+    text: "text-[var(--color-accent-pink)]",
+    border: "border-[var(--color-accent-pink)]/30"
+  },
+  orange: {
+    bg: "bg-[var(--color-accent-orange)]/10",
+    text: "text-[var(--color-accent-orange)]",
+    border: "border-[var(--color-accent-orange)]/30"
+  },
+  green: {
+    bg: "bg-[var(--color-accent-green)]/10",
+    text: "text-[var(--color-accent-green)]",
+    border: "border-[var(--color-accent-green)]/30"
+  }
+};
+---
+
+<section id="productos" class="section-padding" style="margin-top: 3rem;">
+  <div class="container-custom">
+    
+    <!-- Header de sección -->
+    <div class="text-center mb-16 animate-on-scroll">
+      <span class="inline-block text-[var(--color-primary)] text-sm font-semibold uppercase tracking-widest mb-4">
+        Nuestros Productos
+      </span>
+      <h2 class="heading-lg mb-6">
+        Soluciones <span class="text-gradient">digitales</span> para todos
+      </h2>
+      <p class="text-[var(--color-text-secondary)] text-lg">
+        Desde inteligencia artificial hasta entretenimiento, nuestros productos 
+        están diseñados para mejorar tu experiencia digital.
+      </p>
+    </div>
+    
+    <!-- Products Grid -->
+    <div class="grid md:grid-cols-2 lg:grid-cols-3 gap-6">
+      {products.map((product, index) => (
+        <a 
+          href={`/productos/${product.slug}`}
+          class:list={[
+            "group relative card overflow-hidden animate-on-scroll",
+            product.featured && "md:col-span-2 lg:col-span-1 ring-2 ring-[var(--color-primary)]/50"
+          ]}
+          style={`animation-delay: ${index * 0.1}s`}
+        >
+          {/* Featured badge */}
+          {product.featured && (
+            <div class="absolute top-4 right-4 bg-[var(--color-primary)] text-white text-xs font-bold px-3 py-1 rounded-full">
+              ⭐ Destacado
+            </div>
+          )}
+          
+          {/* Icon */}
+          <div class:list={[
+            "w-16 h-16 rounded-2xl flex items-center justify-center mb-6 transition-transform group-hover:scale-110",
+            colorClasses[product.color].bg
+          ]}>
+            <svg 
+              xmlns="http://www.w3.org/2000/svg" 
+              width="32" 
+              height="32" 
+              viewBox="0 0 24 24" 
+              fill="none" 
+              stroke="currentColor" 
+              stroke-width="2"
+              stroke-linecap="round"
+              stroke-linejoin="round"
+              class:list={[colorClasses[product.color].text]}
+            >
+              <path d={iconPaths[product.icon]} />
+            </svg>
+          </div>
+          
+          {/* Content */}
+          <h3 class="text-xl font-bold text-white mb-2 group-hover:text-[var(--color-primary)] transition-colors">
+            {product.name}
+          </h3>
+          <p class:list={[
+            "text-sm font-medium mb-3",
+            colorClasses[product.color].text
+          ]}>
+            {product.tagline}
+          </p>
+          <p class="text-[var(--color-text-secondary)] text-sm mb-6">
+            {product.description}
+          </p>
+          
+          {/* CTA */}
+          <div class="flex items-center text-sm font-medium text-white group-hover:text-[var(--color-primary)] transition-colors">
+            <span>Conocer más</span>
+            <svg 
+              xmlns="http://www.w3.org/2000/svg" 
+              width="16" 
+              height="16" 
+              viewBox="0 0 24 24" 
+              fill="none" 
+              stroke="currentColor" 
+              stroke-width="2"
+              class="ml-2 transform group-hover:translate-x-1 transition-transform"
+            >
+              <path d="M5 12h14"></path>
+              <path d="m12 5 7 7-7 7"></path>
+            </svg>
+          </div>
+          
+          {/* Hover gradient */}
+          <div class:list={[
+            "absolute inset-0 opacity-0 group-hover:opacity-10 transition-opacity pointer-events-none",
+            `bg-gradient-to-br from-transparent to-[var(--color-${product.color === 'primary' ? 'primary' : product.color === 'secondary' ? 'secondary' : `accent-${product.color}`})]`
+          ]}></div>
+        </a>
+      ))}
+    </div>
+    
+  </div>
+</section>

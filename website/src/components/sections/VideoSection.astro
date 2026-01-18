@@ -1,0 +1,88 @@
+---
+// Video Section - Video de LALA AI destacado
+interface Props {
+  videoId?: string;
+  title?: string;
+  description?: string;
+}
+
+const { 
+  videoId = "_1cUAEq2rpM",
+  title = "Descubre LALA AI en acción",
+  description = "Mira cómo LALA AI revoluciona la forma de interactuar con la inteligencia artificial."
+} = Astro.props;
+---
+
+<section id="video-lala" class="section-padding bg-[var(--color-bg-darker)]">
+  <div class="container-custom">
+    
+    <!-- Header -->
+    <div class="text-center mb-12 animate-on-scroll">
+      <span class="inline-block text-[var(--color-primary)] text-sm font-semibold uppercase tracking-widest mb-4">
+        Ver Demo
+      </span>
+      <h2 class="heading-lg mb-6">{title}</h2>
+      <p class="text-[var(--color-text-secondary)] text-lg">{description}</p>
+    </div>
+    
+    <!-- Video Container -->
+    <div class="animate-on-scroll mb-16">
+      <div class="relative group">
+        <!-- Glow effect -->
+        <div class="absolute -inset-4 bg-gradient-to-r from-[var(--color-primary)] via-[var(--color-secondary)] to-[var(--color-primary)] rounded-3xl opacity-20 blur-xl group-hover:opacity-30 transition-opacity"></div>
+        
+        <!-- Video wrapper -->
+        <div class="relative glass rounded-2xl overflow-hidden">
+          <div class="aspect-video">
+            <iframe
+              src={`https://www.youtube.com/embed/${videoId}?rel=0&modestbranding=1`}
+              title={title}
+              frameborder="0"
+              allow="accelerometer; autoplay; clipboard-write; encrypted-media; gyroscope; picture-in-picture; web-share"
+              referrerpolicy="strict-origin-when-cross-origin"
+              allowfullscreen
+              class="w-full h-full"
+              loading="lazy"
+            ></iframe>
+          </div>
+        </div>
+      </div>
+    </div>
+    
+    <!-- Features bajo el video -->
+    <div class="grid md:grid-cols-3 gap-8" style="margin-top: 2rem;">
+      <div class="flex flex-col items-center text-center animate-on-scroll" style="animation-delay: 0.1s;">
+        <div class="w-12 h-12 rounded-full bg-[var(--color-primary)]/10 flex items-center justify-center mb-4">
+          <svg xmlns="http://www.w3.org/2000/svg" width="24" height="24" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2" class="text-[var(--color-primary)]">
+            <path d="M12 8V4H8"></path>
+            <rect width="16" height="12" x="4" y="8" rx="2"></rect>
+            <path d="m14 12-4 2.5V9.5L14 12z"></path>
+          </svg>
+        </div>
+        <h3 class="text-white font-semibold mb-2">Interfaz Intuitiva</h3>
+        <p class="text-sm text-[var(--color-text-secondary)]">Diseñada para ser fácil de usar desde el primer momento.</p>
+      </div>
+      
+      <div class="flex flex-col items-center text-center animate-on-scroll" style="animation-delay: 0.2s;">
+        <div class="w-12 h-12 rounded-full bg-[var(--color-secondary)]/10 flex items-center justify-center mb-4">
+          <svg xmlns="http://www.w3.org/2000/svg" width="24" height="24" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2" class="text-[var(--color-secondary)]">
+            <path d="M13 2 3 14h9l-1 8 10-12h-9l1-8z"></path>
+          </svg>
+        </div>
+        <h3 class="text-white font-semibold mb-2">Respuestas Rápidas</h3>
+        <p class="text-sm text-[var(--color-text-secondary)]">Obtén respuestas instantáneas de los mejores modelos de IA.</p>
+      </div>
+      
+      <div class="flex flex-col items-center text-center animate-on-scroll" style="animation-delay: 0.3s;">
+        <div class="w-12 h-12 rounded-full bg-[var(--color-accent-green)]/10 flex items-center justify-center mb-4">
+          <svg xmlns="http://www.w3.org/2000/svg" width="24" height="24" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2" class="text-[var(--color-accent-green)]">
+            <path d="M12 2v20M17 5H9.5a3.5 3.5 0 0 0 0 7h5a3.5 3.5 0 0 1 0 7H6"></path>
+          </svg>
+        </div>
+        <h3 class="text-white font-semibold mb-2">Ahorro Real</h3>
+        <p class="text-sm text-[var(--color-text-secondary)]">Hasta 50% más económico que usar las APIs directamente.</p>
+      </div>
+    </div>
+    
+  </div>
+</section>

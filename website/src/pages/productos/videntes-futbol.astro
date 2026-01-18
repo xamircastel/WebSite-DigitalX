@@ -1,0 +1,170 @@
+---
+// Página de producto: Videntes del Fútbol
+import MainLayout from '../../layouts/MainLayout.astro';
+---
+
+<MainLayout 
+  title="Videntes del Fútbol | Predicciones con Recompensas - Digital-X"
+  description="Videntes del Fútbol es una plataforma de predicciones deportivas con recompensas. Demuestra tu conocimiento futbolístico y gana premios."
+>
+  <!-- Hero -->
+  <section class="relative min-h-[70vh] flex items-center pt-24 overflow-hidden">
+    <div class="absolute inset-0 bg-[var(--color-bg-dark)]">
+      <div class="absolute inset-0 opacity-20" style="background-image: linear-gradient(rgba(0, 255, 136, 0.1) 1px, transparent 1px), linear-gradient(90deg, rgba(0, 255, 136, 0.1) 1px, transparent 1px); background-size: 50px 50px;"></div>
+      <div class="absolute top-1/4 right-1/4 w-[600px] h-[600px] bg-[var(--color-accent-green)] rounded-full filter blur-[200px] opacity-20"></div>
+    </div>
+    
+    <div class="container-custom relative z-10">
+      <div class="grid lg:grid-cols-2 gap-12 items-center">
+        <div>
+          <nav class="flex items-center gap-2 text-sm text-[var(--color-text-muted)] mb-8">
+            <a href="/" class="hover:text-white transition-colors">Inicio</a>
+            <span>/</span>
+            <a href="/#productos" class="hover:text-white transition-colors">Productos</a>
+            <span>/</span>
+            <span class="text-[var(--color-accent-green)]">Videntes del Fútbol</span>
+          </nav>
+          
+          <h1 class="heading-xl mb-6">
+            <span class="text-[var(--color-accent-green)]">Videntes</span>
+            <span class="text-white block">del Fútbol</span>
+          </h1>
+          
+          <p class="text-xl text-[var(--color-text-secondary)] mb-8 leading-relaxed">
+            Predice y gana. Demuestra tu conocimiento futbolístico haciendo predicciones 
+            y <span class="text-white font-semibold">gana recompensas reales</span>.
+          </p>
+          
+          <div class="grid grid-cols-3 gap-4 mb-8">
+            <div class="text-center p-4 rounded-xl bg-white/5 border border-white/10">
+              <div class="text-2xl font-bold text-[var(--color-accent-green)]">⚽</div>
+              <div class="text-xs text-[var(--color-text-muted)]">Fútbol</div>
+            </div>
+            <div class="text-center p-4 rounded-xl bg-white/5 border border-white/10">
+              <div class="text-2xl font-bold text-[var(--color-accent-green)]">🎯</div>
+              <div class="text-xs text-[var(--color-text-muted)]">Predicciones</div>
+            </div>
+            <div class="text-center p-4 rounded-xl bg-white/5 border border-white/10">
+              <div class="text-2xl font-bold text-[var(--color-accent-green)]">🏆</div>
+              <div class="text-xs text-[var(--color-text-muted)]">Premios</div>
+            </div>
+          </div>
+          
+          <div class="flex flex-wrap gap-4">
+            <a href="/#contacto" class="btn-primary" style="background: var(--color-accent-green); color: #000;">
+              Solicitar información
+            </a>
+          </div>
+        </div>
+        
+        <div class="relative flex items-center justify-center">
+          <div class="absolute inset-0 bg-[var(--color-accent-green)] rounded-full filter blur-[100px] opacity-30 animate-pulse"></div>
+          <div class="relative w-64 h-64 md:w-80 md:h-80 rounded-3xl bg-gradient-to-br from-[var(--color-accent-green)] to-[var(--color-secondary)] flex items-center justify-center shadow-2xl">
+            <span class="text-8xl">⚽</span>
+          </div>
+        </div>
+      </div>
+    </div>
+  </section>
+  
+  <!-- Cómo funciona -->
+  <section class="section-padding bg-[var(--color-bg-darker)]">
+    <div class="container-custom">
+      <div class="text-center max-w-3xl mx-auto mb-16">
+        <h2 class="heading-lg mb-4">¿Cómo funciona?</h2>
+        <p class="text-[var(--color-text-secondary)]">
+          Tres simples pasos para convertir tu pasión por el fútbol en recompensas.
+        </p>
+      </div>
+      
+      <div class="grid md:grid-cols-3 gap-8">
+        <div class="card text-center">
+          <div class="w-20 h-20 mx-auto mb-6 rounded-full bg-[var(--color-accent-green)]/10 flex items-center justify-center">
+            <span class="text-3xl font-bold text-[var(--color-accent-green)]">1</span>
+          </div>
+          <h3 class="text-xl font-bold text-white mb-3">Regístrate</h3>
+          <p class="text-[var(--color-text-secondary)]">
+            Crea tu cuenta gratis y únete a la comunidad de visionarios del fútbol.
+          </p>
+        </div>
+        
+        <div class="card text-center">
+          <div class="w-20 h-20 mx-auto mb-6 rounded-full bg-[var(--color-accent-green)]/10 flex items-center justify-center">
+            <span class="text-3xl font-bold text-[var(--color-accent-green)]">2</span>
+          </div>
+          <h3 class="text-xl font-bold text-white mb-3">Predice</h3>
+          <p class="text-[var(--color-text-secondary)]">
+            Haz tus predicciones sobre los partidos de las principales ligas del mundo.
+          </p>
+        </div>
+        
+        <div class="card text-center">
+          <div class="w-20 h-20 mx-auto mb-6 rounded-full bg-[var(--color-accent-green)]/10 flex items-center justify-center">
+            <span class="text-3xl font-bold text-[var(--color-accent-green)]">3</span>
+          </div>
+          <h3 class="text-xl font-bold text-white mb-3">Gana</h3>
+          <p class="text-[var(--color-text-secondary)]">
+            Acumula puntos por tus aciertos y canjéalos por increíbles recompensas.
+          </p>
+        </div>
+      </div>
+    </div>
+  </section>
+  
+  <!-- Ligas -->
+  <section class="section-padding">
+    <div class="container-custom">
+      <div class="text-center max-w-3xl mx-auto mb-16">
+        <h2 class="heading-lg mb-4">Ligas <span class="text-[var(--color-accent-green)]">disponibles</span></h2>
+        <p class="text-[var(--color-text-secondary)]">
+          Haz predicciones en las ligas más importantes del mundo.
+        </p>
+      </div>
+      
+      <div class="grid grid-cols-2 md:grid-cols-4 lg:grid-cols-6 gap-4">
+        <div class="card text-center py-6">
+          <span class="text-3xl mb-2 block">🇪🇸</span>
+          <p class="text-sm text-white font-medium">La Liga</p>
+        </div>
+        <div class="card text-center py-6">
+          <span class="text-3xl mb-2 block">🏴󠁧󠁢󠁥󠁮󠁧󠁿</span>
+          <p class="text-sm text-white font-medium">Premier League</p>
+        </div>
+        <div class="card text-center py-6">
+          <span class="text-3xl mb-2 block">🇮🇹</span>
+          <p class="text-sm text-white font-medium">Serie A</p>
+        </div>
+        <div class="card text-center py-6">
+          <span class="text-3xl mb-2 block">🇩🇪</span>
+          <p class="text-sm text-white font-medium">Bundesliga</p>
+        </div>
+        <div class="card text-center py-6">
+          <span class="text-3xl mb-2 block">🇫🇷</span>
+          <p class="text-sm text-white font-medium">Ligue 1</p>
+        </div>
+        <div class="card text-center py-6">
+          <span class="text-3xl mb-2 block">🇨🇴</span>
+          <p class="text-sm text-white font-medium">Liga BetPlay</p>
+        </div>
+      </div>
+    </div>
+  </section>
+  
+  <!-- CTA -->
+  <section class="section-padding bg-[var(--color-bg-darker)]">
+    <div class="container-custom">
+      <div class="card p-12 text-center relative overflow-hidden">
+        <div class="absolute inset-0 bg-[var(--color-accent-green)]/10"></div>
+        <div class="relative z-10">
+          <h2 class="heading-lg mb-4">¿Eres un vidente del fútbol?</h2>
+          <p class="text-[var(--color-text-secondary)] mb-8 max-w-2xl mx-auto">
+            Demuéstralo. Únete a Videntes del Fútbol y convierte tu conocimiento en recompensas.
+          </p>
+          <a href="/#contacto" class="btn-primary inline-flex" style="background: var(--color-accent-green); color: #000;">
+            Solicitar información
+          </a>
+        </div>
+      </div>
+    </div>
+  </section>
+</MainLayout>
