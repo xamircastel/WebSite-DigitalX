@@ -38,6 +38,773 @@
   box-sizing: border-box;
 }
 
+/* Animación flotante para previews */
+@keyframes float {
+  0%, 100% {
+    transform: translateY(0px);
+  }
+  50% {
+    transform: translateY(-15px);
+  }
+}
+
+.xafrachat-preview-float {
+  animation: float 3s ease-in-out infinite;
+}
+
+/* HotSimp Preview */
+.hotsimp-preview-container {
+  animation: float 4s ease-in-out infinite;
+}
+
+.hotsimp-preview-img {
+  width: 280px;
+  height: auto;
+  border-radius: 1.5rem;
+  box-shadow: 0 25px 50px -12px rgba(0, 0, 0, 0.5);
+}
+
+/* Carrusel vertical XafraChat */
+@keyframes scrollVertical {
+  0% {
+    transform: translateY(0);
+  }
+  25% {
+    transform: translateY(-25%);
+  }
+  50% {
+    transform: translateY(-50%);
+  }
+  75% {
+    transform: translateY(-75%);
+  }
+  100% {
+    transform: translateY(0);
+  }
+}
+
+/* Carrusel horizontal XafraChat */
+@keyframes scrollHorizontal {
+  0%, 20% {
+    transform: translateX(0);
+  }
+  25%, 45% {
+    transform: translateX(-25%);
+  }
+  50%, 70% {
+    transform: translateX(-50%);
+  }
+  75%, 95% {
+    transform: translateX(-75%);
+  }
+  100% {
+    transform: translateX(0);
+  }
+}
+
+.xafrachat-carousel-horizontal {
+  display: flex;
+  flex-direction: row;
+  width: 400%;
+  animation: scrollHorizontal 12s ease-in-out infinite;
+}
+
+.xafrachat-slide {
+  width: 25%;
+  flex-shrink: 0;
+  height: auto;
+  max-height: 500px;
+  object-fit: contain;
+  border-radius: 1.5rem;
+}
+
+.xafrachat-carousel {
+  display: flex;
+  flex-direction: column;
+  animation: scrollVertical 12s ease-in-out infinite;
+}
+
+.xafrachat-carousel img {
+  flex-shrink: 0;
+}
+
+/* Videntes liga ball - oculto por defecto en desktop */
+.videntes-liga-ball {
+  display: none;
+}
+
+/* HotSimp - Logo imagen oculta por defecto (desktop) */
+.hotsimp-logo-img {
+  display: none;
+}
+
+/* === MOBILE STYLES === */
+@media (max-width: 767px) {
+  /* LALA AI Mobile Styles */
+  .lala-hero {
+    padding-top: 100px !important;
+  }
+  
+  .lala-breadcrumb {
+    display: none !important;
+  }
+  
+  .lala-title {
+    margin-top: 13px !important;
+  }
+  
+  .lala-stars {
+    display: inline !important;
+    font-size: 0.9rem;
+    margin-left: 4px;
+  }
+  
+  .lala-description {
+    line-height: 1.3 !important;
+    margin-bottom: 24px !important;
+  }
+  
+  .lala-stats {
+    margin-top: 16px !important;
+    margin-bottom: 24px !important;
+  }
+  
+  .lala-stat-card {
+    box-shadow: 0 0 15px rgba(108, 92, 231, 0.4), 0 0 30px rgba(0, 217, 255, 0.3) !important;
+    border: 1px solid rgba(108, 92, 231, 0.5) !important;
+  }
+  
+  .lala-buttons {
+    margin-top: 16px !important;
+  }
+  
+  .lala-especial-header {
+    margin-top: 40px !important;
+    margin-bottom: 40px !important;
+  }
+  
+  .lala-feature-card {
+    display: flex !important;
+    flex-direction: row !important;
+    align-items: flex-start !important;
+    gap: 12px !important;
+    padding: 16px !important;
+    max-width: 320px !important;
+    margin: 0 auto !important;
+  }
+  
+  .lala-feature-icon {
+    width: 48px !important;
+    height: 48px !important;
+    min-width: 48px !important;
+    margin-bottom: 0 !important;
+  }
+  
+  .lala-feature-content h3 {
+    font-size: 1rem !important;
+    margin-bottom: 4px !important;
+  }
+  
+  .lala-feature-content p {
+    font-size: 0.85rem !important;
+    line-height: 1.4 !important;
+  }
+  
+  .lala-modelos-header {
+    margin-top: 40px !important;
+    margin-bottom: 40px !important;
+  }
+  
+  .lala-modelos-grid {
+    gap: 12px !important;
+    padding: 0 16px !important;
+  }
+  
+  .lala-modelo-card {
+    max-width: 140px !important;
+    margin: 0 auto !important;
+    padding: 16px 8px !important;
+    box-shadow: 0 0 15px rgba(108, 92, 231, 0.4), 0 0 30px rgba(0, 217, 255, 0.3) !important;
+    border: 1px solid rgba(108, 92, 231, 0.4) !important;
+  }
+  
+  .lala-video-header {
+    margin-top: 40px !important;
+    margin-bottom: 40px !important;
+  }
+  
+  .lala-cta-section {
+    margin-top: 40px !important;
+  }
+  
+  .lala-cta-card {
+    padding: 24px 16px !important;
+  }
+  
+  .lala-cta-text {
+    margin-bottom: 24px !important;
+  }
+  
+  .lala-cta-btn {
+    margin-top: 16px !important;
+    background: linear-gradient(135deg, #6C5CE7 0%, #00D9FF 100%) !important;
+    padding: 14px 28px !important;
+    border-radius: 12px !important;
+    font-weight: 700 !important;
+    box-shadow: 0 4px 15px rgba(108, 92, 231, 0.4), 0 0 20px rgba(0, 217, 255, 0.3) !important;
+    color: white !important;
+  }
+  
+  .logo-lala-container {
+    margin-top: 48px;
+  }
+  
+  .video-section-title {
+    margin: 3px;
+  }
+  
+  .products-section-label {
+    font-size: 1rem;
+    font-weight: 800;
+  }
+  
+  .products-grid {
+    margin-top: 24px;
+  }
+  
+  .about-stats-grid {
+    margin-top: 24px;
+  }
+  
+  .contact-section {
+    margin-top: 48px;
+  }
+  
+  .contact-section-label {
+    margin-top: 32px;
+  }
+  
+  .contact-title {
+    text-align: center;
+  }
+  
+  .about-section-label {
+    font-size: 1rem;
+    font-weight: 800;
+    margin-bottom: 24px;
+    margin-top: 24px;
+  }
+  
+  .about-features-grid {
+    margin-top: 24px;
+  }
+  
+  .contact-description {
+    margin-bottom: 24px;
+  }
+  
+  .contact-info-cards {
+    display: flex;
+    flex-direction: column;
+    gap: 16px;
+  }
+  
+  .footer-logo-section {
+    margin-top: 24px;
+  }
+  
+  .hero-tagline {
+    line-height: 1.4;
+  }
+  
+  .contact-section-label {
+    font-size: 1rem;
+    font-weight: 800;
+    text-align: center;
+    display: block;
+  }
+  
+  .vclub-logo {
+    margin-top: 48px;
+  }
+  
+  .vclub-description {
+    line-height: 1.4;
+    margin-bottom: 32px;
+  }
+  
+  .vclub-stats {
+    margin-top: 16px;
+  }
+  
+  .vclub-buttons {
+    margin-top: 24px;
+  }
+  
+  .vclub-btn-primary,
+  .vclub-btn-secondary {
+    padding-left: 24px;
+    padding-right: 24px;
+    width: auto;
+  }
+  
+  .vclub-features-section {
+    margin-top: 24px;
+  }
+  
+  .vclub-features-header {
+    margin-bottom: 24px;
+  }
+  
+  .vclub-step-card {
+    text-align: left;
+  }
+  
+  .vclub-step-header {
+    display: flex;
+    align-items: center;
+    gap: 16px;
+    margin-bottom: 12px;
+  }
+  
+  .vclub-step-number-container {
+    width: 48px;
+    height: 48px;
+    min-width: 48px;
+    margin: 0;
+  }
+  
+  .vclub-step-number {
+    font-size: 1.25rem;
+  }
+  
+  .vclub-step-title {
+    margin: 0;
+  }
+  
+  .vclub-step-description {
+    padding-left: 64px;
+  }
+  
+  .vclub-steps-grid {
+    max-width: 280px !important;
+    margin-left: auto !important;
+    margin-right: auto !important;
+    padding-left: 0 !important;
+    padding-right: 0 !important;
+  }
+  
+  .vclub-step-card {
+    padding: 16px !important;
+  }
+  
+  .vclub-video-section {
+    margin-top: 16px;
+  }
+  
+  .vclub-video-header {
+    margin-top: 16px;
+    margin-bottom: 24px;
+  }
+  
+  .vclub-cta-btn {
+    margin-top: 16px;
+  }
+  
+  .footer-copyright {
+    margin-top: 24px;
+  }
+  
+  .xafrachat-badge {
+    margin-top: 48px;
+  }
+  
+  .xafrachat-logo {
+    margin-top: 16px;
+  }
+  
+  .xafrachat-logo-img {
+    max-width: 200px;
+    height: auto;
+  }
+  
+  .xafrachat-stats {
+    margin-bottom: 24px;
+  }
+  
+  .xafrachat-buttons {
+    margin-top: 16px;
+  }
+  
+  .xafrachat-btn {
+    padding-left: 24px;
+    padding-right: 24px;
+    width: auto;
+  }
+  
+  .xafrachat-video-section {
+    margin-top: 24px;
+  }
+  
+  .xafrachat-video-header {
+    margin-top: 16px;
+    margin-bottom: 24px;
+  }
+  
+  .xafrachat-cta-text {
+    margin-bottom: 32px;
+  }
+  
+  .xafrachat-cta-btn {
+    max-width: 200px;
+    padding-left: 24px;
+    padding-right: 24px;
+  }
+  
+  .xafrachat-carousel-container {
+    margin-top: 32px;
+    width: 100%;
+  }
+  
+  .xafrachat-carousel-wrapper {
+    width: 85vw !important;
+    max-width: 320px !important;
+  }
+  
+  .xafrachat-features-section {
+    margin-top: 32px;
+  }
+  
+  .xafrachat-features-header {
+    margin-bottom: 24px !important;
+  }
+  
+  .xafrachat-features-grid {
+    display: flex;
+    flex-direction: column;
+    align-items: center;
+  }
+  
+  .xafrachat-feature-card {
+    width: 85% !important;
+    max-width: 320px !important;
+    display: flex !important;
+    flex-direction: row !important;
+    align-items: flex-start !important;
+    gap: 12px;
+    padding: 16px !important;
+  }
+  
+  .xafrachat-feature-icon {
+    flex-shrink: 0;
+    width: 48px !important;
+    height: 48px !important;
+    margin-bottom: 0 !important;
+  }
+  
+  .xafrachat-feature-content h3 {
+    font-size: 1rem !important;
+    margin-bottom: 4px !important;
+  }
+  
+  .xafrachat-feature-content p {
+    font-size: 0.8rem;
+  }
+  
+  /* HotSimp Mobile Styles */
+  .hotsimp-hero {
+    padding-top: 70px !important;
+  }
+  
+  .hotsimp-breadcrumb {
+    display: none !important;
+    margin-bottom: 0 !important;
+    height: 0 !important;
+  }
+  
+  .hotsimp-badge {
+    margin-top: 0 !important;
+    margin-bottom: 24px !important;
+  }
+  
+  .hotsimp-logo-text {
+    display: none !important;
+  }
+  
+  .hotsimp-logo-img {
+    display: block !important;
+  }
+  
+  .hotsimp-logo {
+    max-width: 280px;
+    height: auto;
+  }
+  
+  .hotsimp-description {
+    text-align: center;
+    line-height: 1.4 !important;
+    margin-bottom: 32px !important;
+  }
+  
+  .hotsimp-stats {
+    margin-top: 16px;
+  }
+  
+  .hotsimp-stat-card {
+    box-shadow: 0 0 15px rgba(255, 107, 157, 0.3), 0 0 30px rgba(255, 107, 157, 0.1);
+    border-color: rgba(255, 107, 157, 0.3) !important;
+  }
+  
+  .hotsimp-buttons {
+    justify-content: center;
+    width: 100%;
+    margin-top: 24px;
+  }
+  
+  .hotsimp-cta-btn {
+    font-weight: 700 !important;
+    background: linear-gradient(135deg, #FFB6C1 0%, #FF6B9D 100%) !important;
+    padding: 14px 32px !important;
+    border-radius: 12px !important;
+    box-shadow: 0 4px 15px rgba(255, 107, 157, 0.4);
+  }
+  
+  .hotsimp-features-section {
+    margin-top: 32px;
+  }
+  
+  .hotsimp-features-header {
+    margin-bottom: 24px !important;
+  }
+  
+  .hotsimp-check-icon {
+    color: #FF6B9D !important;
+  }
+  
+  .hotsimp-cta-section {
+    margin-top: 32px;
+    margin-bottom: 32px;
+  }
+  
+  .hotsimp-cta-card {
+    padding: 24px !important;
+  }
+  
+  .hotsimp-cta-btn-bottom {
+    font-weight: 700 !important;
+    background: linear-gradient(135deg, #FFB6C1 0%, #FF6B9D 100%) !important;
+    padding: 14px 32px !important;
+    border-radius: 12px !important;
+    box-shadow: 0 4px 15px rgba(255, 107, 157, 0.4);
+    margin-top: 16px !important;
+  }
+  
+  .hotsimp-question-mark {
+    color: #FF6B9D;
+    text-shadow: 0 0 10px rgba(255, 255, 255, 0.5), 0 0 20px rgba(255, 255, 255, 0.3);
+  }
+  
+  /* Videntes del Fútbol Mobile Styles */
+  .videntes-hero {
+    padding-top: 80px !important;
+  }
+  
+  .videntes-breadcrumb {
+    display: none !important;
+  }
+  
+  .videntes-title {
+    margin-top: 8px;
+  }
+  
+  .videntes-stats {
+    margin-top: 24px;
+    margin-bottom: 24px !important;
+  }
+  
+  .videntes-buttons {
+    margin-top: 16px;
+    width: 100%;
+    display: flex !important;
+    justify-content: center !important;
+    align-items: center !important;
+  }
+  
+  .videntes-buttons .videntes-cta-btn {
+    margin-left: auto !important;
+    margin-right: auto !important;
+  }
+  
+  .videntes-como-funciona {
+    margin-top: 32px;
+  }
+  
+  .videntes-como-header {
+    margin-bottom: 24px !important;
+  }
+  
+  .videntes-pasos-grid {
+    display: flex;
+    flex-direction: column;
+    align-items: center;
+    gap: 16px;
+  }
+  
+  .videntes-paso-card {
+    display: flex !important;
+    flex-direction: row !important;
+    align-items: center !important;
+    text-align: left !important;
+    width: 90% !important;
+    max-width: 320px !important;
+    padding: 16px !important;
+    gap: 12px;
+    border: 1px solid #00FF88 !important;
+    box-shadow: 0 0 10px rgba(0, 255, 136, 0.2);
+  }
+  
+  .videntes-paso-number {
+    width: 50px !important;
+    height: 50px !important;
+    min-width: 50px;
+    margin: 0 !important;
+  }
+  
+  .videntes-paso-number span {
+    font-size: 1.5rem !important;
+  }
+  
+  .videntes-paso-content h3 {
+    font-size: 1rem !important;
+    margin-bottom: 4px !important;
+  }
+  
+  .videntes-paso-content p {
+    font-size: 0.8rem;
+  }
+  
+  /* Ligas cards mobile */
+  .videntes-ligas-grid {
+    gap: 8px !important;
+  }
+  
+  .videntes-liga-card {
+    padding: 8px !important;
+    display: flex !important;
+    flex-direction: row !important;
+    align-items: center !important;
+    justify-content: flex-start !important;
+    text-align: left !important;
+    gap: 8px;
+    box-shadow: 0 0 12px rgba(0, 255, 136, 0.3), 0 0 20px rgba(0, 255, 136, 0.1);
+    border: 1px solid rgba(0, 255, 136, 0.3) !important;
+    margin-bottom: 8px;
+  }
+  
+  .videntes-liga-icon {
+    display: none !important;
+  }
+  
+  .videntes-liga-ball {
+    display: block !important;
+    font-size: 1.2rem;
+    filter: grayscale(100%);
+    flex-shrink: 0;
+  }
+  
+  .videntes-liga-code {
+    display: inline !important;
+    font-size: 1rem;
+    font-weight: 700;
+    background: linear-gradient(135deg, #00FF88 0%, #00D9FF 100%);
+    -webkit-background-clip: text;
+    -webkit-text-fill-color: transparent;
+    background-clip: text;
+  }
+  
+  .videntes-liga-name {
+    font-size: 0.7rem !important;
+    margin: 0 !important;
+  }
+  
+  .videntes-ligas-section {
+    margin-bottom: 32px;
+  }
+  
+  .videntes-ligas-header {
+    margin-top: 40px !important;
+    margin-bottom: 40px !important;
+  }
+  
+  /* Carrusel Videntes del Fútbol */
+  .videntes-carousel-container {
+    width: 100%;
+    overflow: hidden;
+    padding: 20px 0;
+  }
+  
+  .videntes-carousel {
+    width: 100%;
+    overflow: hidden;
+  }
+  
+  .videntes-carousel-track {
+    display: flex;
+    animation: videntes-scroll 12s linear infinite;
+    width: fit-content;
+  }
+  
+  .videntes-carousel-img {
+    width: 320px;
+    height: auto;
+    object-fit: contain;
+    border-radius: 20px;
+    margin-right: 20px;
+    flex-shrink: 0;
+    box-shadow: 0 0 20px rgba(0, 255, 136, 0.5), 0 0 40px rgba(0, 255, 136, 0.3), 0 8px 32px rgba(0, 0, 0, 0.4);
+    border: 2px solid rgba(0, 255, 136, 0.4);
+  }
+  
+  @keyframes videntes-scroll {
+    0% {
+      transform: translateX(0);
+    }
+    100% {
+      transform: translateX(-50%);
+    }
+  }
+  
+  .videntes-cta-title {
+    font-size: 1.4rem !important;
+    white-space: normal;
+    word-wrap: break-word;
+  }
+  
+  .videntes-question-mark {
+    color: #00FF88;
+    text-shadow: 0 0 10px rgba(255, 255, 255, 0.5), 0 0 20px rgba(255, 255, 255, 0.3);
+  }
+  
+  .videntes-cta-btn {
+    margin-top: 24px !important;
+    max-width: 180px !important;
+    background: linear-gradient(135deg, #00FF88 0%, #00D9FF 100%) !important;
+    padding: 14px 28px !important;
+    border-radius: 12px !important;
+    font-weight: 700 !important;
+    box-shadow: 0 4px 15px rgba(0, 255, 136, 0.4);
+    text-align: center !important;
+    display: flex !important;
+    align-items: center !important;
+    justify-content: center !important;
+  }
+}
+
+/* Ocultar estrellas en desktop */
+.lala-stars {
+  display: none;
+}
+
 html {
   scroll-behavior: smooth;
 }

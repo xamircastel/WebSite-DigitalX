@@ -96,7 +96,7 @@ const colorClasses: Record<string, {bg: string, text: string, border: string}> =
     
     <!-- Header de sección -->
     <div class="text-center mb-16 animate-on-scroll">
-      <span class="inline-block text-[var(--color-primary)] text-sm font-semibold uppercase tracking-widest mb-4">
+      <span class="inline-block text-[var(--color-primary)] text-sm font-semibold uppercase tracking-widest mb-4 products-section-label">
         Nuestros Productos
       </span>
       <h2 class="heading-lg mb-6">
@@ -109,7 +109,7 @@ const colorClasses: Record<string, {bg: string, text: string, border: string}> =
     </div>
     
     <!-- Products Grid -->
-    <div class="grid md:grid-cols-2 lg:grid-cols-3 gap-6">
+    <div class="grid md:grid-cols-2 lg:grid-cols-3 gap-6 products-grid">
       {products.map((product, index) => (
         <a 
           href={`/productos/${product.slug}`}

@@ -25,16 +25,20 @@ import MainLayout from '../../layouts/MainLayout.astro';
             <span class="text-[var(--color-secondary)]">VClub</span>
           </nav>
           
-          <h1 class="heading-xl mb-6">
-            <span class="text-[var(--color-secondary)]">V</span><span class="text-white">Club</span>
-          </h1>
+          <div class="mb-6 vclub-logo">
+            <img 
+              src="/images/vclub-logo.svg" 
+              alt="VClub" 
+              class="h-16 md:h-20 w-auto"
+            />
+          </div>
           
-          <p class="text-xl text-[var(--color-text-secondary)] mb-8 leading-relaxed">
+          <p class="text-xl text-[var(--color-text-secondary)] mb-8 leading-relaxed vclub-description">
             Tu streaming, tus reglas. Una suscripción con créditos para acceder a 
             <span class="text-white font-semibold">múltiples plataformas</span> de entretenimiento.
           </p>
           
-          <div class="grid grid-cols-3 gap-4 mb-8">
+          <div class="grid grid-cols-3 gap-4 mb-8 vclub-stats">
             <div class="text-center p-4 rounded-xl bg-white/5 border border-white/10">
               <div class="text-2xl font-bold text-[var(--color-secondary)]">10+</div>
               <div class="text-xs text-[var(--color-text-muted)]">Plataformas</div>
@@ -49,14 +53,14 @@ import MainLayout from '../../layouts/MainLayout.astro';
             </div>
           </div>
           
-          <div class="flex flex-wrap gap-4">
-            <a href="#video" class="btn-primary" style="background: var(--color-secondary);">
+          <div class="flex flex-wrap gap-4 vclub-buttons">
+            <a href="#video" class="btn-primary vclub-btn-primary" style="background: var(--color-secondary);">
               Ver demo
               <svg xmlns="http://www.w3.org/2000/svg" width="18" height="18" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2" class="ml-2">
                 <polygon points="5 3 19 12 5 21 5 3"></polygon>
               </svg>
             </a>
-            <a href="/#contacto" class="btn-secondary">
+            <a href="/#contacto" class="btn-secondary vclub-btn-secondary">
               Solicitar información
             </a>
           </div>
@@ -64,53 +68,59 @@ import MainLayout from '../../layouts/MainLayout.astro';
         
         <div class="relative flex items-center justify-center">
           <div class="absolute inset-0 bg-[var(--color-secondary)] rounded-full filter blur-[100px] opacity-30 animate-pulse"></div>
-          <div class="relative w-64 h-64 md:w-80 md:h-80 rounded-3xl bg-gradient-to-br from-[var(--color-secondary)] to-[var(--color-primary)] flex items-center justify-center shadow-2xl">
-            <svg xmlns="http://www.w3.org/2000/svg" width="100" height="100" viewBox="0 0 24 24" fill="none" stroke="white" stroke-width="2">
-              <polygon points="5 3 19 12 5 21 5 3"></polygon>
-            </svg>
-          </div>
+          <img 
+            src="/images/vclub-preview.png" 
+            alt="VClub Preview" 
+            class="relative w-72 h-auto md:w-80 md:h-80 rounded-3xl shadow-2xl object-contain vclub-preview-img"
+          />
         </div>
       </div>
     </div>
   </section>
   
   <!-- Características -->
-  <section class="section-padding bg-[var(--color-bg-darker)]">
+  <section class="section-padding bg-[var(--color-bg-darker)] vclub-features-section">
     <div class="container-custom">
-      <div class="text-center max-w-3xl mx-auto mb-16">
+      <div class="text-center max-w-3xl mx-auto mb-16 vclub-features-header">
         <h2 class="heading-lg mb-4">¿Cómo funciona <span class="text-[var(--color-secondary)]">VClub</span>?</h2>
         <p class="text-[var(--color-text-secondary)]">
           Un sistema revolucionario de créditos que te da libertad total para elegir qué ver y dónde verlo.
         </p>
       </div>
       
-      <div class="grid md:grid-cols-3 gap-8">
-        <div class="card text-center">
-          <div class="w-20 h-20 mx-auto mb-6 rounded-full bg-[var(--color-secondary)]/10 flex items-center justify-center">
-            <span class="text-3xl font-bold text-[var(--color-secondary)]">1</span>
+      <div class="grid md:grid-cols-3 gap-8 vclub-steps-grid">
+        <div class="card text-center vclub-step-card">
+          <div class="vclub-step-header">
+            <div class="w-20 h-20 mx-auto mb-6 rounded-full bg-[var(--color-secondary)]/10 flex items-center justify-center vclub-step-number-container">
+              <span class="text-3xl font-bold text-[var(--color-secondary)] vclub-step-number">1</span>
+            </div>
+            <h3 class="text-xl font-bold text-white mb-3 vclub-step-title">Suscríbete</h3>
           </div>
-          <h3 class="text-xl font-bold text-white mb-3">Suscríbete</h3>
-          <p class="text-[var(--color-text-secondary)]">
+          <p class="text-[var(--color-text-secondary)] vclub-step-description">
             Elige el plan que mejor se adapte a tus necesidades de entretenimiento.
           </p>
         </div>
         
-        <div class="card text-center">
-          <div class="w-20 h-20 mx-auto mb-6 rounded-full bg-[var(--color-secondary)]/10 flex items-center justify-center">
-            <span class="text-3xl font-bold text-[var(--color-secondary)]">2</span>
+        <div class="card text-center vclub-step-card">
+          <div class="vclub-step-header">
+            <div class="w-20 h-20 mx-auto mb-6 rounded-full bg-[var(--color-secondary)]/10 flex items-center justify-center vclub-step-number-container">
+              <span class="text-3xl font-bold text-[var(--color-secondary)] vclub-step-number">2</span>
+            </div>
+            <h3 class="text-xl font-bold text-white mb-3 vclub-step-title">Recibe Créditos</h3>
           </div>
-          <h3 class="text-xl font-bold text-white mb-3">Recibe Créditos</h3>
-          <p class="text-[var(--color-text-secondary)]">
+          <p class="text-[var(--color-text-secondary)] vclub-step-description">
             Obtén créditos mensuales para usar en las plataformas de tu preferencia.
           </p>
         </div>
         
-        <div class="card text-center">
-          <div class="w-20 h-20 mx-auto mb-6 rounded-full bg-[var(--color-secondary)]/10 flex items-center justify-center">
-            <span class="text-3xl font-bold text-[var(--color-secondary)]">3</span>
+        <div class="card text-center vclub-step-card">
+          <div class="vclub-step-header">
+            <div class="w-20 h-20 mx-auto mb-6 rounded-full bg-[var(--color-secondary)]/10 flex items-center justify-center vclub-step-number-container">
+              <span class="text-3xl font-bold text-[var(--color-secondary)] vclub-step-number">3</span>
+            </div>
+            <h3 class="text-xl font-bold text-white mb-3 vclub-step-title">Disfruta</h3>
           </div>
-          <h3 class="text-xl font-bold text-white mb-3">Disfruta</h3>
-          <p class="text-[var(--color-text-secondary)]">
+          <p class="text-[var(--color-text-secondary)] vclub-step-description">
             Canjea tus créditos y accede a contenido ilimitado en múltiples plataformas.
           </p>
         </div>
@@ -119,9 +129,9 @@ import MainLayout from '../../layouts/MainLayout.astro';
   </section>
   
   <!-- Video -->
-  <section id="video" class="section-padding">
+  <section id="video" class="section-padding vclub-video-section">
     <div class="container-custom">
-      <div class="text-center max-w-3xl mx-auto mb-12">
+      <div class="text-center max-w-3xl mx-auto mb-12 vclub-video-header">
         <h2 class="heading-lg mb-4"><span class="text-[var(--color-secondary)]">VClub</span> en acción</h2>
       </div>
       
@@ -153,10 +163,10 @@ import MainLayout from '../../layouts/MainLayout.astro';
         <div class="absolute inset-0 bg-[var(--color-secondary)]/10"></div>
         <div class="relative z-10">
           <h2 class="heading-lg mb-4">¿Listo para el entretenimiento sin límites?</h2>
-          <p class="text-[var(--color-text-secondary)] mb-8 max-w-2xl mx-auto">
+          <p class="text-[var(--color-text-secondary)] mb-8 max-w-2xl mx-auto vclub-cta-text">
             Únete a VClub y descubre una nueva forma de disfrutar el streaming.
           </p>
-          <a href="/#contacto" class="btn-primary inline-flex" style="background: var(--color-secondary);">
+          <a href="/#contacto" class="btn-primary inline-flex vclub-cta-btn" style="background: var(--color-secondary);">
             Solicitar información
           </a>
         </div>

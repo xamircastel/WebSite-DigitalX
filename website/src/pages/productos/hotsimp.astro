@@ -8,7 +8,7 @@ import MainLayout from '../../layouts/MainLayout.astro';
   description="HotSimp es una plataforma de contenido exclusivo para adultos estilo suscripción. Conecta creadores con su audiencia."
 >
   <!-- Hero -->
-  <section class="relative min-h-[70vh] flex items-center pt-24 overflow-hidden">
+  <section class="relative min-h-[70vh] flex items-center pt-24 overflow-hidden hotsimp-hero">
     <div class="absolute inset-0 bg-[var(--color-bg-dark)]">
       <div class="absolute inset-0 opacity-20" style="background-image: linear-gradient(rgba(255, 159, 67, 0.1) 1px, transparent 1px), linear-gradient(90deg, rgba(255, 159, 67, 0.1) 1px, transparent 1px); background-size: 50px 50px;"></div>
       <div class="absolute top-1/4 right-1/4 w-[600px] h-[600px] bg-[var(--color-accent-orange)] rounded-full filter blur-[200px] opacity-20"></div>
@@ -17,7 +17,7 @@ import MainLayout from '../../layouts/MainLayout.astro';
     <div class="container-custom relative z-10">
       <div class="grid lg:grid-cols-2 gap-12 items-center">
         <div>
-          <nav class="flex items-center gap-2 text-sm text-[var(--color-text-muted)] mb-8">
+          <nav class="flex items-center gap-2 text-sm text-[var(--color-text-muted)] mb-8 hotsimp-breadcrumb">
             <a href="/" class="hover:text-white transition-colors">Inicio</a>
             <span>/</span>
             <a href="/#productos" class="hover:text-white transition-colors">Productos</a>
@@ -26,36 +26,41 @@ import MainLayout from '../../layouts/MainLayout.astro';
           </nav>
           
           <!-- 18+ Badge -->
-          <div class="inline-flex items-center gap-2 px-4 py-2 rounded-full bg-red-500/20 border border-red-500/50 mb-6">
+          <div class="inline-flex items-center gap-2 px-4 py-2 rounded-full bg-red-500/20 border border-red-500/50 mb-6 hotsimp-badge">
             <span class="text-sm text-red-400 font-bold">🔞 Contenido para adultos (+18)</span>
           </div>
           
-          <h1 class="heading-xl mb-6">
+          <!-- Logo texto para desktop -->
+          <h1 class="heading-xl mb-6 hotsimp-logo-text">
             <span class="text-[var(--color-accent-orange)]">Hot</span><span class="text-white">Simp</span>
           </h1>
+          <!-- Logo imagen para mobile -->
+          <div class="mb-6 hotsimp-logo-img">
+            <img src="/images/hotsimp-logo.svg" alt="HotSimp" class="hotsimp-logo" />
+          </div>
           
-          <p class="text-xl text-[var(--color-text-secondary)] mb-8 leading-relaxed">
+          <p class="text-xl text-[var(--color-text-secondary)] mb-8 leading-relaxed hotsimp-description">
             Contenido exclusivo. Plataforma estilo suscripción donde los creadores 
             <span class="text-white font-semibold">conectan directamente</span> con su audiencia.
           </p>
           
-          <div class="grid grid-cols-3 gap-4 mb-8">
-            <div class="text-center p-4 rounded-xl bg-white/5 border border-white/10">
+          <div class="grid grid-cols-3 gap-4 mb-8 hotsimp-stats">
+            <div class="text-center p-4 rounded-xl bg-white/5 border border-white/10 hotsimp-stat-card">
               <div class="text-2xl font-bold text-[var(--color-accent-orange)]">100%</div>
               <div class="text-xs text-[var(--color-text-muted)]">Exclusivo</div>
             </div>
-            <div class="text-center p-4 rounded-xl bg-white/5 border border-white/10">
+            <div class="text-center p-4 rounded-xl bg-white/5 border border-white/10 hotsimp-stat-card">
               <div class="text-2xl font-bold text-[var(--color-accent-orange)]">Direct</div>
               <div class="text-xs text-[var(--color-text-muted)]">Conexión</div>
             </div>
-            <div class="text-center p-4 rounded-xl bg-white/5 border border-white/10">
+            <div class="text-center p-4 rounded-xl bg-white/5 border border-white/10 hotsimp-stat-card">
               <div class="text-2xl font-bold text-[var(--color-accent-orange)]">$$$</div>
               <div class="text-xs text-[var(--color-text-muted)]">Monetiza</div>
             </div>
           </div>
           
-          <div class="flex flex-wrap gap-4">
-            <a href="/#contacto" class="btn-primary" style="background: var(--color-accent-orange);">
+          <div class="flex flex-wrap gap-4 hotsimp-buttons">
+            <a href="/#contacto" class="btn-primary hotsimp-cta-btn" style="background: var(--color-accent-orange);">
               Solicitar información
             </a>
           </div>
@@ -63,10 +68,8 @@ import MainLayout from '../../layouts/MainLayout.astro';
         
         <div class="relative flex items-center justify-center">
           <div class="absolute inset-0 bg-[var(--color-accent-orange)] rounded-full filter blur-[100px] opacity-30 animate-pulse"></div>
-          <div class="relative w-64 h-64 md:w-80 md:h-80 rounded-3xl bg-gradient-to-br from-[var(--color-accent-orange)] to-[var(--color-accent-pink)] flex items-center justify-center shadow-2xl">
-            <svg xmlns="http://www.w3.org/2000/svg" width="100" height="100" viewBox="0 0 24 24" fill="white" stroke="none">
-              <path d="M20.84 4.61a5.5 5.5 0 0 0-7.78 0L12 5.67l-1.06-1.06a5.5 5.5 0 0 0-7.78 7.78l1.06 1.06L12 21.23l7.78-7.78 1.06-1.06a5.5 5.5 0 0 0 0-7.78z"></path>
-            </svg>
+          <div class="relative hotsimp-preview-container">
+            <img src="/images/hotsimp-preview.png" alt="HotSimp Preview" class="hotsimp-preview-img" />
           </div>
         </div>
       </div>
@@ -74,10 +77,10 @@ import MainLayout from '../../layouts/MainLayout.astro';
   </section>
   
   <!-- Características -->
-  <section class="section-padding bg-[var(--color-bg-darker)]">
+  <section class="section-padding bg-[var(--color-bg-darker)] hotsimp-features-section">
     <div class="container-custom">
-      <div class="text-center max-w-3xl mx-auto mb-16">
-        <h2 class="heading-lg mb-4">¿Por qué <span class="text-[var(--color-accent-orange)]">HotSimp</span>?</h2>
+      <div class="text-center max-w-3xl mx-auto mb-16 hotsimp-features-header">
+        <h2 class="heading-lg mb-4"><span class="hotsimp-question-mark">¿</span>Por qué <span class="text-[var(--color-accent-orange)]">HotSimp</span><span class="hotsimp-question-mark">?</span></h2>
       </div>
       
       <div class="grid md:grid-cols-2 gap-8">
@@ -93,27 +96,27 @@ import MainLayout from '../../layouts/MainLayout.astro';
             </span>
             Para Creadores
           </h3>
-          <ul class="space-y-4">
+          <ul class="space-y-4 hotsimp-feature-list">
             <li class="flex items-start gap-3">
-              <svg xmlns="http://www.w3.org/2000/svg" width="20" height="20" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2" class="text-[var(--color-accent-green)] shrink-0 mt-0.5">
+              <svg xmlns="http://www.w3.org/2000/svg" width="20" height="20" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2" class="text-[var(--color-accent-green)] shrink-0 mt-0.5 hotsimp-check-icon">
                 <polyline points="20 6 9 17 4 12"></polyline>
               </svg>
               <span class="text-[var(--color-text-secondary)]">Monetiza tu contenido de forma directa</span>
             </li>
             <li class="flex items-start gap-3">
-              <svg xmlns="http://www.w3.org/2000/svg" width="20" height="20" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2" class="text-[var(--color-accent-green)] shrink-0 mt-0.5">
+              <svg xmlns="http://www.w3.org/2000/svg" width="20" height="20" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2" class="text-[var(--color-accent-green)] shrink-0 mt-0.5 hotsimp-check-icon">
                 <polyline points="20 6 9 17 4 12"></polyline>
               </svg>
               <span class="text-[var(--color-text-secondary)]">Control total sobre tus suscripciones</span>
             </li>
             <li class="flex items-start gap-3">
-              <svg xmlns="http://www.w3.org/2000/svg" width="20" height="20" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2" class="text-[var(--color-accent-green)] shrink-0 mt-0.5">
+              <svg xmlns="http://www.w3.org/2000/svg" width="20" height="20" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2" class="text-[var(--color-accent-green)] shrink-0 mt-0.5 hotsimp-check-icon">
                 <polyline points="20 6 9 17 4 12"></polyline>
               </svg>
               <span class="text-[var(--color-text-secondary)]">Herramientas de analítica avanzadas</span>
             </li>
             <li class="flex items-start gap-3">
-              <svg xmlns="http://www.w3.org/2000/svg" width="20" height="20" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2" class="text-[var(--color-accent-green)] shrink-0 mt-0.5">
+              <svg xmlns="http://www.w3.org/2000/svg" width="20" height="20" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2" class="text-[var(--color-accent-green)] shrink-0 mt-0.5 hotsimp-check-icon">
                 <polyline points="20 6 9 17 4 12"></polyline>
               </svg>
               <span class="text-[var(--color-text-secondary)]">Pagos seguros y puntuales</span>
@@ -131,27 +134,27 @@ import MainLayout from '../../layouts/MainLayout.astro';
             </span>
             Para Fans
           </h3>
-          <ul class="space-y-4">
+          <ul class="space-y-4 hotsimp-feature-list">
             <li class="flex items-start gap-3">
-              <svg xmlns="http://www.w3.org/2000/svg" width="20" height="20" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2" class="text-[var(--color-accent-green)] shrink-0 mt-0.5">
+              <svg xmlns="http://www.w3.org/2000/svg" width="20" height="20" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2" class="text-[var(--color-accent-green)] shrink-0 mt-0.5 hotsimp-check-icon">
                 <polyline points="20 6 9 17 4 12"></polyline>
               </svg>
               <span class="text-[var(--color-text-secondary)]">Acceso a contenido exclusivo</span>
             </li>
             <li class="flex items-start gap-3">
-              <svg xmlns="http://www.w3.org/2000/svg" width="20" height="20" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2" class="text-[var(--color-accent-green)] shrink-0 mt-0.5">
+              <svg xmlns="http://www.w3.org/2000/svg" width="20" height="20" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2" class="text-[var(--color-accent-green)] shrink-0 mt-0.5 hotsimp-check-icon">
                 <polyline points="20 6 9 17 4 12"></polyline>
               </svg>
               <span class="text-[var(--color-text-secondary)]">Interacción directa con creadores</span>
             </li>
             <li class="flex items-start gap-3">
-              <svg xmlns="http://www.w3.org/2000/svg" width="20" height="20" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2" class="text-[var(--color-accent-green)] shrink-0 mt-0.5">
+              <svg xmlns="http://www.w3.org/2000/svg" width="20" height="20" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2" class="text-[var(--color-accent-green)] shrink-0 mt-0.5 hotsimp-check-icon">
                 <polyline points="20 6 9 17 4 12"></polyline>
               </svg>
               <span class="text-[var(--color-text-secondary)]">Contenido personalizado a pedido</span>
             </li>
             <li class="flex items-start gap-3">
-              <svg xmlns="http://www.w3.org/2000/svg" width="20" height="20" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2" class="text-[var(--color-accent-green)] shrink-0 mt-0.5">
+              <svg xmlns="http://www.w3.org/2000/svg" width="20" height="20" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2" class="text-[var(--color-accent-green)] shrink-0 mt-0.5 hotsimp-check-icon">
                 <polyline points="20 6 9 17 4 12"></polyline>
               </svg>
               <span class="text-[var(--color-text-secondary)]">Pagos seguros y discretos</span>
@@ -163,16 +166,16 @@ import MainLayout from '../../layouts/MainLayout.astro';
   </section>
   
   <!-- CTA -->
-  <section class="section-padding">
+  <section class="section-padding hotsimp-cta-section">
     <div class="container-custom">
-      <div class="card p-12 text-center relative overflow-hidden">
+      <div class="card p-12 text-center relative overflow-hidden hotsimp-cta-card">
         <div class="absolute inset-0 bg-[var(--color-accent-orange)]/10"></div>
         <div class="relative z-10">
-          <h2 class="heading-lg mb-4">¿Interesado en HotSimp?</h2>
+          <h2 class="heading-lg mb-4"><span class="hotsimp-question-mark">¿</span>Interesado en HotSimp<span class="hotsimp-question-mark">?</span></h2>
           <p class="text-[var(--color-text-secondary)] mb-8 max-w-2xl mx-auto">
             Ya seas creador o fan, HotSimp es la plataforma perfecta para ti.
           </p>
-          <a href="/#contacto" class="btn-primary inline-flex" style="background: var(--color-accent-orange);">
+          <a href="/#contacto" class="btn-primary inline-flex hotsimp-cta-btn-bottom" style="background: var(--color-accent-orange);">
             Solicitar información
           </a>
         </div>

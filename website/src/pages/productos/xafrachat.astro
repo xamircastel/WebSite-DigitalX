@@ -26,20 +26,20 @@ import MainLayout from '../../layouts/MainLayout.astro';
           </nav>
           
           <!-- 18+ Badge -->
-          <div class="inline-flex items-center gap-2 px-4 py-2 rounded-full bg-red-500/20 border border-red-500/50 mb-6">
+          <div class="inline-flex items-center gap-2 px-4 py-2 rounded-full bg-red-500/20 border border-red-500/50 mb-6 xafrachat-badge">
             <span class="text-sm text-red-400 font-bold">🔞 Contenido para adultos (+18)</span>
           </div>
           
-          <h1 class="heading-xl mb-6">
-            <span class="text-[var(--color-accent-pink)]">Xafra</span><span class="text-white">Chat</span>
-          </h1>
+          <div class="mb-6 xafrachat-logo">
+            <img src="/images/xafrachat-logo.png" alt="XafraChat" class="xafrachat-logo-img" />
+          </div>
           
           <p class="text-xl text-[var(--color-text-secondary)] mb-8 leading-relaxed">
             Conexiones en vivo. Plataforma de live streaming para adultos con 
             <span class="text-white font-semibold">contenido exclusivo</span> en tiempo real.
           </p>
           
-          <div class="grid grid-cols-3 gap-4 mb-8">
+          <div class="grid grid-cols-3 gap-4 mb-8 xafrachat-stats">
             <div class="text-center p-4 rounded-xl bg-white/5 border border-white/10">
               <div class="text-2xl font-bold text-[var(--color-accent-pink)]">24/7</div>
               <div class="text-xs text-[var(--color-text-muted)]">Contenido</div>
@@ -54,23 +54,27 @@ import MainLayout from '../../layouts/MainLayout.astro';
             </div>
           </div>
           
-          <div class="flex flex-wrap gap-4">
-            <a href="#video" class="btn-primary" style="background: var(--color-accent-pink);">
+          <div class="flex flex-wrap gap-4 xafrachat-buttons">
+            <a href="#video" class="btn-primary xafrachat-btn" style="background: var(--color-accent-pink);">
               Ver demo
             </a>
-            <a href="/#contacto" class="btn-secondary">
+            <a href="/#contacto" class="btn-secondary xafrachat-btn">
               Solicitar información
             </a>
           </div>
         </div>
         
-        <div class="relative flex items-center justify-center">
+        <div class="relative flex items-center justify-center xafrachat-carousel-container">
           <div class="absolute inset-0 bg-[var(--color-accent-pink)] rounded-full filter blur-[100px] opacity-30 animate-pulse"></div>
-          <div class="relative w-64 h-64 md:w-80 md:h-80 rounded-3xl bg-gradient-to-br from-[var(--color-accent-pink)] to-[var(--color-primary)] flex items-center justify-center shadow-2xl">
-            <svg xmlns="http://www.w3.org/2000/svg" width="100" height="100" viewBox="0 0 24 24" fill="none" stroke="white" stroke-width="2">
-              <path d="M23 7l-7 5 7 5V7z"></path>
-              <rect x="1" y="5" width="15" height="14" rx="2" ry="2"></rect>
-            </svg>
+          
+          <!-- Carrusel horizontal -->
+          <div class="relative w-64 md:w-72 overflow-hidden rounded-3xl shadow-2xl xafrachat-carousel-wrapper">
+            <div class="xafrachat-carousel-horizontal">
+              <img src="/images/xafrachat-carrusel1.png" alt="XafraChat 1" class="xafrachat-slide" />
+              <img src="/images/xafrachat-carrusel2.png" alt="XafraChat 2" class="xafrachat-slide" />
+              <img src="/images/xafrachat-carrusel3.png" alt="XafraChat 3" class="xafrachat-slide" />
+              <img src="/images/xafrachat-carrusel1.png" alt="XafraChat 1" class="xafrachat-slide" />
+            </div>
           </div>
         </div>
       </div>
@@ -78,51 +82,57 @@ import MainLayout from '../../layouts/MainLayout.astro';
   </section>
   
   <!-- Características -->
-  <section class="section-padding bg-[var(--color-bg-darker)]">
+  <section class="section-padding bg-[var(--color-bg-darker)] xafrachat-features-section">
     <div class="container-custom">
-      <div class="text-center max-w-3xl mx-auto mb-16">
+      <div class="text-center max-w-3xl mx-auto mb-16 xafrachat-features-header">
         <h2 class="heading-lg mb-4">Características de <span class="text-[var(--color-accent-pink)]">XafraChat</span></h2>
       </div>
       
-      <div class="grid md:grid-cols-2 lg:grid-cols-3 gap-6">
-        <div class="card group">
-          <div class="w-14 h-14 rounded-2xl bg-[var(--color-accent-pink)]/10 flex items-center justify-center mb-6">
+      <div class="grid md:grid-cols-2 lg:grid-cols-3 gap-6 xafrachat-features-grid">
+        <div class="card group xafrachat-feature-card">
+          <div class="w-14 h-14 rounded-2xl bg-[var(--color-accent-pink)]/10 flex items-center justify-center mb-6 xafrachat-feature-icon">
             <svg xmlns="http://www.w3.org/2000/svg" width="28" height="28" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2" class="text-[var(--color-accent-pink)]">
               <path d="M23 7l-7 5 7 5V7z"></path>
               <rect x="1" y="5" width="15" height="14" rx="2" ry="2"></rect>
             </svg>
           </div>
-          <h3 class="text-xl font-bold text-white mb-3">Streaming HD</h3>
-          <p class="text-[var(--color-text-secondary)]">Transmisiones en alta definición para la mejor experiencia visual.</p>
+          <div class="xafrachat-feature-content">
+            <h3 class="text-xl font-bold text-white mb-3">Streaming HD</h3>
+            <p class="text-[var(--color-text-secondary)]">Transmisiones en alta definición para la mejor experiencia visual.</p>
+          </div>
         </div>
         
-        <div class="card group">
-          <div class="w-14 h-14 rounded-2xl bg-[var(--color-accent-pink)]/10 flex items-center justify-center mb-6">
+        <div class="card group xafrachat-feature-card">
+          <div class="w-14 h-14 rounded-2xl bg-[var(--color-accent-pink)]/10 flex items-center justify-center mb-6 xafrachat-feature-icon">
             <svg xmlns="http://www.w3.org/2000/svg" width="28" height="28" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2" class="text-[var(--color-accent-pink)]">
               <path d="M21 15a2 2 0 0 1-2 2H7l-4 4V5a2 2 0 0 1 2-2h14a2 2 0 0 1 2 2z"></path>
             </svg>
           </div>
-          <h3 class="text-xl font-bold text-white mb-3">Chat Interactivo</h3>
-          <p class="text-[var(--color-text-secondary)]">Comunícate directamente con los streamers en tiempo real.</p>
+          <div class="xafrachat-feature-content">
+            <h3 class="text-xl font-bold text-white mb-3">Chat Interactivo</h3>
+            <p class="text-[var(--color-text-secondary)]">Comunícate directamente con los streamers en tiempo real.</p>
+          </div>
         </div>
         
-        <div class="card group">
-          <div class="w-14 h-14 rounded-2xl bg-[var(--color-accent-pink)]/10 flex items-center justify-center mb-6">
+        <div class="card group xafrachat-feature-card">
+          <div class="w-14 h-14 rounded-2xl bg-[var(--color-accent-pink)]/10 flex items-center justify-center mb-6 xafrachat-feature-icon">
             <svg xmlns="http://www.w3.org/2000/svg" width="28" height="28" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2" class="text-[var(--color-accent-pink)]">
               <path d="M12 22s8-4 8-10V5l-8-3-8 3v7c0 6 8 10 8 10z"></path>
             </svg>
           </div>
-          <h3 class="text-xl font-bold text-white mb-3">Privacidad</h3>
-          <p class="text-[var(--color-text-secondary)]">Tu privacidad es nuestra prioridad. Navegación 100% anónima.</p>
+          <div class="xafrachat-feature-content">
+            <h3 class="text-xl font-bold text-white mb-3">Privacidad</h3>
+            <p class="text-[var(--color-text-secondary)]">Tu privacidad es nuestra prioridad. Navegación 100% anónima.</p>
+          </div>
         </div>
       </div>
     </div>
   </section>
   
   <!-- Video -->
-  <section id="video" class="section-padding">
+  <section id="video" class="section-padding xafrachat-video-section">
     <div class="container-custom">
-      <div class="text-center max-w-3xl mx-auto mb-12">
+      <div class="text-center max-w-3xl mx-auto mb-12 xafrachat-video-header">
         <h2 class="heading-lg mb-4"><span class="text-[var(--color-accent-pink)]">XafraChat</span> Demo</h2>
       </div>
       
@@ -154,10 +164,10 @@ import MainLayout from '../../layouts/MainLayout.astro';
         <div class="absolute inset-0 bg-[var(--color-accent-pink)]/10"></div>
         <div class="relative z-10">
           <h2 class="heading-lg mb-4">¿Interesado en XafraChat?</h2>
-          <p class="text-[var(--color-text-secondary)] mb-8 max-w-2xl mx-auto">
+          <p class="text-[var(--color-text-secondary)] mb-8 max-w-2xl mx-auto xafrachat-cta-text">
             Contáctanos para más información sobre nuestra plataforma de streaming.
           </p>
-          <a href="/#contacto" class="btn-primary inline-flex" style="background: var(--color-accent-pink);">
+          <a href="/#contacto" class="btn-primary inline-flex xafrachat-cta-btn" style="background: var(--color-accent-pink);">
             Solicitar información
           </a>
         </div>
