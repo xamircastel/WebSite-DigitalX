@@ -49,7 +49,7 @@ import MainLayout from '../../layouts/MainLayout.astro';
             </div>
           </div>
           
-          <div class="flex flex-wrap gap-4">
+          <div class="flex flex-wrap gap-4" style="margin-top: 2rem;">
             <a href="#video" class="btn-primary" style="background: var(--color-secondary);">
               Ver demo
               <svg xmlns="http://www.w3.org/2000/svg" width="18" height="18" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2" class="ml-2">
@@ -76,10 +76,10 @@ import MainLayout from '../../layouts/MainLayout.astro';
   
   <!-- Características -->
   <section class="section-padding bg-[var(--color-bg-darker)]">
-    <div class="container-custom">
-      <div class="text-center max-w-3xl mx-auto mb-16">
-        <h2 class="heading-lg mb-4">¿Cómo funciona <span class="text-[var(--color-secondary)]">VClub</span>?</h2>
-        <p class="text-[var(--color-text-secondary)]">
+    <div class="container-custom" style="display: flex; flex-direction: column; align-items: center;">
+      <div class="flex flex-col items-center text-center max-w-3xl mb-16" style="width: 100%;">
+        <h2 class="heading-lg mb-4" style="text-align: center; width: 100%;">¿Cómo funciona <span class="text-[var(--color-secondary)]">VClub</span>?</h2>
+        <p class="text-[var(--color-text-secondary)]" style="text-align: center; width: 100%;">
           Un sistema revolucionario de créditos que te da libertad total para elegir qué ver y dónde verlo.
         </p>
       </div>
@@ -119,13 +119,13 @@ import MainLayout from '../../layouts/MainLayout.astro';
   </section>
   
   <!-- Video -->
-  <section id="video" class="section-padding">
-    <div class="container-custom">
-      <div class="text-center max-w-3xl mx-auto mb-12">
-        <h2 class="heading-lg mb-4"><span class="text-[var(--color-secondary)]">VClub</span> en acción</h2>
+  <section id="video" class="section-padding" style="margin-bottom: 3rem;">
+    <div class="container-custom" style="display: flex; flex-direction: column; align-items: center;">
+      <div class="flex flex-col items-center text-center max-w-3xl mb-12" style="width: 100%;">
+        <h2 class="heading-lg mb-4" style="text-align: center;"><span class="text-[var(--color-secondary)]">VClub</span> en acción</h2>
       </div>
       
-      <div class="max-w-4xl mx-auto">
+      <div class="max-w-4xl" style="width: 100%;">
         <div class="relative group">
           <div class="absolute -inset-4 bg-[var(--color-secondary)] rounded-3xl opacity-20 blur-xl"></div>
           <div class="relative glass rounded-2xl overflow-hidden">
@@ -147,7 +147,7 @@ import MainLayout from '../../layouts/MainLayout.astro';
   </section>
   
   <!-- CTA -->
-  <section class="section-padding bg-[var(--color-bg-darker)]">
+  <section class="section-padding bg-[var(--color-bg-darker)]" style="margin-bottom: 4rem;">
     <div class="container-custom">
       <div class="card p-12 text-center relative overflow-hidden">
         <div class="absolute inset-0 bg-[var(--color-secondary)]/10"></div>

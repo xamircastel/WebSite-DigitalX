@@ -34,17 +34,20 @@ import MainLayout from '../../layouts/MainLayout.astro';
             <span class="text-sm text-[var(--color-primary-light)] font-medium">Producto Estrella</span>
           </div>
           
-          <h1 class="heading-xl mb-6">
-            <span class="text-gradient">LALA</span><span class="text-white">.AI</span>
-          </h1>
+          <div class="mb-6">
+            <img 
+              src="https://lala.digital-x.com.co/logo_vertical.svg?v=2" 
+              alt="LALA AI" 
+              class="h-20 md:h-24 lg:h-28 w-auto"
+            />
+          </div>
           
           <p class="text-xl text-[var(--color-text-secondary)] mb-8 leading-relaxed">
-            La revolución de la inteligencia artificial en tu móvil. Accede a los modelos más avanzados 
-            del mercado a precios hasta <span class="text-[var(--color-accent-green)] font-semibold">50% más económicos</span>.
+            La revolución de la inteligencia artificial en tu móvil. <span class="text-[var(--color-accent-green)] font-semibold">Crea videos, imágenes y convierte tus fotos en imágenes</span>, esto y mucho más.
           </p>
           
           <!-- Quick stats -->
-          <div class="grid grid-cols-3 gap-4 mb-8">
+          <div class="grid grid-cols-3 gap-4" style="margin-bottom: 2rem;">
             <div class="text-center p-4 rounded-xl bg-white/5 border border-white/10">
               <div class="text-2xl font-bold text-gradient">5+</div>
               <div class="text-xs text-[var(--color-text-muted)]">Modelos IA</div>
@@ -72,11 +75,26 @@ import MainLayout from '../../layouts/MainLayout.astro';
           </div>
         </div>
         
-        <!-- Logo grande -->
-        <div class="relative flex items-center justify-center">
-          <div class="absolute inset-0 bg-gradient-to-r from-[var(--color-primary)] to-[var(--color-secondary)] rounded-full filter blur-[100px] opacity-30 animate-pulse"></div>
-          <div class="relative w-64 h-64 md:w-80 md:h-80 rounded-full bg-gradient-to-br from-[var(--color-primary)] to-[var(--color-secondary)] flex items-center justify-center shadow-2xl">
-            <span class="text-6xl md:text-8xl font-black text-white">LA</span>
+        <!-- Mockup del chat -->
+        <div class="relative flex items-center justify-center hidden lg:flex" style="margin-top: 4rem;">
+          <div class="absolute inset-0 bg-gradient-to-r from-[var(--color-primary)] to-[var(--color-secondary)] rounded-3xl filter blur-[100px] opacity-30 animate-pulse"></div>
+          <div class="relative rounded-3xl overflow-hidden shadow-2xl border-4 border-white/20 max-h-[550px]">
+            <img 
+              src="/images/chat-lala-ai.jpg" 
+              alt="LALA AI Chat Interface" 
+              class="w-auto h-full max-w-[350px] object-contain"
+            />
+          </div>
+        </div>
+        <!-- Mockup mobile/tablet -->
+        <div class="relative flex items-center justify-center lg:hidden">
+          <div class="absolute inset-0 bg-gradient-to-r from-[var(--color-primary)] to-[var(--color-secondary)] rounded-3xl filter blur-[100px] opacity-30 animate-pulse"></div>
+          <div class="relative rounded-3xl overflow-hidden shadow-2xl border-4 border-white/20 max-h-[500px]">
+            <img 
+              src="/images/chat-lala-ai.jpg" 
+              alt="LALA AI Chat Interface" 
+              class="w-auto h-full max-w-[280px] md:max-w-[320px] object-contain"
+            />
           </div>
         </div>
       </div>
@@ -85,8 +103,8 @@ import MainLayout from '../../layouts/MainLayout.astro';
   
   <!-- Características -->
   <section class="section-padding bg-[var(--color-bg-darker)]">
-    <div class="container-custom">
-      <div class="text-center max-w-3xl mx-auto mb-16">
+    <div class="container-custom flex flex-col items-center">
+      <div class="text-center max-w-3xl mb-16">
         <h2 class="heading-lg mb-4">¿Qué hace <span class="text-gradient">LALA AI</span> especial?</h2>
         <p class="text-[var(--color-text-secondary)]">
           Una app que unifica el acceso a los mejores modelos de inteligencia artificial del mundo, 
@@ -99,14 +117,14 @@ import MainLayout from '../../layouts/MainLayout.astro';
         <div class="card group">
           <div class="w-14 h-14 rounded-2xl bg-[var(--color-primary)]/10 flex items-center justify-center mb-6 group-hover:scale-110 transition-transform">
             <svg xmlns="http://www.w3.org/2000/svg" width="28" height="28" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2" class="text-[var(--color-primary)]">
-              <path d="M12 2a10 10 0 0 1 10 10c0 5.523-4.477 10-10 10S2 17.523 2 12 6.477 2 12 2Z"></path>
-              <circle cx="12" cy="12" r="4"></circle>
+              <polygon points="23 7 16 12 23 17 23 7"></polygon>
+              <rect x="1" y="5" width="15" height="14" rx="2" ry="2"></rect>
             </svg>
           </div>
-          <h3 class="text-xl font-bold text-white mb-3">Multi-Modelo</h3>
+          <h3 class="text-xl font-bold text-white mb-3">Generación de Video</h3>
           <p class="text-[var(--color-text-secondary)]">
-            Accede a GPT-4o, Claude 3.5, Gemini Pro, Groq, DeepSeek y más. 
-            Elige el modelo perfecto para cada tarea.
+            Crea videos increíbles desde texto o transforma tus imágenes en videos. 
+            Text to Video e Image to Video con IA.
           </p>
         </div>
         
@@ -121,8 +139,8 @@ import MainLayout from '../../layouts/MainLayout.astro';
           </div>
           <h3 class="text-xl font-bold text-white mb-3">Generación de Imágenes</h3>
           <p class="text-[var(--color-text-secondary)]">
-            Crea imágenes impresionantes con DALL-E 3, Stable Diffusion y otros 
-            modelos de generación visual de última generación.
+            Crea imágenes impresionantes con los modelos de IA más avanzados. 
+            Describe lo que imaginas y deja que la IA lo haga realidad.
           </p>
         </div>
         
@@ -133,10 +151,10 @@ import MainLayout from '../../layouts/MainLayout.astro';
               <path d="M12 2v20M17 5H9.5a3.5 3.5 0 0 0 0 7h5a3.5 3.5 0 0 1 0 7H6"></path>
             </svg>
           </div>
-          <h3 class="text-xl font-bold text-white mb-3">Precios Accesibles</h3>
+          <h3 class="text-xl font-bold text-white mb-3">Suscripción Accesible</h3>
           <p class="text-[var(--color-text-secondary)]">
-            Hasta 50% más económico que usar las APIs directamente. 
-            Paga solo por lo que usas, sin suscripciones obligatorias.
+            Más económico que otras opciones del mercado. 
+            Paga desde tu plan móvil o saldo de recarga prepago.
           </p>
         </div>
         
@@ -188,19 +206,19 @@ import MainLayout from '../../layouts/MainLayout.astro';
   
   <!-- Modelos disponibles -->
   <section class="section-padding">
-    <div class="container-custom">
-      <div class="text-center max-w-3xl mx-auto mb-16">
-        <h2 class="heading-lg mb-4">Modelos <span class="text-gradient">disponibles</span></h2>
+    <div class="container-custom flex flex-col items-center">
+      <div class="text-center max-w-3xl mb-16">
+        <h2 class="heading-lg mb-4">Potenciado por <span class="text-gradient">los mejores</span></h2>
         <p class="text-[var(--color-text-secondary)]">
-          Accede a los mejores modelos de IA del mercado, todos en una sola aplicación.
+          LALA AI utiliza los modelos de IA más avanzados del mundo para brindarte las mejores respuestas.
         </p>
       </div>
       
-      <div class="grid grid-cols-2 md:grid-cols-3 lg:grid-cols-6 gap-4">
+      <div class="grid grid-cols-2 md:grid-cols-3 lg:grid-cols-6 gap-4 w-full">
         <!-- OpenAI -->
         <div class="card text-center py-8 group hover:border-[var(--color-primary)]/50 transition-all">
-          <div class="w-16 h-16 mx-auto mb-4 rounded-2xl bg-white/10 flex items-center justify-center group-hover:scale-110 transition-transform">
-            <span class="text-2xl font-bold text-white">OA</span>
+          <div class="w-16 h-16 mx-auto mb-4 rounded-2xl bg-white flex items-center justify-center group-hover:scale-110 transition-transform p-3">
+            <img src="/images/logo-openai.svg" alt="OpenAI" class="w-full h-full object-contain" />
           </div>
           <h4 class="font-semibold text-white">OpenAI</h4>
           <p class="text-xs text-[var(--color-text-muted)]">GPT-4o, GPT-4</p>
@@ -208,8 +226,8 @@ import MainLayout from '../../layouts/MainLayout.astro';
         
         <!-- Anthropic -->
         <div class="card text-center py-8 group hover:border-[var(--color-secondary)]/50 transition-all">
-          <div class="w-16 h-16 mx-auto mb-4 rounded-2xl bg-white/10 flex items-center justify-center group-hover:scale-110 transition-transform">
-            <span class="text-2xl font-bold text-white">An</span>
+          <div class="w-16 h-16 mx-auto mb-4 rounded-2xl bg-white flex items-center justify-center group-hover:scale-110 transition-transform p-3">
+            <img src="/images/logo-anthropic.svg" alt="Anthropic" class="w-full h-full object-contain" />
           </div>
           <h4 class="font-semibold text-white">Anthropic</h4>
           <p class="text-xs text-[var(--color-text-muted)]">Claude 3.5</p>
@@ -217,8 +235,8 @@ import MainLayout from '../../layouts/MainLayout.astro';
         
         <!-- Google -->
         <div class="card text-center py-8 group hover:border-[var(--color-accent-green)]/50 transition-all">
-          <div class="w-16 h-16 mx-auto mb-4 rounded-2xl bg-white/10 flex items-center justify-center group-hover:scale-110 transition-transform">
-            <span class="text-2xl font-bold text-white">G</span>
+          <div class="w-16 h-16 mx-auto mb-4 rounded-2xl bg-white flex items-center justify-center group-hover:scale-110 transition-transform p-3">
+            <img src="/images/logo-google-gemini.svg" alt="Google Gemini" class="w-full h-full object-contain" />
           </div>
           <h4 class="font-semibold text-white">Google</h4>
           <p class="text-xs text-[var(--color-text-muted)]">Gemini Pro</p>
@@ -226,8 +244,8 @@ import MainLayout from '../../layouts/MainLayout.astro';
         
         <!-- Groq -->
         <div class="card text-center py-8 group hover:border-[var(--color-accent-orange)]/50 transition-all">
-          <div class="w-16 h-16 mx-auto mb-4 rounded-2xl bg-white/10 flex items-center justify-center group-hover:scale-110 transition-transform">
-            <span class="text-2xl font-bold text-white">Gq</span>
+          <div class="w-16 h-16 mx-auto mb-4 rounded-2xl bg-white flex items-center justify-center group-hover:scale-110 transition-transform p-3">
+            <img src="/images/logo-groq.svg" alt="Groq" class="w-full h-full object-contain" />
           </div>
           <h4 class="font-semibold text-white">Groq</h4>
           <p class="text-xs text-[var(--color-text-muted)]">Ultra rápido</p>
@@ -235,8 +253,8 @@ import MainLayout from '../../layouts/MainLayout.astro';
         
         <!-- DeepSeek -->
         <div class="card text-center py-8 group hover:border-[var(--color-accent-pink)]/50 transition-all">
-          <div class="w-16 h-16 mx-auto mb-4 rounded-2xl bg-white/10 flex items-center justify-center group-hover:scale-110 transition-transform">
-            <span class="text-2xl font-bold text-white">DS</span>
+          <div class="w-16 h-16 mx-auto mb-4 rounded-2xl bg-white flex items-center justify-center group-hover:scale-110 transition-transform p-3">
+            <img src="/images/logo-deepseek.svg" alt="DeepSeek" class="w-full h-full object-contain" />
           </div>
           <h4 class="font-semibold text-white">DeepSeek</h4>
           <p class="text-xs text-[var(--color-text-muted)]">Costo-eficiente</p>
@@ -256,15 +274,15 @@ import MainLayout from '../../layouts/MainLayout.astro';
   
   <!-- Video -->
   <section id="video" class="section-padding bg-[var(--color-bg-darker)]">
-    <div class="container-custom">
-      <div class="text-center max-w-3xl mx-auto mb-12">
+    <div class="container-custom flex flex-col items-center">
+      <div class="text-center max-w-3xl mb-12">
         <h2 class="heading-lg mb-4">LALA AI <span class="text-gradient">en acción</span></h2>
         <p class="text-[var(--color-text-secondary)]">
           Mira cómo LALA AI puede transformar tu forma de interactuar con la inteligencia artificial.
         </p>
       </div>
       
-      <div class="max-w-4xl mx-auto">
+      <div class="max-w-4xl w-full">
         <div class="relative group">
           <div class="absolute -inset-4 bg-gradient-to-r from-[var(--color-primary)] via-[var(--color-secondary)] to-[var(--color-primary)] rounded-3xl opacity-20 blur-xl group-hover:opacity-30 transition-opacity"></div>
           <div class="relative glass rounded-2xl overflow-hidden">
@@ -287,13 +305,13 @@ import MainLayout from '../../layouts/MainLayout.astro';
   </section>
   
   <!-- CTA Final -->
-  <section class="section-padding">
+  <section class="section-padding" style="margin-top: 3rem; margin-bottom: 4rem;">
     <div class="container-custom">
       <div class="card p-12 text-center relative overflow-hidden">
         <div class="absolute inset-0 bg-gradient-to-r from-[var(--color-primary)]/20 to-[var(--color-secondary)]/20"></div>
-        <div class="relative z-10">
-          <h2 class="heading-lg mb-4">¿Listo para probar <span class="text-gradient">LALA AI</span>?</h2>
-          <p class="text-[var(--color-text-secondary)] mb-8 max-w-2xl mx-auto">
+        <div class="relative z-10 flex flex-col items-center">
+          <h2 class="heading-lg mb-4 text-center">¿Listo para probar <span class="text-gradient">LALA AI</span>?</h2>
+          <p class="text-[var(--color-text-secondary)] mb-8 max-w-2xl text-center">
             Únete a miles de usuarios que ya están aprovechando el poder de la inteligencia artificial 
             de manera accesible y sencilla.
           </p>

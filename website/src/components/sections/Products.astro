@@ -8,6 +8,7 @@ interface Product {
   icon: string;
   color: string;
   featured?: boolean;
+  customIcon?: string; // Ruta a imagen personalizada
 }
 
 const products: Product[] = [
@@ -15,10 +16,11 @@ const products: Product[] = [
     name: "LALA AI",
     slug: "lala-ai",
     tagline: "La IA en tu bolsillo",
-    description: "Chat con IA multi-modelo. Accede a GPT-4, Claude, Gemini y más a precios 50% más económicos.",
+    description: "Genera imágenes increíbles, genera video desde una descripción o convierte una imagen en video.",
     icon: "brain",
     color: "primary",
-    featured: true
+    featured: true,
+    customIcon: "/images/icon-lala-ai.svg"
   },
   {
     name: "VClub",
@@ -26,7 +28,8 @@ const products: Product[] = [
     tagline: "Tu streaming, tus reglas",
     description: "Suscripción de streaming con créditos para múltiples plataformas. Entretenimiento sin límites.",
     icon: "play",
-    color: "secondary"
+    color: "secondary",
+    customIcon: "/images/icon-vclub.svg"
   },
   {
     name: "XafraChat",
@@ -34,7 +37,8 @@ const products: Product[] = [
     tagline: "Conexiones en vivo",
     description: "Plataforma de live streaming para adultos. Contenido exclusivo y en tiempo real.",
     icon: "video",
-    color: "pink"
+    color: "pink",
+    customIcon: "/images/icon-xafrachat.png"
   },
   {
     name: "HotSimp",
@@ -42,7 +46,8 @@ const products: Product[] = [
     tagline: "Contenido exclusivo",
     description: "Plataforma de contenido para adultos estilo suscripción. Creadores y fans conectados.",
     icon: "heart",
-    color: "orange"
+    color: "orange",
+    customIcon: "/images/icon-hotsimp.png"
   },
   {
     name: "Videntes del Fútbol",
@@ -50,7 +55,8 @@ const products: Product[] = [
     tagline: "Predice y gana",
     description: "Predicciones de fútbol con recompensas. Demuestra tu conocimiento y gana premios.",
     icon: "trophy",
-    color: "green"
+    color: "green",
+    customIcon: "/images/icon-videntes.png"
   }
 ];
 
@@ -64,27 +70,27 @@ const iconPaths: Record<string, string> = {
 
 const colorClasses: Record<string, {bg: string, text: string, border: string}> = {
   primary: {
-    bg: "bg-[var(--color-primary)]/10",
+    bg: "bg-white/90",
     text: "text-[var(--color-primary)]",
     border: "border-[var(--color-primary)]/30"
   },
   secondary: {
-    bg: "bg-[var(--color-secondary)]/10",
+    bg: "bg-white/90",
     text: "text-[var(--color-secondary)]",
     border: "border-[var(--color-secondary)]/30"
   },
   pink: {
-    bg: "bg-[var(--color-accent-pink)]/10",
+    bg: "bg-white/90",
     text: "text-[var(--color-accent-pink)]",
     border: "border-[var(--color-accent-pink)]/30"
   },
   orange: {
-    bg: "bg-[var(--color-accent-orange)]/10",
+    bg: "bg-white/90",
     text: "text-[var(--color-accent-orange)]",
     border: "border-[var(--color-accent-orange)]/30"
   },
   green: {
-    bg: "bg-[var(--color-accent-green)]/10",
+    bg: "bg-white/90",
     text: "text-[var(--color-accent-green)]",
     border: "border-[var(--color-accent-green)]/30"
   }
@@ -131,20 +137,28 @@ const colorClasses: Record<string, {bg: string, text: string, border: string}> =
             "w-16 h-16 rounded-2xl flex items-center justify-center mb-6 transition-transform group-hover:scale-110",
             colorClasses[product.color].bg
           ]}>
-            <svg 
-              xmlns="http://www.w3.org/2000/svg" 
-              width="32" 
-              height="32" 
-              viewBox="0 0 24 24" 
-              fill="none" 
-              stroke="currentColor" 
-              stroke-width="2"
-              stroke-linecap="round"
-              stroke-linejoin="round"
-              class:list={[colorClasses[product.color].text]}
-            >
-              <path d={iconPaths[product.icon]} />
-            </svg>
+            {product.customIcon ? (
+              <img 
+                src={product.customIcon} 
+                alt={`${product.name} icon`}
+                class="w-10 h-10 object-contain"
+              />
+            ) : (
+              <svg 
+                xmlns="http://www.w3.org/2000/svg" 
+                width="32" 
+                height="32" 
+                viewBox="0 0 24 24" 
+                fill="none" 
+                stroke="currentColor" 
+                stroke-width="2"
+                stroke-linecap="round"
+                stroke-linejoin="round"
+                class:list={[colorClasses[product.color].text]}
+              >
+                <path d={iconPaths[product.icon]} />
+              </svg>
+            )}
           </div>
           
           {/* Content */}
