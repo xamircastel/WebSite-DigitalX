@@ -118,7 +118,7 @@ const colorClasses: Record<string, {bg: string, text: string, border: string}> =
     <div class="grid md:grid-cols-2 lg:grid-cols-3 gap-6 products-grid">
       {products.map((product, index) => (
         <a 
-          href={`/productos/${product.slug}`}
+          href={`https://digital-x.com.co/productos/${product.slug}/`}
           class:list={[
             "group relative card overflow-hidden animate-on-scroll",
             product.featured && "md:col-span-2 lg:col-span-1 ring-2 ring-[var(--color-primary)]/50"
