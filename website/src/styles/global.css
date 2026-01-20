@@ -975,6 +975,12 @@ a {
     padding-left: 4rem;
     padding-right: 4rem;
   }
+  
+  /* LALA AI Desktop - Espaciado entre secciones */
+  .lala-cta-section {
+    padding-top: 6rem !important;
+    padding-bottom: 6rem !important;
+  }
 }
 
 /* Botones */
