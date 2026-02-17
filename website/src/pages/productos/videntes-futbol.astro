@@ -8,7 +8,7 @@ import MainLayout from '../../layouts/MainLayout.astro';
   description="Videntes del Fútbol es una plataforma de predicciones deportivas con recompensas. Demuestra tu conocimiento futbolístico y gana premios."
 >
   <!-- Hero -->
-  <section class="relative min-h-[70vh] flex items-center pt-24 overflow-hidden">
+  <section class="relative min-h-[70vh] flex items-center pt-24 overflow-hidden videntes-hero">
     <div class="absolute inset-0 bg-[var(--color-bg-dark)]">
       <div class="absolute inset-0 opacity-20" style="background-image: linear-gradient(rgba(0, 255, 136, 0.1) 1px, transparent 1px), linear-gradient(90deg, rgba(0, 255, 136, 0.1) 1px, transparent 1px); background-size: 50px 50px;"></div>
       <div class="absolute top-1/4 right-1/4 w-[600px] h-[600px] bg-[var(--color-accent-green)] rounded-full filter blur-[200px] opacity-20"></div>
@@ -17,7 +17,7 @@ import MainLayout from '../../layouts/MainLayout.astro';
     <div class="container-custom relative z-10">
       <div class="grid lg:grid-cols-2 gap-12 items-center">
         <div>
-          <nav class="flex items-center gap-2 text-sm text-[var(--color-text-muted)] mb-8">
+          <nav class="flex items-center gap-2 text-sm text-[var(--color-text-muted)] mb-8 videntes-breadcrumb">
             <a href="/" class="hover:text-white transition-colors">Inicio</a>
             <span>/</span>
             <a href="/#productos" class="hover:text-white transition-colors">Productos</a>
@@ -25,17 +25,25 @@ import MainLayout from '../../layouts/MainLayout.astro';
             <span class="text-[var(--color-accent-green)]">Videntes del Fútbol</span>
           </nav>
           
-          <h1 class="heading-xl mb-6">
+          <h1 class="heading-xl mb-6 videntes-title">
             <span class="text-[var(--color-accent-green)]">Videntes</span>
             <span class="text-white block">del Fútbol</span>
           </h1>
           
-          <p class="text-xl text-[var(--color-text-secondary)] mb-8 leading-relaxed">
+          <!-- Versión móvil -->
+          <p class="text-xl text-[var(--color-text-secondary)] leading-relaxed lg:hidden" style="margin-bottom: 2rem;">
             Predice y gana. Demuestra tu conocimiento futbolístico haciendo predicciones 
             y <span class="text-white font-semibold">gana recompensas reales</span>.
           </p>
           
-          <div class="grid grid-cols-3 gap-4 mb-8">
+          <!-- Versión desktop -->
+          <p class="text-xl text-[var(--color-text-secondary)] leading-relaxed hidden lg:block" style="margin-bottom: 3rem;">
+            Predice y gana. Demuestra tu conocimiento futbolístico haciendo predicciones 
+            y <span class="text-white font-semibold">gana recompensas reales</span>.
+          </p>
+          
+          <!-- Versión móvil tarjetas -->
+          <div class="grid grid-cols-3 gap-4 lg:hidden videntes-stats" style="margin-bottom: 1.5rem;">
             <div class="text-center p-4 rounded-xl bg-white/5 border border-white/10">
               <div class="text-2xl font-bold text-[var(--color-accent-green)]">⚽</div>
               <div class="text-xs text-[var(--color-text-muted)]">Fútbol</div>
@@ -50,100 +58,257 @@ import MainLayout from '../../layouts/MainLayout.astro';
             </div>
           </div>
           
-          <div class="flex flex-wrap gap-4">
-            <a href="/#contacto" class="btn-primary" style="background: var(--color-accent-green); color: #000;">
+          <!-- Versión desktop tarjetas -->
+          <div class="hidden lg:grid grid-cols-3 gap-4 videntes-stats" style="margin-bottom: 3rem;">
+            <div class="text-center p-4 rounded-xl bg-white/5 border border-white/10">
+              <div class="text-2xl font-bold text-[var(--color-accent-green)]">⚽</div>
+              <div class="text-xs text-[var(--color-text-muted)]">Fútbol</div>
+            </div>
+            <div class="text-center p-4 rounded-xl bg-white/5 border border-white/10">
+              <div class="text-2xl font-bold text-[var(--color-accent-green)]">🎯</div>
+              <div class="text-xs text-[var(--color-text-muted)]">Predicciones</div>
+            </div>
+            <div class="text-center p-4 rounded-xl bg-white/5 border border-white/10">
+              <div class="text-2xl font-bold text-[var(--color-accent-green)]">🏆</div>
+              <div class="text-xs text-[var(--color-text-muted)]">Premios</div>
+            </div>
+          </div>
+          
+          <div class="flex flex-wrap gap-4 videntes-buttons">
+            <a href="/#contacto" class="btn-primary videntes-cta-btn" style="background: linear-gradient(135deg, #00FF88 0%, #00FFAA 50%, #00FFDD 100%); color: #000; box-shadow: 0 0 20px rgba(0, 255, 136, 0.5), 0 0 40px rgba(0, 255, 200, 0.3);">
               Solicitar información
             </a>
           </div>
         </div>
         
-        <div class="relative flex items-center justify-center">
+        <!-- Hero móvil -->
+        <div class="relative flex items-center justify-center lg:hidden videntes-carousel-container">
           <div class="absolute inset-0 bg-[var(--color-accent-green)] rounded-full filter blur-[100px] opacity-30 animate-pulse"></div>
-          <div class="relative w-64 h-64 md:w-80 md:h-80 rounded-3xl bg-gradient-to-br from-[var(--color-accent-green)] to-[var(--color-secondary)] flex items-center justify-center shadow-2xl">
-            <span class="text-8xl">⚽</span>
+          <div class="videntes-carousel">
+            <div class="videntes-carousel-track">
+              <img src="/images/Imagen6.png" alt="Videntes del Fútbol 1" class="videntes-carousel-img" />
+              <img src="/images/Imagen7.png" alt="Videntes del Fútbol 2" class="videntes-carousel-img" />
+              <img src="/images/Imagen6.png" alt="Videntes del Fútbol 1" class="videntes-carousel-img" />
+              <img src="/images/Imagen7.png" alt="Videntes del Fútbol 2" class="videntes-carousel-img" />
+            </div>
+          </div>
+        </div>
+        
+        <!-- Hero desktop carrusel -->
+        <div class="hidden lg:block relative">
+          <div class="videntes-carousel-container" style="width: 500px; height: 350px; overflow: hidden; border: 3px solid #00FF88; border-radius: 1.5rem; box-shadow: 0 0 20px rgba(0, 255, 136, 0.4), 0 0 40px rgba(0, 255, 136, 0.2);">
+            <div class="videntes-carousel-track" style="display: flex; width: 1000px; animation: videnresSlide 6s infinite;">
+              <img src="/images/Imagen6.png" alt="Videntes del Fútbol 1" style="width: 500px; height: 350px; object-fit: contain; background: #0a0a0a;" />
+              <img src="/images/Imagen7.png" alt="Videntes del Fútbol 2" style="width: 500px; height: 350px; object-fit: contain; background: #0a0a0a;" />
+            </div>
           </div>
         </div>
       </div>
     </div>
   </section>
   
+  <style>
+    @keyframes videnresSlide {
+      0%, 40% {
+        transform: translateX(0);
+      }
+      50%, 90% {
+        transform: translateX(-500px);
+      }
+      100% {
+        transform: translateX(0);
+      }
+    }
+  </style>
+  
   <!-- Cómo funciona -->
-  <section class="section-padding bg-[var(--color-bg-darker)]">
+  <section class="section-padding bg-[var(--color-bg-darker)] videntes-como-funciona">
     <div class="container-custom">
-      <div class="text-center max-w-3xl mx-auto mb-16">
+      <!-- Header móvil -->
+      <div class="text-center max-w-3xl mx-auto lg:hidden videntes-como-header" style="margin-top: 2rem; margin-bottom: 3rem;">
         <h2 class="heading-lg mb-4">¿Cómo funciona?</h2>
         <p class="text-[var(--color-text-secondary)]">
           Tres simples pasos para convertir tu pasión por el fútbol en recompensas.
         </p>
       </div>
       
-      <div class="grid md:grid-cols-3 gap-8">
-        <div class="card text-center">
-          <div class="w-20 h-20 mx-auto mb-6 rounded-full bg-[var(--color-accent-green)]/10 flex items-center justify-center">
+      <!-- Header desktop centrado -->
+      <div class="hidden lg:flex flex-col items-center justify-center text-center" style="padding: 1.5rem 0; margin-bottom: 1.5rem;">
+        <h2 class="heading-lg mb-4">¿Cómo funciona?</h2>
+        <p class="text-[var(--color-text-secondary)]">
+          Tres simples pasos para convertir tu pasión por el fútbol en recompensas.
+        </p>
+      </div>
+      
+      <!-- Tarjetas móvil -->
+      <div class="grid md:grid-cols-3 gap-8 lg:hidden videntes-pasos-grid">
+        <div class="card text-center videntes-paso-card">
+          <div class="w-20 h-20 mx-auto mb-6 rounded-full bg-[var(--color-accent-green)]/10 flex items-center justify-center videntes-paso-number">
             <span class="text-3xl font-bold text-[var(--color-accent-green)]">1</span>
           </div>
-          <h3 class="text-xl font-bold text-white mb-3">Regístrate</h3>
-          <p class="text-[var(--color-text-secondary)]">
-            Crea tu cuenta gratis y únete a la comunidad de visionarios del fútbol.
-          </p>
+          <div class="videntes-paso-content">
+            <h3 class="text-xl font-bold text-white mb-3">Regístrate</h3>
+            <p class="text-[var(--color-text-secondary)]">
+              Crea tu cuenta gratis y únete a la comunidad de visionarios del fútbol.
+            </p>
+          </div>
         </div>
         
-        <div class="card text-center">
-          <div class="w-20 h-20 mx-auto mb-6 rounded-full bg-[var(--color-accent-green)]/10 flex items-center justify-center">
+        <div class="card text-center videntes-paso-card">
+          <div class="w-20 h-20 mx-auto mb-6 rounded-full bg-[var(--color-accent-green)]/10 flex items-center justify-center videntes-paso-number">
             <span class="text-3xl font-bold text-[var(--color-accent-green)]">2</span>
           </div>
-          <h3 class="text-xl font-bold text-white mb-3">Predice</h3>
-          <p class="text-[var(--color-text-secondary)]">
-            Haz tus predicciones sobre los partidos de las principales ligas del mundo.
-          </p>
+          <div class="videntes-paso-content">
+            <h3 class="text-xl font-bold text-white mb-3">Predice</h3>
+            <p class="text-[var(--color-text-secondary)]">
+              Haz tus predicciones sobre los partidos de las principales ligas del mundo.
+            </p>
+          </div>
         </div>
         
-        <div class="card text-center">
-          <div class="w-20 h-20 mx-auto mb-6 rounded-full bg-[var(--color-accent-green)]/10 flex items-center justify-center">
+        <div class="card text-center videntes-paso-card">
+          <div class="w-20 h-20 mx-auto mb-6 rounded-full bg-[var(--color-accent-green)]/10 flex items-center justify-center videntes-paso-number">
             <span class="text-3xl font-bold text-[var(--color-accent-green)]">3</span>
           </div>
-          <h3 class="text-xl font-bold text-white mb-3">Gana</h3>
-          <p class="text-[var(--color-text-secondary)]">
-            Acumula puntos por tus aciertos y canjéalos por increíbles recompensas.
-          </p>
+          <div class="videntes-paso-content">
+            <h3 class="text-xl font-bold text-white mb-3">Gana</h3>
+            <p class="text-[var(--color-text-secondary)]">
+              Acumula puntos por tus aciertos y canjéalos por increíbles recompensas.
+            </p>
+          </div>
+        </div>
+      </div>
+      
+      <!-- Tarjetas desktop: horizontal con borde verde -->
+      <div class="hidden lg:grid grid-cols-3 gap-8">
+        <div class="card flex items-center gap-6" style="border: 2px solid var(--color-accent-green); padding: 2rem;">
+          <div class="w-20 h-20 shrink-0 rounded-full bg-[var(--color-accent-green)]/10 flex items-center justify-center">
+            <span class="text-3xl font-bold text-[var(--color-accent-green)]">1</span>
+          </div>
+          <div class="text-left">
+            <h3 class="text-xl font-bold text-white mb-2">Regístrate</h3>
+            <p class="text-[var(--color-text-secondary)]">
+              Crea tu cuenta gratis y únete a la comunidad de visionarios del fútbol.
+            </p>
+          </div>
+        </div>
+        
+        <div class="card flex items-center gap-6" style="border: 2px solid var(--color-accent-green); padding: 2rem;">
+          <div class="w-20 h-20 shrink-0 rounded-full bg-[var(--color-accent-green)]/10 flex items-center justify-center">
+            <span class="text-3xl font-bold text-[var(--color-accent-green)]">2</span>
+          </div>
+          <div class="text-left">
+            <h3 class="text-xl font-bold text-white mb-2">Predice</h3>
+            <p class="text-[var(--color-text-secondary)]">
+              Haz tus predicciones sobre los partidos de las principales ligas del mundo.
+            </p>
+          </div>
+        </div>
+        
+        <div class="card flex items-center gap-6" style="border: 2px solid var(--color-accent-green); padding: 2rem;">
+          <div class="w-20 h-20 shrink-0 rounded-full bg-[var(--color-accent-green)]/10 flex items-center justify-center">
+            <span class="text-3xl font-bold text-[var(--color-accent-green)]">3</span>
+          </div>
+          <div class="text-left">
+            <h3 class="text-xl font-bold text-white mb-2">Gana</h3>
+            <p class="text-[var(--color-text-secondary)]">
+              Acumula puntos por tus aciertos y canjéalos por increíbles recompensas.
+            </p>
+          </div>
         </div>
       </div>
     </div>
   </section>
   
   <!-- Ligas -->
-  <section class="section-padding">
+  <section class="section-padding videntes-ligas-section">
     <div class="container-custom">
-      <div class="text-center max-w-3xl mx-auto mb-16">
+      <!-- Header móvil -->
+      <div class="text-center max-w-3xl mx-auto mb-16 lg:hidden videntes-ligas-header">
         <h2 class="heading-lg mb-4">Ligas <span class="text-[var(--color-accent-green)]">disponibles</span></h2>
         <p class="text-[var(--color-text-secondary)]">
           Haz predicciones en las ligas más importantes del mundo.
         </p>
       </div>
       
-      <div class="grid grid-cols-2 md:grid-cols-4 lg:grid-cols-6 gap-4">
-        <div class="card text-center py-6">
-          <span class="text-3xl mb-2 block">🇪🇸</span>
+      <!-- Header desktop centrado con espaciado -->
+      <div class="hidden lg:flex flex-col items-center justify-center text-center" style="padding: 1.5rem 0; margin-bottom: 1.5rem;">
+        <h2 class="heading-lg mb-4">Ligas <span class="text-[var(--color-accent-green)]">disponibles</span></h2>
+        <p class="text-[var(--color-text-secondary)]">
+          Haz predicciones en las ligas más importantes del mundo.
+        </p>
+      </div>
+      
+      <!-- Tarjetas móvil -->
+      <div class="grid grid-cols-2 md:grid-cols-4 lg:grid-cols-6 gap-4 lg:hidden videntes-ligas-grid">
+        <div class="card text-center py-6 videntes-liga-card">
+          <span class="videntes-liga-ball">⚽</span>
+          <span class="text-3xl mb-2 block videntes-liga-icon">🇪🇸</span>
+          <span class="videntes-liga-code">ES</span>
+          <p class="text-sm text-white font-medium videntes-liga-name">La Liga</p>
+        </div>
+        <div class="card text-center py-6 videntes-liga-card">
+          <span class="videntes-liga-ball">⚽</span>
+          <span class="text-3xl mb-2 block videntes-liga-icon">🏴󠁧󠁢󠁥󠁮󠁧󠁿</span>
+          <span class="videntes-liga-code">EN</span>
+          <p class="text-sm text-white font-medium videntes-liga-name">Premier League</p>
+        </div>
+        <div class="card text-center py-6 videntes-liga-card">
+          <span class="videntes-liga-ball">⚽</span>
+          <span class="text-3xl mb-2 block videntes-liga-icon">🇮🇹</span>
+          <span class="videntes-liga-code">IT</span>
+          <p class="text-sm text-white font-medium videntes-liga-name">Serie A</p>
+        </div>
+        <div class="card text-center py-6 videntes-liga-card">
+          <span class="videntes-liga-ball">⚽</span>
+          <span class="text-3xl mb-2 block videntes-liga-icon">🇩🇪</span>
+          <span class="videntes-liga-code">DE</span>
+          <p class="text-sm text-white font-medium videntes-liga-name">Bundesliga</p>
+        </div>
+        <div class="card text-center py-6 videntes-liga-card">
+          <span class="videntes-liga-ball">⚽</span>
+          <span class="text-3xl mb-2 block videntes-liga-icon">🇫🇷</span>
+          <span class="videntes-liga-code">FR</span>
+          <p class="text-sm text-white font-medium videntes-liga-name">Ligue 1</p>
+        </div>
+        <div class="card text-center py-6 videntes-liga-card">
+          <span class="videntes-liga-ball">⚽</span>
+          <span class="text-3xl mb-2 block videntes-liga-icon">🇨🇴</span>
+          <span class="videntes-liga-code">CO</span>
+          <p class="text-sm text-white font-medium videntes-liga-name">Liga BetPlay</p>
+        </div>
+      </div>
+      
+      <!-- Tarjetas desktop con degradado y sombra -->
+      <div class="hidden lg:grid grid-cols-6 gap-4" style="margin-bottom: 4rem;">
+        <div class="card text-center py-6" style="box-shadow: 0 0 15px rgba(0, 255, 136, 0.3), 0 0 30px rgba(0, 255, 200, 0.15);">
+          <span class="block mb-2" style="font-size: 24px;">⚽</span>
+          <span class="text-2xl font-bold block mb-1" style="background: linear-gradient(135deg, #00FF88 0%, #00FFDD 100%); -webkit-background-clip: text; -webkit-text-fill-color: transparent; background-clip: text;">ES</span>
           <p class="text-sm text-white font-medium">La Liga</p>
         </div>
-        <div class="card text-center py-6">
-          <span class="text-3xl mb-2 block">🏴󠁧󠁢󠁥󠁮󠁧󠁿</span>
+        <div class="card text-center py-6" style="box-shadow: 0 0 15px rgba(0, 255, 136, 0.3), 0 0 30px rgba(0, 255, 200, 0.15);">
+          <span class="block mb-2" style="font-size: 24px;">⚽</span>
+          <span class="text-2xl font-bold block mb-1" style="background: linear-gradient(135deg, #00FF88 0%, #00FFDD 100%); -webkit-background-clip: text; -webkit-text-fill-color: transparent; background-clip: text;">UK</span>
           <p class="text-sm text-white font-medium">Premier League</p>
         </div>
-        <div class="card text-center py-6">
-          <span class="text-3xl mb-2 block">🇮🇹</span>
+        <div class="card text-center py-6" style="box-shadow: 0 0 15px rgba(0, 255, 136, 0.3), 0 0 30px rgba(0, 255, 200, 0.15);">
+          <span class="block mb-2" style="font-size: 24px;">⚽</span>
+          <span class="text-2xl font-bold block mb-1" style="background: linear-gradient(135deg, #00FF88 0%, #00FFDD 100%); -webkit-background-clip: text; -webkit-text-fill-color: transparent; background-clip: text;">IT</span>
           <p class="text-sm text-white font-medium">Serie A</p>
         </div>
-        <div class="card text-center py-6">
-          <span class="text-3xl mb-2 block">🇩🇪</span>
+        <div class="card text-center py-6" style="box-shadow: 0 0 15px rgba(0, 255, 136, 0.3), 0 0 30px rgba(0, 255, 200, 0.15);">
+          <span class="block mb-2" style="font-size: 24px;">⚽</span>
+          <span class="text-2xl font-bold block mb-1" style="background: linear-gradient(135deg, #00FF88 0%, #00FFDD 100%); -webkit-background-clip: text; -webkit-text-fill-color: transparent; background-clip: text;">DE</span>
           <p class="text-sm text-white font-medium">Bundesliga</p>
         </div>
-        <div class="card text-center py-6">
-          <span class="text-3xl mb-2 block">🇫🇷</span>
+        <div class="card text-center py-6" style="box-shadow: 0 0 15px rgba(0, 255, 136, 0.3), 0 0 30px rgba(0, 255, 200, 0.15);">
+          <span class="block mb-2" style="font-size: 24px;">⚽</span>
+          <span class="text-2xl font-bold block mb-1" style="background: linear-gradient(135deg, #00FF88 0%, #00FFDD 100%); -webkit-background-clip: text; -webkit-text-fill-color: transparent; background-clip: text;">FR</span>
           <p class="text-sm text-white font-medium">Ligue 1</p>
         </div>
-        <div class="card text-center py-6">
-          <span class="text-3xl mb-2 block">🇨🇴</span>
+        <div class="card text-center py-6" style="box-shadow: 0 0 15px rgba(0, 255, 136, 0.3), 0 0 30px rgba(0, 255, 200, 0.15);">
+          <span class="block mb-2" style="font-size: 24px;">⚽</span>
+          <span class="text-2xl font-bold block mb-1" style="background: linear-gradient(135deg, #00FF88 0%, #00FFDD 100%); -webkit-background-clip: text; -webkit-text-fill-color: transparent; background-clip: text;">CO</span>
           <p class="text-sm text-white font-medium">Liga BetPlay</p>
         </div>
       </div>
@@ -151,16 +316,31 @@ import MainLayout from '../../layouts/MainLayout.astro';
   </section>
   
   <!-- CTA -->
-  <section class="section-padding bg-[var(--color-bg-darker)]">
+  <section class="section-padding bg-[var(--color-bg-darker)] videntes-cta-section">
     <div class="container-custom">
-      <div class="card p-12 text-center relative overflow-hidden">
+      <!-- CTA móvil -->
+      <div class="card p-12 text-center relative overflow-hidden lg:hidden videntes-cta-card">
         <div class="absolute inset-0 bg-[var(--color-accent-green)]/10"></div>
         <div class="relative z-10">
-          <h2 class="heading-lg mb-4">¿Eres un vidente del fútbol?</h2>
+          <h2 class="heading-lg mb-4 videntes-cta-title"><span class="videntes-question-mark">¿</span>Eres un vidente del fútbol<span class="videntes-question-mark">?</span></h2>
           <p class="text-[var(--color-text-secondary)] mb-8 max-w-2xl mx-auto">
             Demuéstralo. Únete a Videntes del Fútbol y convierte tu conocimiento en recompensas.
           </p>
-          <a href="/#contacto" class="btn-primary inline-flex" style="background: var(--color-accent-green); color: #000;">
+          <a href="/#contacto" class="btn-primary inline-flex videntes-cta-btn" style="background: linear-gradient(135deg, #00FF88 0%, #00FFAA 50%, #00FFDD 100%); color: #000; box-shadow: 0 0 20px rgba(0, 255, 136, 0.5), 0 0 40px rgba(0, 255, 200, 0.3);">
+            Solicitar información
+          </a>
+        </div>
+      </div>
+      
+      <!-- CTA desktop -->
+      <div class="hidden lg:block card p-12 text-center relative overflow-hidden" style="margin-bottom: 4rem;">
+        <div class="absolute inset-0 bg-[var(--color-accent-green)]/10"></div>
+        <div class="relative z-10 flex flex-col items-center justify-center">
+          <h2 class="heading-lg" style="margin-bottom: 2rem;">¿Eres un vidente del fútbol?</h2>
+          <p class="text-[var(--color-text-secondary)] max-w-2xl mx-auto" style="margin-bottom: 3rem;">
+            Demuéstralo. Únete a Videntes del Fútbol y convierte tu conocimiento en recompensas.
+          </p>
+          <a href="/#contacto" class="btn-primary inline-flex" style="background: linear-gradient(135deg, #00FF88 0%, #00FFAA 50%, #00FFDD 100%); color: #000; box-shadow: 0 0 20px rgba(0, 255, 136, 0.5), 0 0 40px rgba(0, 255, 200, 0.3);">
             Solicitar información
           </a>
         </div>

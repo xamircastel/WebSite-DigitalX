@@ -97,12 +97,12 @@ const colorClasses: Record<string, {bg: string, text: string, border: string}> =
 };
 ---
 
-<section id="productos" class="section-padding" style="margin-top: 3rem;">
+<section id="productos" class="section-padding productos-section">
   <div class="container-custom">
     
     <!-- Header de sección -->
     <div class="text-center mb-16 animate-on-scroll">
-      <span class="inline-block text-[var(--color-primary)] text-sm font-semibold uppercase tracking-widest mb-4">
+      <span class="inline-block text-[var(--color-primary)] text-sm font-semibold uppercase tracking-widest mb-4 products-section-label">
         Nuestros Productos
       </span>
       <h2 class="heading-lg mb-6">
@@ -115,7 +115,7 @@ const colorClasses: Record<string, {bg: string, text: string, border: string}> =
     </div>
     
     <!-- Products Grid -->
-    <div class="grid md:grid-cols-2 lg:grid-cols-3 gap-6">
+    <div class="grid md:grid-cols-2 lg:grid-cols-3 gap-6 products-grid">
       {products.map((product, index) => (
         <a 
           href={`https://digital-x.com.co/productos/${product.slug}/`}
@@ -204,3 +204,16 @@ const colorClasses: Record<string, {bg: string, text: string, border: string}> =
     
   </div>
 </section>
+
+<style>
+  .productos-section {
+    margin-top: 3rem;
+  }
+  
+  @media (min-width: 1024px) {
+    .productos-section {
+      margin-top: 6rem;
+      margin-bottom: 6rem;
+    }
+  }
+</style>

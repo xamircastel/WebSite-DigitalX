@@ -1,6 +1,11 @@
 ---
 // Contact Section - Formulario de contacto
+// IMPORTANTE: Reemplaza TU_SITE_KEY con tu clave de Google reCAPTCHA v2
+const RECAPTCHA_SITE_KEY = "6LeIxAcTAAAAAJcZVRqyHh71UMIEGNQ_MXjiZKhI"; // Clave de prueba - reemplazar en producción
 ---
+
+<!-- Script de reCAPTCHA -->
+<script src="https://www.google.com/recaptcha/api.js" async defer></script>
 
 <section id="contacto" class="section-padding lg:mb-16 contact-section">
   <div class="container-custom">
@@ -154,6 +159,11 @@
                 class="w-full px-4 py-3 rounded-xl bg-[var(--color-bg-darker)] border border-white/10 text-white placeholder-[var(--color-text-muted)] focus:border-[var(--color-primary)] focus:ring-1 focus:ring-[var(--color-primary)] outline-none transition-all resize-none"
                 placeholder="¿En qué podemos ayudarte?"
               ></textarea>
+            </div>
+            
+            <!-- reCAPTCHA -->
+            <div class="flex justify-center">
+              <div class="g-recaptcha" data-sitekey={RECAPTCHA_SITE_KEY} data-theme="dark"></div>
             </div>
             
             <!-- Submit -->
