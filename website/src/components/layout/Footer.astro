@@ -1,5 +1,12 @@
 ---
 // Footer con información de contacto y enlaces
+import { t, getLocalizedPath, type Lang, defaultLang } from '../../i18n/utils';
+
+interface Props {
+  lang?: Lang;
+}
+
+const { lang = defaultLang } = Astro.props;
 const currentYear = new Date().getFullYear();
 ---
 
@@ -16,9 +23,7 @@ const currentYear = new Date().getFullYear();
           class="h-12 w-auto mb-6"
         />
         <p class="text-[var(--color-text-secondary)] max-w-md leading-relaxed">
-          Innovación en servicios digitales de entretenimiento. Desarrollamos productos 
-          digitales de alto impacto, accesibles a través de operadoras móviles y pasarelas 
-          de pago en América Latina.
+          {t(lang, 'footer.description')}
         </p>
         
         <!-- Redes sociales -->
@@ -47,19 +52,19 @@ const currentYear = new Date().getFullYear();
       
       <!-- Productos -->
       <div>
-        <h4 class="text-white font-semibold mb-6 text-lg">Productos</h4>
+        <h4 class="text-white font-semibold mb-6 text-lg">{t(lang, 'footer.productsTitle')}</h4>
         <ul class="space-y-3">
-          <li><a href="/productos/lala-ai" class="footer-link">LALA AI</a></li>
-          <li><a href="/productos/vclub" class="footer-link">VClub</a></li>
-          <li><a href="/productos/xafrachat" class="footer-link">XafraChat</a></li>
-          <li><a href="/productos/hotsimp" class="footer-link">HotSimp</a></li>
-          <li><a href="/productos/videntes" class="footer-link">Videntes del Fútbol</a></li>
+          <li><a href={getLocalizedPath(lang, '/productos/lala-ai')} class="footer-link">LALA AI</a></li>
+          <li><a href={getLocalizedPath(lang, '/productos/vclub')} class="footer-link">VClub</a></li>
+          <li><a href={getLocalizedPath(lang, '/productos/xafrachat')} class="footer-link">XafraChat</a></li>
+          <li><a href={getLocalizedPath(lang, '/productos/hotsimp')} class="footer-link">HotSimp</a></li>
+          <li><a href={getLocalizedPath(lang, '/productos/videntes-futbol')} class="footer-link">Videntes del Fútbol</a></li>
         </ul>
       </div>
       
       <!-- Contacto -->
       <div>
-        <h4 class="text-white font-semibold mb-6 text-lg">Contacto</h4>
+        <h4 class="text-white font-semibold mb-6 text-lg">{t(lang, 'footer.contactTitle')}</h4>
         <ul class="space-y-4">
           <li class="flex items-start gap-3">
             <svg xmlns="http://www.w3.org/2000/svg" width="20" height="20" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2" stroke-linecap="round" stroke-linejoin="round" class="text-[var(--color-primary)] shrink-0 mt-1">
@@ -76,7 +81,7 @@ const currentYear = new Date().getFullYear();
               <circle cx="12" cy="10" r="3"></circle>
             </svg>
             <span class="text-[var(--color-text-secondary)]">
-              Colombia • Perú • Chile
+              {t(lang, 'contact.locations')}
             </span>
           </li>
         </ul>
@@ -88,14 +93,14 @@ const currentYear = new Date().getFullYear();
   <div class="border-t border-white/5 footer-copyright">
     <div class="container-custom py-6 flex flex-col md:flex-row justify-between items-center gap-4">
       <p class="text-[var(--color-text-muted)] text-sm">
-        © {currentYear} Digital-X. Todos los derechos reservados.
+        {t(lang, 'footer.copyright').replace('{year}', currentYear.toString())}
       </p>
       <div class="flex gap-6 text-sm">
         <a href="#" class="text-[var(--color-text-muted)] hover:text-white transition-colors">
-          Términos y condiciones
+          {t(lang, 'footer.terms')}
         </a>
         <a href="#" class="text-[var(--color-text-muted)] hover:text-white transition-colors">
-          Política de privacidad
+          {t(lang, 'footer.privacy')}
         </a>
       </div>
     </div>

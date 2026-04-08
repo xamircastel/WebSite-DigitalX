@@ -1,0 +1,15 @@
+---
+import MainLayout from '../../../layouts/MainLayout.astro';
+import XafraChatPage from '../../../components/products/XafraChatPage.astro';
+import { t, type Lang } from '../../../i18n/utils';
+
+const lang: Lang = 'hi';
+---
+
+<MainLayout 
+  lang={lang}
+  title={t(lang, 'xafra.metaTitle')}
+  description={t(lang, 'xafra.metaDesc')}
+>
+  <XafraChatPage lang={lang} />
+</MainLayout>

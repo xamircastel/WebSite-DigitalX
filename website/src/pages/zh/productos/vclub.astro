@@ -1,0 +1,15 @@
+---
+import MainLayout from '../../../layouts/MainLayout.astro';
+import VClubPage from '../../../components/products/VClubPage.astro';
+import { t, type Lang } from '../../../i18n/utils';
+
+const lang: Lang = 'zh';
+---
+
+<MainLayout 
+  lang={lang}
+  title={t(lang, 'vclub.metaTitle')}
+  description={t(lang, 'vclub.metaDesc')}
+>
+  <VClubPage lang={lang} />
+</MainLayout>

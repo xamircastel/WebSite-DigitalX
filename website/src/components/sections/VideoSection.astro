@@ -1,16 +1,21 @@
 ---
 // Video Section - Video de LALA AI destacado
+import { t, formatText, type Lang, defaultLang } from '../../i18n/utils';
+
 interface Props {
   videoId?: string;
   title?: string;
   description?: string;
+  lang?: Lang;
 }
 
 const { 
   videoId = "_1cUAEq2rpM",
-  title = "Descubre LALA AI en acción",
-  description = "Mira cómo LALA AI revoluciona la forma de interactuar con la inteligencia artificial."
+  lang = defaultLang
 } = Astro.props;
+
+const title = Astro.props.title || formatText(t(lang, 'video.title'));
+const description = Astro.props.description || t(lang, 'video.description');
 ---
 
 <section id="video-lala" class="section-padding bg-[var(--color-bg-darker)]">
@@ -19,9 +24,9 @@ const {
     <!-- Header -->
     <div class="text-center mb-12 animate-on-scroll">
       <span class="inline-block text-[var(--color-primary)] text-sm font-semibold uppercase tracking-widest mb-4">
-        Ver Demo
+        {t(lang, 'video.badge')}
       </span>
-      <h2 class="heading-lg mb-6 video-section-title">{title}</h2>
+      <h2 class="heading-lg mb-6 video-section-title" set:html={title} />
       <p class="text-[var(--color-text-secondary)] text-lg">{description}</p>
     </div>
     
@@ -36,7 +41,7 @@ const {
           <div class="aspect-video">
             <iframe
               src={`https://www.youtube.com/embed/${videoId}?rel=0&modestbranding=1`}
-              title={title}
+              title={title.replace(/<[^>]*>/g, '')}
               frameborder="0"
               allow="accelerometer; autoplay; clipboard-write; encrypted-media; gyroscope; picture-in-picture; web-share"
               referrerpolicy="strict-origin-when-cross-origin"
@@ -50,7 +55,7 @@ const {
     </div>
     
     <!-- Features bajo el video -->
-    <div class="grid md:grid-cols-3 gap-8" style="margin-top: 2rem;">
+    <div class="grid md:grid-cols-3 gap-8 mt-8 lg:mt-12">
       <div class="flex flex-col items-center text-center animate-on-scroll" style="animation-delay: 0.1s;">
         <div class="w-12 h-12 rounded-full bg-[var(--color-primary)]/10 flex items-center justify-center mb-4">
           <svg xmlns="http://www.w3.org/2000/svg" width="24" height="24" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2" class="text-[var(--color-primary)]">
@@ -59,8 +64,8 @@ const {
             <path d="m14 12-4 2.5V9.5L14 12z"></path>
           </svg>
         </div>
-        <h3 class="text-white font-semibold mb-2">Interfaz Intuitiva</h3>
-        <p class="text-sm text-[var(--color-text-secondary)]">Diseñada para ser fácil de usar desde el primer momento.</p>
+        <h3 class="text-white font-semibold mb-2">{t(lang, 'video.feat1Title')}</h3>
+        <p class="text-sm text-[var(--color-text-secondary)]">{t(lang, 'video.feat1Desc')}</p>
       </div>
       
       <div class="flex flex-col items-center text-center animate-on-scroll" style="animation-delay: 0.2s;">
@@ -69,8 +74,8 @@ const {
             <path d="M13 2 3 14h9l-1 8 10-12h-9l1-8z"></path>
           </svg>
         </div>
-        <h3 class="text-white font-semibold mb-2">Respuestas Rápidas</h3>
-        <p class="text-sm text-[var(--color-text-secondary)]">Obtén respuestas instantáneas de los mejores modelos de IA.</p>
+        <h3 class="text-white font-semibold mb-2">{t(lang, 'video.feat2Title')}</h3>
+        <p class="text-sm text-[var(--color-text-secondary)]">{t(lang, 'video.feat2Desc')}</p>
       </div>
       
       <div class="flex flex-col items-center text-center animate-on-scroll" style="animation-delay: 0.3s;">
@@ -79,8 +84,8 @@ const {
             <path d="M12 2v20M17 5H9.5a3.5 3.5 0 0 0 0 7h5a3.5 3.5 0 0 1 0 7H6"></path>
           </svg>
         </div>
-        <h3 class="text-white font-semibold mb-2">Ahorro Real</h3>
-        <p class="text-sm text-[var(--color-text-secondary)]">Hasta 50% más económico que usar las APIs directamente.</p>
+        <h3 class="text-white font-semibold mb-2">{t(lang, 'video.feat3Title')}</h3>
+        <p class="text-sm text-[var(--color-text-secondary)]">{t(lang, 'video.feat3Desc')}</p>
       </div>
     </div>
     

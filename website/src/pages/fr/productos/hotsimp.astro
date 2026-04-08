@@ -1,0 +1,15 @@
+---
+import MainLayout from '../../../layouts/MainLayout.astro';
+import HotSimpPage from '../../../components/products/HotSimpPage.astro';
+import { t, type Lang } from '../../../i18n/utils';
+
+const lang: Lang = 'fr';
+---
+
+<MainLayout 
+  lang={lang}
+  title={t(lang, 'hotsimp.metaTitle')}
+  description={t(lang, 'hotsimp.metaDesc')}
+>
+  <HotSimpPage lang={lang} />
+</MainLayout>

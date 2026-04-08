@@ -1,0 +1,174 @@
+---
+import { t, formatText, getLocalizedPath, type Lang } from '../../i18n/utils';
+
+interface Props {
+  lang?: Lang;
+}
+
+const { lang = 'es' } = Astro.props;
+---
+
+  <!-- Hero -->
+  <section class="relative min-h-[70vh] flex items-center pt-24 lg:pb-16 overflow-hidden">
+    <div class="absolute inset-0 bg-[var(--color-bg-dark)]">
+      <div class="absolute inset-0 opacity-20" style="background-image: linear-gradient(rgba(0, 217, 255, 0.1) 1px, transparent 1px), linear-gradient(90deg, rgba(0, 217, 255, 0.1) 1px, transparent 1px); background-size: 50px 50px;"></div>
+      <div class="absolute top-1/4 right-1/4 w-[600px] h-[600px] lg:w-[900px] lg:h-[900px] bg-[var(--color-secondary)] rounded-full filter blur-[200px] lg:blur-[300px] opacity-20 lg:opacity-30"></div>
+      <div class="absolute bottom-0 left-0 w-[400px] h-[400px] lg:w-[700px] lg:h-[700px] bg-[var(--color-primary)] rounded-full filter blur-[200px] lg:blur-[250px] opacity-0 lg:opacity-20"></div>
+    </div>
+    
+    <div class="container-custom relative z-10">
+      <div class="grid lg:grid-cols-2 gap-12 items-center">
+        <div>
+          <nav class="flex items-center gap-2 text-sm text-[var(--color-text-muted)] mb-8">
+            <a href={getLocalizedPath(lang, '/')} class="hover:text-white transition-colors">{t(lang, 'common.breadcrumbHome')}</a>
+            <span>/</span>
+            <a href={getLocalizedPath(lang, '/#productos')} class="hover:text-white transition-colors">{t(lang, 'common.breadcrumbProducts')}</a>
+            <span>/</span>
+            <span class="text-[var(--color-secondary)]">VClub</span>
+          </nav>
+          
+          <div class="mb-6 vclub-logo">
+            <img 
+              src="/images/vclub-logo.svg" 
+              alt="VClub" 
+              class="h-16 md:h-20 w-auto"
+            />
+          </div>
+          
+          <p class="text-xl text-[var(--color-text-secondary)] mb-8 leading-relaxed vclub-description" set:html={formatText(t(lang, 'vclub.desc'))} />
+          
+          <div class="grid grid-cols-3 gap-4 mb-8 vclub-stats">
+            <div class="text-center p-4 rounded-xl bg-white/5 border border-white/10">
+              <div class="text-2xl font-bold text-[var(--color-secondary)]">10+</div>
+              <div class="text-xs text-[var(--color-text-muted)]">{t(lang, 'vclub.stat1Label')}</div>
+            </div>
+            <div class="text-center p-4 rounded-xl bg-white/5 border border-white/10">
+              <div class="text-2xl font-bold text-[var(--color-secondary)]">∞</div>
+              <div class="text-xs text-[var(--color-text-muted)]">{t(lang, 'vclub.stat2Label')}</div>
+            </div>
+            <div class="text-center p-4 rounded-xl bg-white/5 border border-white/10">
+              <div class="text-2xl font-bold text-[var(--color-secondary)]">1</div>
+              <div class="text-xs text-[var(--color-text-muted)]">{t(lang, 'vclub.stat3Label')}</div>
+            </div>
+          </div>
+          
+          <div class="flex flex-wrap gap-4 vclub-buttons">
+            <a href="#video" class="btn-primary vclub-btn-primary" style="background: var(--color-secondary);">
+              {t(lang, 'vclub.ctaDemo')}
+              <svg xmlns="http://www.w3.org/2000/svg" width="18" height="18" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2" class="ml-2">
+                <polygon points="5 3 19 12 5 21 5 3"></polygon>
+              </svg>
+            </a>
+            <a href={getLocalizedPath(lang, '/#contacto')} class="btn-secondary vclub-btn-secondary">
+              {t(lang, 'vclub.ctaInfo')}
+            </a>
+          </div>
+        </div>
+        
+        <div class="relative flex items-center justify-center">
+          <div class="absolute inset-0 bg-[var(--color-secondary)] rounded-full filter blur-[100px] opacity-30 animate-pulse"></div>
+          <img 
+            src="/images/vclub-preview.png" 
+            alt="VClub Preview" 
+            class="relative w-72 h-auto md:w-80 md:h-80 rounded-3xl shadow-2xl object-contain vclub-preview-img"
+          />
+        </div>
+      </div>
+    </div>
+  </section>
+  
+  <!-- Características -->
+  <section class="section-padding bg-[var(--color-bg-darker)] vclub-features-section">
+    <div class="container-custom">
+      <div class="text-center max-w-3xl mx-auto mb-16 vclub-features-header">
+        <h2 class="heading-lg mb-4" set:html={formatText(t(lang, 'vclub.featTitle'))} />
+        <p class="text-[var(--color-text-secondary)]">
+          {t(lang, 'vclub.featDesc')}
+        </p>
+      </div>
+      
+      <div class="grid md:grid-cols-3 gap-8 vclub-steps-grid">
+        <div class="card text-center vclub-step-card">
+          <div class="vclub-step-header">
+            <div class="w-20 h-20 mx-auto mb-6 rounded-full bg-[var(--color-secondary)]/10 flex items-center justify-center vclub-step-number-container">
+              <span class="text-3xl font-bold text-[var(--color-secondary)] vclub-step-number">1</span>
+            </div>
+            <h3 class="text-xl font-bold text-white mb-3 vclub-step-title">{t(lang, 'vclub.step1Title')}</h3>
+          </div>
+          <p class="text-[var(--color-text-secondary)] vclub-step-description">
+            {t(lang, 'vclub.step1Desc')}
+          </p>
+        </div>
+        
+        <div class="card text-center vclub-step-card">
+          <div class="vclub-step-header">
+            <div class="w-20 h-20 mx-auto mb-6 rounded-full bg-[var(--color-secondary)]/10 flex items-center justify-center vclub-step-number-container">
+              <span class="text-3xl font-bold text-[var(--color-secondary)] vclub-step-number">2</span>
+            </div>
+            <h3 class="text-xl font-bold text-white mb-3 vclub-step-title">{t(lang, 'vclub.step2Title')}</h3>
+          </div>
+          <p class="text-[var(--color-text-secondary)] vclub-step-description">
+            {t(lang, 'vclub.step2Desc')}
+          </p>
+        </div>
+        
+        <div class="card text-center vclub-step-card">
+          <div class="vclub-step-header">
+            <div class="w-20 h-20 mx-auto mb-6 rounded-full bg-[var(--color-secondary)]/10 flex items-center justify-center vclub-step-number-container">
+              <span class="text-3xl font-bold text-[var(--color-secondary)] vclub-step-number">3</span>
+            </div>
+            <h3 class="text-xl font-bold text-white mb-3 vclub-step-title">{t(lang, 'vclub.step3Title')}</h3>
+          </div>
+          <p class="text-[var(--color-text-secondary)] vclub-step-description">
+            {t(lang, 'vclub.step3Desc')}
+          </p>
+        </div>
+      </div>
+    </div>
+  </section>
+  
+  <!-- Video -->
+  <section id="video" class="section-padding vclub-video-section">
+    <div class="container-custom">
+      <div class="text-center max-w-3xl mx-auto mb-12 vclub-video-header">
+        <h2 class="heading-lg mb-4" set:html={formatText(t(lang, 'vclub.videoTitle'))} />
+      </div>
+      
+      <div class="max-w-4xl mx-auto">
+        <div class="relative group">
+          <div class="absolute -inset-4 bg-[var(--color-secondary)] rounded-3xl opacity-20 blur-xl"></div>
+          <div class="relative glass rounded-2xl overflow-hidden">
+            <div class="aspect-video">
+              <iframe
+                src="https://www.youtube.com/embed/mCBQKuIoVCo?rel=0&modestbranding=1"
+                title="VClub Demo"
+                frameborder="0"
+                allow="accelerometer; autoplay; clipboard-write; encrypted-media; gyroscope; picture-in-picture; web-share"
+                allowfullscreen
+                class="w-full h-full"
+                loading="lazy"
+              ></iframe>
+            </div>
+          </div>
+        </div>
+      </div>
+    </div>
+  </section>
+  
+  <!-- CTA -->
+  <section class="section-padding bg-[var(--color-bg-darker)]">
+    <div class="container-custom">
+      <div class="card p-12 text-center relative overflow-hidden">
+        <div class="absolute inset-0 bg-[var(--color-secondary)]/10"></div>
+        <div class="relative z-10">
+          <h2 class="heading-lg mb-4">{t(lang, 'vclub.ctaTitle')}</h2>
+          <p class="text-[var(--color-text-secondary)] mb-8 max-w-2xl mx-auto vclub-cta-text">
+            {t(lang, 'vclub.ctaDesc')}
+          </p>
+          <a href={getLocalizedPath(lang, '/#contacto')} class="btn-primary inline-flex vclub-cta-btn" style="background: var(--color-secondary);">
+            {t(lang, 'vclub.ctaInfo')}
+          </a>
+        </div>
+      </div>
+    </div>
+  </section>

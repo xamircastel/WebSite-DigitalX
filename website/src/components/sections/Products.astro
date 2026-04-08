@@ -1,5 +1,13 @@
 ---
 // Products Section - Grid de productos Digital-X
+import { t, formatText, getLocalizedPath, type Lang, defaultLang } from '../../i18n/utils';
+
+interface Props {
+  lang?: Lang;
+}
+
+const { lang = defaultLang } = Astro.props;
+
 interface Product {
   name: string;
   slug: string;
@@ -8,52 +16,52 @@ interface Product {
   icon: string;
   color: string;
   featured?: boolean;
-  customIcon?: string; // Ruta a imagen personalizada
+  customIcon?: string;
 }
 
 const products: Product[] = [
   {
-    name: "LALA AI",
+    name: t(lang, 'products.lala.name'),
     slug: "lala-ai",
-    tagline: "La IA en tu bolsillo",
-    description: "Genera imágenes increíbles, genera video desde una descripción o convierte una imagen en video.",
+    tagline: t(lang, 'products.lala.tagline'),
+    description: t(lang, 'products.lala.description'),
     icon: "brain",
     color: "primary",
     featured: true,
     customIcon: "/images/icon-lala-ai.svg"
   },
   {
-    name: "VClub",
+    name: t(lang, 'products.vclub.name'),
     slug: "vclub",
-    tagline: "Tu streaming, tus reglas",
-    description: "Suscripción de streaming con créditos para múltiples plataformas. Entretenimiento sin límites.",
+    tagline: t(lang, 'products.vclub.tagline'),
+    description: t(lang, 'products.vclub.description'),
     icon: "play",
     color: "secondary",
     customIcon: "/images/icon-vclub.svg"
   },
   {
-    name: "XafraChat",
+    name: t(lang, 'products.xafrachat.name'),
     slug: "xafrachat",
-    tagline: "Conexiones en vivo",
-    description: "Plataforma de live streaming para adultos. Contenido exclusivo y en tiempo real.",
+    tagline: t(lang, 'products.xafrachat.tagline'),
+    description: t(lang, 'products.xafrachat.description'),
     icon: "video",
     color: "pink",
     customIcon: "/images/icon-xafrachat.png"
   },
   {
-    name: "HotSimp",
+    name: t(lang, 'products.hotsimp.name'),
     slug: "hotsimp",
-    tagline: "Contenido exclusivo",
-    description: "Plataforma de contenido para adultos estilo suscripción. Creadores y fans conectados.",
+    tagline: t(lang, 'products.hotsimp.tagline'),
+    description: t(lang, 'products.hotsimp.description'),
     icon: "heart",
     color: "orange",
     customIcon: "/images/icon-hotsimp.png"
   },
   {
-    name: "Videntes del Fútbol",
+    name: t(lang, 'products.videntes.name'),
     slug: "videntes-futbol",
-    tagline: "Predice y gana",
-    description: "Predicciones de fútbol con recompensas. Demuestra tu conocimiento y gana premios.",
+    tagline: t(lang, 'products.videntes.tagline'),
+    description: t(lang, 'products.videntes.description'),
     icon: "trophy",
     color: "green",
     customIcon: "/images/icon-videntes.png"
@@ -97,20 +105,17 @@ const colorClasses: Record<string, {bg: string, text: string, border: string}> =
 };
 ---
 
-<section id="productos" class="section-padding" style="margin-top: 3rem;">
+<section id="productos" class="section-padding mt-12 lg:mt-16">
   <div class="container-custom">
     
     <!-- Header de sección -->
     <div class="text-center mb-16 animate-on-scroll">
       <span class="inline-block text-[var(--color-primary)] text-sm font-semibold uppercase tracking-widest mb-4 products-section-label">
-        Nuestros Productos
+        {t(lang, 'products.label')}
       </span>
-      <h2 class="heading-lg mb-6">
-        Soluciones <span class="text-gradient">digitales</span> para todos
-      </h2>
+      <h2 class="heading-lg mb-6" set:html={formatText(t(lang, 'products.title'))} />
       <p class="text-[var(--color-text-secondary)] text-lg">
-        Desde inteligencia artificial hasta entretenimiento, nuestros productos 
-        están diseñados para mejorar tu experiencia digital.
+        {t(lang, 'products.description')}
       </p>
     </div>
     
@@ -118,7 +123,7 @@ const colorClasses: Record<string, {bg: string, text: string, border: string}> =
     <div class="grid md:grid-cols-2 lg:grid-cols-3 gap-6 products-grid">
       {products.map((product, index) => (
         <a 
-          href={`https://digital-x.com.co/productos/${product.slug}/`}
+          href={getLocalizedPath(lang, `/productos/${product.slug}/`)}
           class:list={[
             "group relative card overflow-hidden animate-on-scroll",
             product.featured && "md:col-span-2 lg:col-span-1 ring-2 ring-[var(--color-primary)]/50"
@@ -128,7 +133,7 @@ const colorClasses: Record<string, {bg: string, text: string, border: string}> =
           {/* Featured badge */}
           {product.featured && (
             <div class="absolute top-4 right-4 bg-[var(--color-primary)] text-white text-xs font-bold px-3 py-1 rounded-full">
-              ⭐ Destacado
+              {t(lang, 'products.featured')}
             </div>
           )}
           
@@ -177,7 +182,7 @@ const colorClasses: Record<string, {bg: string, text: string, border: string}> =
           
           {/* CTA */}
           <div class="flex items-center text-sm font-medium text-white group-hover:text-[var(--color-primary)] transition-colors">
-            <span>Conocer más</span>
+            <span>{t(lang, 'products.cta')}</span>
             <svg 
               xmlns="http://www.w3.org/2000/svg" 
               width="16" 

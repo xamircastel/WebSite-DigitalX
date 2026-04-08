@@ -1,5 +1,12 @@
 ---
 // Hero Section - LALA AI destacado como producto principal
+import { t, formatText, getLocalizedPath, type Lang, defaultLang } from '../../i18n/utils';
+
+interface Props {
+  lang?: Lang;
+}
+
+const { lang = defaultLang } = Astro.props;
 ---
 
 <section class="relative min-h-screen flex items-center justify-center">
@@ -9,8 +16,8 @@
     <div class="absolute inset-0 opacity-20 -z-10" style="background-image: linear-gradient(rgba(108, 92, 231, 0.1) 1px, transparent 1px), linear-gradient(90deg, rgba(108, 92, 231, 0.1) 1px, transparent 1px); background-size: 50px 50px;"></div>
     
     <!-- Glow effects -->
-    <div class="absolute top-1/4 left-1/4 w-96 h-96 bg-[var(--color-primary)] rounded-full filter blur-[150px] opacity-20 animate-pulse -z-10"></div>
-    <div class="absolute bottom-1/4 right-1/4 w-96 h-96 bg-[var(--color-secondary)] rounded-full filter blur-[150px] opacity-15 animate-pulse -z-10" style="animation-delay: 1s;"></div>
+    <div class="absolute top-1/4 left-1/4 w-96 h-96 lg:w-[800px] lg:h-[800px] bg-[var(--color-primary)] rounded-full filter blur-[150px] lg:blur-[250px] opacity-20 lg:opacity-30 animate-pulse -z-10"></div>
+    <div class="absolute bottom-1/4 right-1/4 w-96 h-96 lg:w-[700px] lg:h-[700px] bg-[var(--color-secondary)] rounded-full filter blur-[150px] lg:blur-[250px] opacity-15 lg:opacity-25 animate-pulse -z-10" style="animation-delay: 1s;"></div>
   </div>
   
   <!-- Contenido -->
@@ -22,7 +29,7 @@
         <!-- Badge -->
         <div class="inline-flex items-center gap-2 px-4 py-2 rounded-full bg-[var(--color-primary)]/10 border border-[var(--color-primary)]/30 mb-8 animate-fade-in-up">
           <span class="w-2 h-2 rounded-full bg-[var(--color-accent-green)] animate-pulse"></span>
-          <span class="text-sm text-[var(--color-primary-light)] font-medium">Producto Destacado</span>
+          <span class="text-sm text-[var(--color-primary-light)] font-medium">{t(lang, 'hero.badge')}</span>
         </div>
         
         <!-- Logo LALA AI -->
@@ -35,11 +42,7 @@
         </div>
         
         <!-- Tagline -->
-        <p class="text-xl md:text-2xl text-[var(--color-text-secondary)] mb-8 leading-relaxed animate-fade-in-up hero-tagline" style="animation-delay: 0.2s;">
-          La revolución de la <span class="text-white font-semibold">inteligencia artificial</span> en tu móvil. 
-          Accede a los modelos más avanzados a precios 
-          <span class="text-[var(--color-accent-green)] font-semibold">50% más económicos</span>.
-        </p>
+        <p class="text-xl md:text-2xl text-[var(--color-text-secondary)] mb-8 leading-relaxed animate-fade-in-up hero-tagline" style="animation-delay: 0.2s;" set:html={formatText(t(lang, 'hero.tagline'))} />
         
         <!-- Features rápidos -->
         <div class="flex flex-wrap justify-center lg:justify-start gap-4 mb-12 animate-fade-in-up" style="animation-delay: 0.3s;">
@@ -47,26 +50,26 @@
             <svg xmlns="http://www.w3.org/2000/svg" width="18" height="18" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2" class="text-[var(--color-primary)]">
               <polyline points="20 6 9 17 4 12"></polyline>
             </svg>
-            <span>Chat Avanzado</span>
+            <span>{t(lang, 'hero.feat1')}</span>
           </div>
           <div class="flex items-center gap-2 text-sm text-[var(--color-text-secondary)]">
             <svg xmlns="http://www.w3.org/2000/svg" width="18" height="18" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2" class="text-[var(--color-primary)]">
               <polyline points="20 6 9 17 4 12"></polyline>
             </svg>
-            <span>Generación de imágenes</span>
+            <span>{t(lang, 'hero.feat2')}</span>
           </div>
           <div class="flex items-center gap-2 text-sm text-[var(--color-text-secondary)]">
             <svg xmlns="http://www.w3.org/2000/svg" width="18" height="18" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2" class="text-[var(--color-primary)]">
               <polyline points="20 6 9 17 4 12"></polyline>
             </svg>
-            <span>Generación de video</span>
+            <span>{t(lang, 'hero.feat3')}</span>
           </div>
         </div>
         
         <!-- CTAs -->
         <div class="flex flex-wrap justify-center lg:justify-start gap-4 animate-fade-in-up" style="margin-top: 0.75rem; animation-delay: 0.4s;">
-          <a href="https://digital-x.com.co/productos/lala-ai/" class="btn-primary">
-            Conocer más
+          <a href={getLocalizedPath(lang, '/productos/lala-ai/')} class="btn-primary">
+            {t(lang, 'hero.cta1')}
             <svg xmlns="http://www.w3.org/2000/svg" width="18" height="18" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2" class="ml-2">
               <path d="M5 12h14"></path>
               <path d="m12 5 7 7-7 7"></path>
@@ -76,8 +79,31 @@
             <svg xmlns="http://www.w3.org/2000/svg" width="18" height="18" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2" class="mr-2">
               <polygon points="5 3 19 12 5 21 5 3"></polygon>
             </svg>
-            Ver video
+            {t(lang, 'hero.cta2')}
           </a>
+        </div>
+        
+        <!-- Banner de ayuda para usuarios con servicio activo -->
+        <div class="rounded-2xl bg-white/5 border border-white/10 backdrop-blur-sm animate-fade-in-up hero-help-banner" style="animation-delay: 0.5s; margin-top: 3.5rem; padding: 2rem 1.5rem;">
+          <div class="flex flex-col sm:flex-row items-center" style="gap: 0.75rem;">
+            <div class="w-11 h-11 rounded-full bg-[var(--color-accent-green)]/15 flex items-center justify-center shrink-0">
+              <svg xmlns="http://www.w3.org/2000/svg" width="22" height="22" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2" class="text-[var(--color-accent-green)]">
+                <circle cx="12" cy="12" r="10"></circle>
+                <path d="M9.09 9a3 3 0 0 1 5.83 1c0 2-3 3-3 3"></path>
+                <path d="M12 17h.01"></path>
+              </svg>
+            </div>
+            <p class="text-sm text-[var(--color-text-secondary)] text-center sm:text-left leading-relaxed">
+              {t(lang, 'hero.helpText')}
+            </p>
+            <a href="#contacto" class="shrink-0 inline-flex items-center gap-2 px-5 py-2.5 rounded-full bg-[var(--color-accent-green)]/15 border border-[var(--color-accent-green)]/30 text-[var(--color-accent-green)] text-sm font-semibold hover:bg-[var(--color-accent-green)]/25 transition-all">
+              {t(lang, 'hero.helpCta')}
+              <svg xmlns="http://www.w3.org/2000/svg" width="16" height="16" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2">
+                <path d="M5 12h14"></path>
+                <path d="m12 5 7 7-7 7"></path>
+              </svg>
+            </a>
+          </div>
         </div>
       </div>
       
@@ -91,7 +117,7 @@
               <!-- Imagen real del chat de LALA AI -->
               <img 
                 src="/images/chat-lala-ai.jpg" 
-                alt="LALA AI Chat - Interfaz real de la aplicación" 
+                alt={t(lang, 'hero.imgAlt')} 
                 class="w-full h-auto rounded-[32px] shadow-lg"
               />
             </div>

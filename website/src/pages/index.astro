@@ -6,24 +6,19 @@ import About from '../components/sections/About.astro';
 import Products from '../components/sections/Products.astro';
 import VideoSection from '../components/sections/VideoSection.astro';
 import Contact from '../components/sections/Contact.astro';
+import { t, type Lang } from '../i18n/utils';
+
+const lang: Lang = 'es';
 ---
 
 <MainLayout 
-  title="Digital-X | Innovación Digital para el Futuro"
-  description="Digital-X desarrolla productos digitales de vanguardia. Descubre LALA AI, VClub, XafraChat y más. Presencia en Colombia, Perú y Chile."
+  lang={lang}
+  title={t(lang, 'meta.homeTitle')}
+  description={t(lang, 'meta.homeDesc')}
 >
-  <!-- Hero con LALA AI destacado -->
-  <Hero />
-  
-  <!-- Video de LALA AI -->
-  <VideoSection />
-  
-  <!-- Grid de productos -->
-  <Products />
-  
-  <!-- Sobre nosotros -->
-  <About />
-  
-  <!-- Contacto -->
-  <Contact />
+  <Hero lang={lang} />
+  <VideoSection lang={lang} />
+  <Products lang={lang} />
+  <About lang={lang} />
+  <Contact lang={lang} />
 </MainLayout>

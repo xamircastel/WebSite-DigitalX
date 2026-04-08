@@ -1,5 +1,12 @@
 ---
 // About Section - Información sobre Digital-X
+import { t, formatText, type Lang, defaultLang } from '../../i18n/utils';
+
+interface Props {
+  lang?: Lang;
+}
+
+const { lang = defaultLang } = Astro.props;
 ---
 
 <section id="nosotros" class="section-padding bg-[var(--color-bg-darker)]">
@@ -8,40 +15,36 @@
     <!-- Header de sección -->
     <div class="text-center max-w-3xl lg:max-w-4xl mx-auto lg:w-full mb-16 animate-on-scroll">
       <span class="inline-block text-[var(--color-primary)] text-sm font-semibold uppercase tracking-widest mb-4 about-section-label">
-        Quiénes Somos
+        {t(lang, 'about.label')}
       </span>
-      <h2 class="heading-lg mb-6">
-        <span class="text-gradient">Digital-X</span> es innovación
-      </h2>
+      <h2 class="heading-lg mb-6" set:html={formatText(t(lang, 'about.title'))} />
       <p class="text-[var(--color-text-secondary)] text-lg leading-relaxed">
-        Somos una empresa de tecnología que desarrolla productos digitales de vanguardia. 
-        Nuestra misión es democratizar el acceso a la inteligencia artificial y crear 
-        experiencias digitales extraordinarias.
+        {t(lang, 'about.description')}
       </p>
     </div>
     
     <!-- Stats -->
-    <div class="grid grid-cols-2 md:grid-cols-4 gap-6 mb-20 lg:mb-12 lg:w-full about-stats-grid">
+    <div class="grid grid-cols-2 md:grid-cols-4 gap-6 mb-20 lg:mb-20 lg:w-full about-stats-grid">
       <div class="card text-center animate-on-scroll">
-        <div class="text-4xl md:text-5xl font-bold text-gradient mb-2">5+</div>
-        <p class="text-[var(--color-text-secondary)]">Productos Activos</p>
+        <div class="text-4xl md:text-5xl font-bold text-gradient mb-2">{t(lang, 'about.stat1Value')}</div>
+        <p class="text-[var(--color-text-secondary)]">{t(lang, 'about.stat1Label')}</p>
       </div>
       <div class="card text-center animate-on-scroll" style="animation-delay: 0.1s;">
-        <div class="text-4xl md:text-5xl font-bold text-gradient mb-2">3</div>
-        <p class="text-[var(--color-text-secondary)]">Países</p>
+        <div class="text-4xl md:text-5xl font-bold text-gradient mb-2">{t(lang, 'about.stat2Value')}</div>
+        <p class="text-[var(--color-text-secondary)]">{t(lang, 'about.stat2Label')}</p>
       </div>
       <div class="card text-center animate-on-scroll" style="animation-delay: 0.2s;">
-        <div class="text-4xl md:text-5xl font-bold text-gradient mb-2">24/7</div>
-        <p class="text-[var(--color-text-secondary)]">Soporte</p>
+        <div class="text-4xl md:text-5xl font-bold text-gradient mb-2">{t(lang, 'about.stat3Value')}</div>
+        <p class="text-[var(--color-text-secondary)]">{t(lang, 'about.stat3Label')}</p>
       </div>
       <div class="card text-center animate-on-scroll" style="animation-delay: 0.3s;">
-        <div class="text-4xl md:text-5xl font-bold text-gradient mb-2">∞</div>
-        <p class="text-[var(--color-text-secondary)]">Posibilidades</p>
+        <div class="text-4xl md:text-5xl font-bold text-gradient mb-2">{t(lang, 'about.stat4Value')}</div>
+        <p class="text-[var(--color-text-secondary)]">{t(lang, 'about.stat4Label')}</p>
       </div>
     </div>
     
     <!-- Features Grid -->
-    <div class="grid md:grid-cols-2 lg:grid-cols-3 gap-8 lg:w-full about-features-grid">
+    <div class="grid md:grid-cols-2 lg:grid-cols-3 gap-8 lg:gap-10 lg:w-full about-features-grid">
       
       <!-- Feature 1 -->
       <div class="card group animate-on-scroll">
@@ -51,10 +54,9 @@
             <path d="M12 8v4l3 3"></path>
           </svg>
         </div>
-        <h3 class="text-xl font-bold text-white mb-3">Tecnología de Punta</h3>
+        <h3 class="text-xl font-bold text-white mb-3">{t(lang, 'about.feat1Title')}</h3>
         <p class="text-[var(--color-text-secondary)]">
-          Utilizamos las últimas tecnologías en inteligencia artificial, 
-          cloud computing y desarrollo móvil para crear productos excepcionales.
+          {t(lang, 'about.feat1Desc')}
         </p>
       </div>
       
@@ -66,10 +68,9 @@
             <path d="m9 12 2 2 4-4"></path>
           </svg>
         </div>
-        <h3 class="text-xl font-bold text-white mb-3">Seguridad Garantizada</h3>
+        <h3 class="text-xl font-bold text-white mb-3">{t(lang, 'about.feat2Title')}</h3>
         <p class="text-[var(--color-text-secondary)]">
-          La protección de tus datos es nuestra prioridad. Implementamos los 
-          más altos estándares de seguridad en todos nuestros productos.
+          {t(lang, 'about.feat2Desc')}
         </p>
       </div>
       
@@ -81,10 +82,9 @@
             <path d="M12 8v4l2 2"></path>
           </svg>
         </div>
-        <h3 class="text-xl font-bold text-white mb-3">Disponibilidad 24/7</h3>
+        <h3 class="text-xl font-bold text-white mb-3">{t(lang, 'about.feat3Title')}</h3>
         <p class="text-[var(--color-text-secondary)]">
-          Nuestros servicios están disponibles las 24 horas del día, 
-          los 7 días de la semana, para que nunca te detengas.
+          {t(lang, 'about.feat3Desc')}
         </p>
       </div>
       
@@ -95,10 +95,9 @@
             <path d="M12 2v20M2 12h20"></path>
           </svg>
         </div>
-        <h3 class="text-xl font-bold text-white mb-3">Escalabilidad</h3>
+        <h3 class="text-xl font-bold text-white mb-3">{t(lang, 'about.feat4Title')}</h3>
         <p class="text-[var(--color-text-secondary)]">
-          Nuestros productos crecen contigo. Desde usuarios individuales 
-          hasta grandes empresas, nos adaptamos a tus necesidades.
+          {t(lang, 'about.feat4Desc')}
         </p>
       </div>
       
@@ -111,10 +110,9 @@
             <path d="M12 8h.01"></path>
           </svg>
         </div>
-        <h3 class="text-xl font-bold text-white mb-3">Soporte Dedicado</h3>
+        <h3 class="text-xl font-bold text-white mb-3">{t(lang, 'about.feat5Title')}</h3>
         <p class="text-[var(--color-text-secondary)]">
-          Contamos con un equipo de soporte dedicado para resolver 
-          cualquier duda o inconveniente que puedas tener.
+          {t(lang, 'about.feat5Desc')}
         </p>
       </div>
       
@@ -125,10 +123,9 @@
             <path d="M21 12a9 9 0 0 1-9 9m9-9a9 9 0 0 0-9-9m9 9H3m9 9a9 9 0 0 1-9-9m9 9c1.657 0 3-4.03 3-9s-1.343-9-3-9m0 18c-1.657 0-3-4.03-3-9s1.343-9 3-9"></path>
           </svg>
         </div>
-        <h3 class="text-xl font-bold text-white mb-3">Presencia Regional</h3>
+        <h3 class="text-xl font-bold text-white mb-3">{t(lang, 'about.feat6Title')}</h3>
         <p class="text-[var(--color-text-secondary)]">
-          Operamos en Colombia, Perú y Chile, con planes de expansión 
-          a más países de Latinoamérica.
+          {t(lang, 'about.feat6Desc')}
         </p>
       </div>
       

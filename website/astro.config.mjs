@@ -11,6 +11,14 @@ export default defineConfig({
   site: 'https://digital-x.com.co',
   integrations: [mdx(), sitemap()],
 
+  i18n: {
+    defaultLocale: 'es',
+    locales: ['es', 'en', 'zh', 'hi', 'fr'],
+    routing: {
+      prefixDefaultLocale: false,
+    },
+  },
+
   devToolbar: {
     enabled: false, // Deshabilitar la barra de herramientas de desarrollo
   },

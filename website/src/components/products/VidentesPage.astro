@@ -1,0 +1,190 @@
+---
+import { t, formatText, getLocalizedPath, type Lang } from '../../i18n/utils';
+
+interface Props {
+  lang?: Lang;
+}
+
+const { lang = 'es' } = Astro.props;
+---
+
+  <!-- Hero -->
+  <section class="relative min-h-[70vh] flex items-center pt-24 lg:pb-16 overflow-hidden videntes-hero">
+    <div class="absolute inset-0 bg-[var(--color-bg-dark)]">
+      <div class="absolute inset-0 opacity-20" style="background-image: linear-gradient(rgba(0, 255, 136, 0.1) 1px, transparent 1px), linear-gradient(90deg, rgba(0, 255, 136, 0.1) 1px, transparent 1px); background-size: 50px 50px;"></div>
+      <div class="absolute top-1/4 right-1/4 w-[600px] h-[600px] lg:w-[900px] lg:h-[900px] bg-[var(--color-accent-green)] rounded-full filter blur-[200px] lg:blur-[300px] opacity-20 lg:opacity-30"></div>
+      <div class="absolute bottom-0 left-0 w-[400px] h-[400px] lg:w-[700px] lg:h-[700px] bg-[var(--color-secondary)] rounded-full filter blur-[200px] lg:blur-[250px] opacity-0 lg:opacity-15"></div>
+    </div>
+    
+    <div class="container-custom relative z-10">
+      <div class="grid lg:grid-cols-2 gap-12 items-center">
+        <div>
+          <nav class="flex items-center gap-2 text-sm text-[var(--color-text-muted)] mb-8 videntes-breadcrumb">
+            <a href={getLocalizedPath(lang, '/')} class="hover:text-white transition-colors">{t(lang, 'common.breadcrumbHome')}</a>
+            <span>/</span>
+            <a href={getLocalizedPath(lang, '/#productos')} class="hover:text-white transition-colors">{t(lang, 'common.breadcrumbProducts')}</a>
+            <span>/</span>
+            <span class="text-[var(--color-accent-green)]">{t(lang, 'products.videntes.name')}</span>
+          </nav>
+          
+          <h1 class="heading-xl mb-6 videntes-title">
+            <span class="text-[var(--color-accent-green)]">{t(lang, 'products.videntes.name')}</span>
+          </h1>
+          
+          <p class="text-xl text-[var(--color-text-secondary)] mb-8 leading-relaxed" set:html={formatText(t(lang, 'videntes.desc'))} />
+          
+          <div class="grid grid-cols-3 gap-4 mb-8 videntes-stats">
+            <div class="text-center p-4 rounded-xl bg-white/5 border border-white/10">
+              <div class="text-2xl font-bold text-[var(--color-accent-green)]">⚽</div>
+              <div class="text-xs text-[var(--color-text-muted)]">{t(lang, 'videntes.stat1Label')}</div>
+            </div>
+            <div class="text-center p-4 rounded-xl bg-white/5 border border-white/10">
+              <div class="text-2xl font-bold text-[var(--color-accent-green)]">🎯</div>
+              <div class="text-xs text-[var(--color-text-muted)]">{t(lang, 'videntes.stat2Label')}</div>
+            </div>
+            <div class="text-center p-4 rounded-xl bg-white/5 border border-white/10">
+              <div class="text-2xl font-bold text-[var(--color-accent-green)]">🏆</div>
+              <div class="text-xs text-[var(--color-text-muted)]">{t(lang, 'videntes.stat3Label')}</div>
+            </div>
+          </div>
+          
+          <div class="flex flex-wrap gap-4 videntes-buttons">
+            <a href={getLocalizedPath(lang, '/#contacto')} class="btn-primary videntes-cta-btn" style="background: var(--color-accent-green); color: #000;">
+              {t(lang, 'videntes.ctaInfo')}
+            </a>
+          </div>
+        </div>
+        
+        <div class="relative flex items-center justify-center videntes-carousel-container">
+          <div class="absolute inset-0 bg-[var(--color-accent-green)] rounded-full filter blur-[100px] opacity-30 animate-pulse"></div>
+          <div class="videntes-carousel">
+            <div class="videntes-carousel-track">
+              <img src="/images/Imagen6.png" alt="Videntes del Fútbol 1" class="videntes-carousel-img" />
+              <img src="/images/Imagen7.png" alt="Videntes del Fútbol 2" class="videntes-carousel-img" />
+              <img src="/images/Imagen6.png" alt="Videntes del Fútbol 1" class="videntes-carousel-img" />
+              <img src="/images/Imagen7.png" alt="Videntes del Fútbol 2" class="videntes-carousel-img" />
+            </div>
+          </div>
+        </div>
+      </div>
+    </div>
+  </section>
+  
+  <!-- Cómo funciona -->
+  <section class="section-padding bg-[var(--color-bg-darker)] videntes-como-funciona">
+    <div class="container-custom">
+      <div class="text-center max-w-3xl mx-auto mb-16 videntes-como-header">
+        <h2 class="heading-lg mb-4">{t(lang, 'videntes.featTitle')}</h2>
+        <p class="text-[var(--color-text-secondary)]">
+          {t(lang, 'videntes.featDesc')}
+        </p>
+      </div>
+      
+      <div class="grid md:grid-cols-3 gap-8 videntes-pasos-grid">
+        <div class="card text-center videntes-paso-card">
+          <div class="w-20 h-20 mx-auto mb-6 rounded-full bg-[var(--color-accent-green)]/10 flex items-center justify-center videntes-paso-number">
+            <span class="text-3xl font-bold text-[var(--color-accent-green)]">1</span>
+          </div>
+          <div class="videntes-paso-content">
+            <h3 class="text-xl font-bold text-white mb-3">{t(lang, 'videntes.step1Title')}</h3>
+            <p class="text-[var(--color-text-secondary)]">
+              {t(lang, 'videntes.step1Desc')}
+            </p>
+          </div>
+        </div>
+        
+        <div class="card text-center videntes-paso-card">
+          <div class="w-20 h-20 mx-auto mb-6 rounded-full bg-[var(--color-accent-green)]/10 flex items-center justify-center videntes-paso-number">
+            <span class="text-3xl font-bold text-[var(--color-accent-green)]">2</span>
+          </div>
+          <div class="videntes-paso-content">
+            <h3 class="text-xl font-bold text-white mb-3">{t(lang, 'videntes.step2Title')}</h3>
+            <p class="text-[var(--color-text-secondary)]">
+              {t(lang, 'videntes.step2Desc')}
+            </p>
+          </div>
+        </div>
+        
+        <div class="card text-center videntes-paso-card">
+          <div class="w-20 h-20 mx-auto mb-6 rounded-full bg-[var(--color-accent-green)]/10 flex items-center justify-center videntes-paso-number">
+            <span class="text-3xl font-bold text-[var(--color-accent-green)]">3</span>
+          </div>
+          <div class="videntes-paso-content">
+            <h3 class="text-xl font-bold text-white mb-3">{t(lang, 'videntes.step3Title')}</h3>
+            <p class="text-[var(--color-text-secondary)]">
+              {t(lang, 'videntes.step3Desc')}
+            </p>
+          </div>
+        </div>
+      </div>
+    </div>
+  </section>
+  
+  <!-- Ligas -->
+  <section class="section-padding videntes-ligas-section">
+    <div class="container-custom">
+      <div class="text-center max-w-3xl mx-auto mb-16 videntes-ligas-header">
+        <h2 class="heading-lg mb-4" set:html={formatText(t(lang, 'videntes.leaguesTitle'))} />
+        <p class="text-[var(--color-text-secondary)]">
+          {t(lang, 'videntes.leaguesDesc')}
+        </p>
+      </div>
+      
+      <div class="grid grid-cols-2 md:grid-cols-4 lg:grid-cols-6 gap-4 videntes-ligas-grid">
+        <div class="card text-center py-6 videntes-liga-card">
+          <span class="videntes-liga-ball">⚽</span>
+          <span class="text-3xl mb-2 block videntes-liga-icon">🇪🇸</span>
+          <span class="videntes-liga-code">ES</span>
+          <p class="text-sm text-white font-medium videntes-liga-name">{t(lang, 'videntes.laliga')}</p>
+        </div>
+        <div class="card text-center py-6 videntes-liga-card">
+          <span class="videntes-liga-ball">⚽</span>
+          <span class="text-3xl mb-2 block videntes-liga-icon">🏴󠁧󠁢󠁥󠁮󠁧󠁿</span>
+          <span class="videntes-liga-code">EN</span>
+          <p class="text-sm text-white font-medium videntes-liga-name">{t(lang, 'videntes.premier')}</p>
+        </div>
+        <div class="card text-center py-6 videntes-liga-card">
+          <span class="videntes-liga-ball">⚽</span>
+          <span class="text-3xl mb-2 block videntes-liga-icon">🇮🇹</span>
+          <span class="videntes-liga-code">IT</span>
+          <p class="text-sm text-white font-medium videntes-liga-name">{t(lang, 'videntes.serieA')}</p>
+        </div>
+        <div class="card text-center py-6 videntes-liga-card">
+          <span class="videntes-liga-ball">⚽</span>
+          <span class="text-3xl mb-2 block videntes-liga-icon">🇩🇪</span>
+          <span class="videntes-liga-code">DE</span>
+          <p class="text-sm text-white font-medium videntes-liga-name">{t(lang, 'videntes.bundesliga')}</p>
+        </div>
+        <div class="card text-center py-6 videntes-liga-card">
+          <span class="videntes-liga-ball">⚽</span>
+          <span class="text-3xl mb-2 block videntes-liga-icon">🇫🇷</span>
+          <span class="videntes-liga-code">FR</span>
+          <p class="text-sm text-white font-medium videntes-liga-name">{t(lang, 'videntes.ligue1')}</p>
+        </div>
+        <div class="card text-center py-6 videntes-liga-card">
+          <span class="videntes-liga-ball">⚽</span>
+          <span class="text-3xl mb-2 block videntes-liga-icon">🇨🇴</span>
+          <span class="videntes-liga-code">CO</span>
+          <p class="text-sm text-white font-medium videntes-liga-name">{t(lang, 'videntes.betplay')}</p>
+        </div>
+      </div>
+    </div>
+  </section>
+  
+  <!-- CTA -->
+  <section class="section-padding bg-[var(--color-bg-darker)] videntes-cta-section">
+    <div class="container-custom">
+      <div class="card p-12 text-center relative overflow-hidden videntes-cta-card">
+        <div class="absolute inset-0 bg-[var(--color-accent-green)]/10"></div>
+        <div class="relative z-10">
+          <h2 class="heading-lg mb-4 videntes-cta-title">{t(lang, 'videntes.ctaTitle')}</h2>
+          <p class="text-[var(--color-text-secondary)] mb-8 max-w-2xl mx-auto">
+            {t(lang, 'videntes.ctaDesc')}
+          </p>
+          <a href={getLocalizedPath(lang, '/#contacto')} class="btn-primary inline-flex videntes-cta-btn" style="background: var(--color-accent-green); color: #000;">
+            {t(lang, 'videntes.ctaInfo')}
+          </a>
+        </div>
+      </div>
+    </div>
+  </section>

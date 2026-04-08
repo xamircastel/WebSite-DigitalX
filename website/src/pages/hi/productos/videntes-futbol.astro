@@ -1,0 +1,15 @@
+---
+import MainLayout from '../../../layouts/MainLayout.astro';
+import VidentesPage from '../../../components/products/VidentesPage.astro';
+import { t, type Lang } from '../../../i18n/utils';
+
+const lang: Lang = 'hi';
+---
+
+<MainLayout 
+  lang={lang}
+  title={t(lang, 'videntes.metaTitle')}
+  description={t(lang, 'videntes.metaDesc')}
+>
+  <VidentesPage lang={lang} />
+</MainLayout>

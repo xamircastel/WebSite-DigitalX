@@ -1,11 +1,22 @@
 ---
 // Header con navegación estilo GTA VI - transparente y fijo
+import { t, getLocalizedPath, languages, type Lang, defaultLang } from '../../i18n/utils';
+
+interface Props {
+  lang?: Lang;
+}
+
+const { lang = defaultLang } = Astro.props;
+const homeHref = getLocalizedPath(lang, '/');
+const productsHref = getLocalizedPath(lang, '/#productos');
+const aboutHref = getLocalizedPath(lang, '/#nosotros');
+const contactHref = getLocalizedPath(lang, '/#contacto');
 ---
 
 <header id="header" class="fixed top-0 left-0 right-0 z-[100] transition-all duration-300 bg-[var(--color-bg-dark)]/80 backdrop-blur-md border-b border-white/5">
   <nav class="container-custom py-4 flex items-center justify-between">
     <!-- Logo -->
-    <a href="/" class="flex items-center gap-3 group">
+    <a href={homeHref} class="flex items-center gap-3 group">
       <img 
         src="/images/logo-digital-x.png" 
         alt="Digital-X" 
@@ -15,18 +26,42 @@
     
     <!-- Navegación Desktop -->
     <div class="hidden md:flex items-center gap-8">
-      <a href="/#productos" class="nav-link">Productos</a>
-      <a href="/#nosotros" class="nav-link">Nosotros</a>
-      <a href="/#contacto" class="btn-primary text-sm py-2 px-6">
-        Contacto
+      <a href={productsHref} class="nav-link">{t(lang, 'nav.products')}</a>
+      <a href={aboutHref} class="nav-link">{t(lang, 'nav.about')}</a>
+      <a href={contactHref} class="btn-primary text-sm py-2 px-6">
+        {t(lang, 'nav.contact')}
       </a>
+      
+      <!-- Language Selector -->
+      <div class="relative" id="lang-selector">
+        <button id="lang-toggle" class="flex items-center gap-1.5 text-sm text-[var(--color-text-secondary)] hover:text-white transition-colors px-2 py-1 rounded-lg hover:bg-white/5">
+          <span>{languages[lang].flag}</span>
+          <svg xmlns="http://www.w3.org/2000/svg" width="14" height="14" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2" class="transition-transform" id="lang-chevron">
+            <polyline points="6 9 12 15 18 9"></polyline>
+          </svg>
+        </button>
+        <div id="lang-dropdown" class="absolute right-0 top-full mt-2 py-2 bg-[var(--color-bg-card)] border border-white/10 rounded-xl shadow-xl min-w-[160px] hidden z-50">
+          {Object.entries(languages).map(([code, { name, flag }]) => (
+            <a 
+              href={getLocalizedPath(code as Lang, Astro.url.pathname.replace(/^\/(en|zh|hi|fr)(\/|$)/, '/'))}
+              class:list={[
+                "flex items-center gap-2 px-4 py-2 text-sm transition-colors hover:bg-white/5",
+                code === lang ? "text-[var(--color-primary)]" : "text-[var(--color-text-secondary)] hover:text-white"
+              ]}
+            >
+              <span>{flag}</span>
+              <span>{name}</span>
+            </a>
+          ))}
+        </div>
+      </div>
     </div>
     
     <!-- Botón menú móvil -->
     <button 
       id="menu-toggle" 
       class="md:hidden flex flex-col gap-1.5 p-2"
-      aria-label="Abrir menú"
+      aria-label={t(lang, 'nav.openMenu')}
     >
       <span class="w-6 h-0.5 bg-white transition-all origin-center" id="line1"></span>
       <span class="w-6 h-0.5 bg-white transition-all" id="line2"></span>
@@ -37,10 +72,25 @@
   <!-- Menú móvil -->
   <div id="mobile-menu" class="md:hidden fixed inset-0 bg-[var(--color-bg-dark)]/98 backdrop-blur-lg -translate-x-full transition-transform duration-300 z-40">
     <div class="flex flex-col items-center justify-center h-full gap-8 text-2xl">
-      <a href="/" class="nav-link-mobile">Inicio</a>
-      <a href="/#productos" class="nav-link-mobile">Productos</a>
-      <a href="/#nosotros" class="nav-link-mobile">Nosotros</a>
-      <a href="/#contacto" class="btn-primary mt-4">Contacto</a>
+      <a href={homeHref} class="nav-link-mobile">{t(lang, 'nav.home')}</a>
+      <a href={productsHref} class="nav-link-mobile">{t(lang, 'nav.products')}</a>
+      <a href={aboutHref} class="nav-link-mobile">{t(lang, 'nav.about')}</a>
+      <a href={contactHref} class="btn-primary mt-4">{t(lang, 'nav.contact')}</a>
+      
+      <!-- Language selector mobile -->
+      <div class="flex flex-wrap justify-center gap-3 mt-4">
+        {Object.entries(languages).map(([code, { flag }]) => (
+          <a 
+            href={getLocalizedPath(code as Lang, Astro.url.pathname.replace(/^\/(en|zh|hi|fr)(\/|$)/, '/'))}
+            class:list={[
+              "w-10 h-10 flex items-center justify-center rounded-full text-lg transition-all",
+              code === lang ? "bg-[var(--color-primary)]/20 border border-[var(--color-primary)]/50" : "bg-white/5 border border-white/10 hover:bg-white/10"
+            ]}
+          >
+            {flag}
+          </a>
+        ))}
+      </div>
     </div>
   </div>
 </header>
@@ -139,5 +189,21 @@
       mobileMenu.classList.remove('translate-x-0');
       document.body.classList.remove('overflow-hidden');
     });
+  });
+  
+  // Language dropdown toggle
+  const langToggle = document.getElementById('lang-toggle');
+  const langDropdown = document.getElementById('lang-dropdown');
+  const langChevron = document.getElementById('lang-chevron');
+  
+  langToggle?.addEventListener('click', (e) => {
+    e.stopPropagation();
+    langDropdown?.classList.toggle('hidden');
+    langChevron?.classList.toggle('rotate-180');
+  });
+  
+  document.addEventListener('click', () => {
+    langDropdown?.classList.add('hidden');
+    langChevron?.classList.remove('rotate-180');
   });
 </script>

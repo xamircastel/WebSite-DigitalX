@@ -1,0 +1,185 @@
+---
+import { t, formatText, getLocalizedPath, type Lang } from '../../i18n/utils';
+
+interface Props {
+  lang?: Lang;
+}
+
+const { lang = 'es' } = Astro.props;
+---
+
+  <!-- Hero -->
+  <section class="relative min-h-[70vh] flex items-center pt-24 lg:pb-16 overflow-hidden hotsimp-hero">
+    <div class="absolute inset-0 bg-[var(--color-bg-dark)]">
+      <div class="absolute inset-0 opacity-20" style="background-image: linear-gradient(rgba(255, 159, 67, 0.1) 1px, transparent 1px), linear-gradient(90deg, rgba(255, 159, 67, 0.1) 1px, transparent 1px); background-size: 50px 50px;"></div>
+      <div class="absolute top-1/4 right-1/4 w-[600px] h-[600px] lg:w-[900px] lg:h-[900px] bg-[var(--color-accent-orange)] rounded-full filter blur-[200px] lg:blur-[300px] opacity-20 lg:opacity-30"></div>
+      <div class="absolute bottom-0 left-0 w-[400px] h-[400px] lg:w-[700px] lg:h-[700px] bg-[var(--color-accent-pink)] rounded-full filter blur-[200px] lg:blur-[250px] opacity-0 lg:opacity-20"></div>
+    </div>
+    
+    <div class="container-custom relative z-10">
+      <div class="grid lg:grid-cols-2 gap-12 items-center">
+        <div>
+          <nav class="flex items-center gap-2 text-sm text-[var(--color-text-muted)] mb-8 hotsimp-breadcrumb">
+            <a href={getLocalizedPath(lang, '/')} class="hover:text-white transition-colors">{t(lang, 'common.breadcrumbHome')}</a>
+            <span>/</span>
+            <a href={getLocalizedPath(lang, '/#productos')} class="hover:text-white transition-colors">{t(lang, 'common.breadcrumbProducts')}</a>
+            <span>/</span>
+            <span class="text-[var(--color-accent-orange)]">HotSimp</span>
+          </nav>
+          
+          <!-- 18+ Badge -->
+          <div class="inline-flex items-center gap-2 px-4 py-2 rounded-full bg-red-500/20 border border-red-500/50 mb-6 hotsimp-badge">
+            <span class="text-sm text-red-400 font-bold">{t(lang, 'hotsimp.adultBadge')}</span>
+          </div>
+          
+          <!-- Logo texto para desktop -->
+          <h1 class="heading-xl mb-6 hotsimp-logo-text">
+            <span class="text-[var(--color-accent-orange)]">Hot</span><span class="text-white">Simp</span>
+          </h1>
+          <!-- Logo imagen para mobile -->
+          <div class="mb-6 hotsimp-logo-img">
+            <img src="/images/hotsimp-logo.svg" alt="HotSimp" class="hotsimp-logo" />
+          </div>
+          
+          <p class="text-xl text-[var(--color-text-secondary)] mb-8 leading-relaxed hotsimp-description">
+            {t(lang, 'hotsimp.desc')}
+          </p>
+          
+          <div class="grid grid-cols-3 gap-4 mb-8 hotsimp-stats">
+            <div class="text-center p-4 rounded-xl bg-white/5 border border-white/10 hotsimp-stat-card">
+              <div class="text-2xl font-bold text-[var(--color-accent-orange)]">{t(lang, 'hotsimp.stat1Value')}</div>
+              <div class="text-xs text-[var(--color-text-muted)]">{t(lang, 'hotsimp.stat1Label')}</div>
+            </div>
+            <div class="text-center p-4 rounded-xl bg-white/5 border border-white/10 hotsimp-stat-card">
+              <div class="text-2xl font-bold text-[var(--color-accent-orange)]">{t(lang, 'hotsimp.stat2Value')}</div>
+              <div class="text-xs text-[var(--color-text-muted)]">{t(lang, 'hotsimp.stat2Label')}</div>
+            </div>
+            <div class="text-center p-4 rounded-xl bg-white/5 border border-white/10 hotsimp-stat-card">
+              <div class="text-2xl font-bold text-[var(--color-accent-orange)]">{t(lang, 'hotsimp.stat3Value')}</div>
+              <div class="text-xs text-[var(--color-text-muted)]">{t(lang, 'hotsimp.stat3Label')}</div>
+            </div>
+          </div>
+          
+          <div class="flex flex-wrap gap-4 hotsimp-buttons">
+            <a href={getLocalizedPath(lang, '/#contacto')} class="btn-primary hotsimp-cta-btn" style="background: var(--color-accent-orange);">
+              {t(lang, 'hotsimp.ctaInfo')}
+            </a>
+          </div>
+        </div>
+        
+        <div class="relative flex items-center justify-center">
+          <div class="absolute inset-0 bg-[var(--color-accent-orange)] rounded-full filter blur-[100px] opacity-30 animate-pulse"></div>
+          <div class="relative hotsimp-preview-container">
+            <img src="/images/hotsimp-preview.png" alt="HotSimp Preview" class="hotsimp-preview-img" />
+          </div>
+        </div>
+      </div>
+    </div>
+  </section>
+  
+  <!-- Características -->
+  <section class="section-padding bg-[var(--color-bg-darker)] hotsimp-features-section">
+    <div class="container-custom">
+      <div class="text-center max-w-3xl mx-auto mb-16 hotsimp-features-header">
+        <h2 class="heading-lg mb-4" set:html={formatText(t(lang, 'hotsimp.featTitle'))} />
+      </div>
+      
+      <div class="grid md:grid-cols-2 gap-8">
+        <!-- Para Creadores -->
+        <div class="card">
+          <h3 class="text-2xl font-bold text-white mb-6 flex items-center gap-3">
+            <span class="w-10 h-10 rounded-full bg-[var(--color-accent-orange)]/20 flex items-center justify-center">
+              <svg xmlns="http://www.w3.org/2000/svg" width="20" height="20" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2" class="text-[var(--color-accent-orange)]">
+                <path d="M12 2a3 3 0 0 0-3 3v4a3 3 0 0 0 6 0V5a3 3 0 0 0-3-3Z"></path>
+                <path d="M19 10v2a7 7 0 0 1-14 0v-2"></path>
+                <line x1="12" x2="12" y1="19" y2="22"></line>
+              </svg>
+            </span>
+            {t(lang, 'hotsimp.creatorsTitle')}
+          </h3>
+          <ul class="space-y-4 hotsimp-feature-list">
+            <li class="flex items-start gap-3">
+              <svg xmlns="http://www.w3.org/2000/svg" width="20" height="20" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2" class="text-[var(--color-accent-green)] shrink-0 mt-0.5 hotsimp-check-icon">
+                <polyline points="20 6 9 17 4 12"></polyline>
+              </svg>
+              <span class="text-[var(--color-text-secondary)]">{t(lang, 'hotsimp.creators1')}</span>
+            </li>
+            <li class="flex items-start gap-3">
+              <svg xmlns="http://www.w3.org/2000/svg" width="20" height="20" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2" class="text-[var(--color-accent-green)] shrink-0 mt-0.5 hotsimp-check-icon">
+                <polyline points="20 6 9 17 4 12"></polyline>
+              </svg>
+              <span class="text-[var(--color-text-secondary)]">{t(lang, 'hotsimp.creators2')}</span>
+            </li>
+            <li class="flex items-start gap-3">
+              <svg xmlns="http://www.w3.org/2000/svg" width="20" height="20" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2" class="text-[var(--color-accent-green)] shrink-0 mt-0.5 hotsimp-check-icon">
+                <polyline points="20 6 9 17 4 12"></polyline>
+              </svg>
+              <span class="text-[var(--color-text-secondary)]">{t(lang, 'hotsimp.creators3')}</span>
+            </li>
+            <li class="flex items-start gap-3">
+              <svg xmlns="http://www.w3.org/2000/svg" width="20" height="20" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2" class="text-[var(--color-accent-green)] shrink-0 mt-0.5 hotsimp-check-icon">
+                <polyline points="20 6 9 17 4 12"></polyline>
+              </svg>
+              <span class="text-[var(--color-text-secondary)]">{t(lang, 'hotsimp.creators4')}</span>
+            </li>
+          </ul>
+        </div>
+        
+        <!-- Para Fans -->
+        <div class="card">
+          <h3 class="text-2xl font-bold text-white mb-6 flex items-center gap-3">
+            <span class="w-10 h-10 rounded-full bg-[var(--color-accent-pink)]/20 flex items-center justify-center">
+              <svg xmlns="http://www.w3.org/2000/svg" width="20" height="20" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2" class="text-[var(--color-accent-pink)]">
+                <path d="M19 14c1.49-1.46 3-3.21 3-5.5A5.5 5.5 0 0 0 16.5 3c-1.76 0-3 .5-4.5 2-1.5-1.5-2.74-2-4.5-2A5.5 5.5 0 0 0 2 8.5c0 2.3 1.5 4.05 3 5.5l7 7Z"></path>
+              </svg>
+            </span>
+            {t(lang, 'hotsimp.fansTitle')}
+          </h3>
+          <ul class="space-y-4 hotsimp-feature-list">
+            <li class="flex items-start gap-3">
+              <svg xmlns="http://www.w3.org/2000/svg" width="20" height="20" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2" class="text-[var(--color-accent-green)] shrink-0 mt-0.5 hotsimp-check-icon">
+                <polyline points="20 6 9 17 4 12"></polyline>
+              </svg>
+              <span class="text-[var(--color-text-secondary)]">{t(lang, 'hotsimp.fans1')}</span>
+            </li>
+            <li class="flex items-start gap-3">
+              <svg xmlns="http://www.w3.org/2000/svg" width="20" height="20" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2" class="text-[var(--color-accent-green)] shrink-0 mt-0.5 hotsimp-check-icon">
+                <polyline points="20 6 9 17 4 12"></polyline>
+              </svg>
+              <span class="text-[var(--color-text-secondary)]">{t(lang, 'hotsimp.fans2')}</span>
+            </li>
+            <li class="flex items-start gap-3">
+              <svg xmlns="http://www.w3.org/2000/svg" width="20" height="20" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2" class="text-[var(--color-accent-green)] shrink-0 mt-0.5 hotsimp-check-icon">
+                <polyline points="20 6 9 17 4 12"></polyline>
+              </svg>
+              <span class="text-[var(--color-text-secondary)]">{t(lang, 'hotsimp.fans3')}</span>
+            </li>
+            <li class="flex items-start gap-3">
+              <svg xmlns="http://www.w3.org/2000/svg" width="20" height="20" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2" class="text-[var(--color-accent-green)] shrink-0 mt-0.5 hotsimp-check-icon">
+                <polyline points="20 6 9 17 4 12"></polyline>
+              </svg>
+              <span class="text-[var(--color-text-secondary)]">{t(lang, 'hotsimp.fans4')}</span>
+            </li>
+          </ul>
+        </div>
+      </div>
+    </div>
+  </section>
+  
+  <!-- CTA -->
+  <section class="section-padding hotsimp-cta-section">
+    <div class="container-custom">
+      <div class="card p-12 text-center relative overflow-hidden hotsimp-cta-card">
+        <div class="absolute inset-0 bg-[var(--color-accent-orange)]/10"></div>
+        <div class="relative z-10">
+          <h2 class="heading-lg mb-4">{t(lang, 'hotsimp.ctaTitle')}</h2>
+          <p class="text-[var(--color-text-secondary)] mb-8 max-w-2xl mx-auto">
+            {t(lang, 'hotsimp.ctaDesc')}
+          </p>
+          <a href={getLocalizedPath(lang, '/#contacto')} class="btn-primary inline-flex hotsimp-cta-btn-bottom" style="background: var(--color-accent-orange);">
+            {t(lang, 'hotsimp.ctaInfo')}
+          </a>
+        </div>
+      </div>
+    </div>
+  </section>

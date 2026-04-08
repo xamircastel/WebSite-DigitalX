@@ -1,0 +1,15 @@
+---
+import MainLayout from '../../../layouts/MainLayout.astro';
+import LalaAIPage from '../../../components/products/LalaAIPage.astro';
+import { t, type Lang } from '../../../i18n/utils';
+
+const lang: Lang = 'hi';
+---
+
+<MainLayout 
+  lang={lang}
+  title={t(lang, 'lala.metaTitle')}
+  description={t(lang, 'lala.metaDesc')}
+>
+  <LalaAIPage lang={lang} />
+</MainLayout>

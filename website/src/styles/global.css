@@ -138,6 +138,67 @@
   display: none;
 }
 
+/* === DESKTOP: Videntes carousel === */
+.videntes-liga-code {
+  display: none;
+}
+
+@media (min-width: 768px) {
+  .videntes-carousel-container {
+    width: 100%;
+    max-height: 500px;
+    overflow: hidden;
+    padding: 20px 0;
+  }
+  
+  .videntes-carousel {
+    width: 100%;
+    max-height: 480px;
+    overflow: hidden;
+  }
+  
+  .videntes-carousel-track {
+    display: flex;
+    animation: videntes-scroll 15s linear infinite;
+    width: fit-content;
+    align-items: center;
+  }
+  
+  .videntes-carousel-img {
+    width: 280px;
+    max-height: 460px;
+    object-fit: cover;
+    border-radius: 20px;
+    margin-right: 20px;
+    flex-shrink: 0;
+    box-shadow: 0 0 20px rgba(0, 255, 136, 0.3), 0 8px 32px rgba(0, 0, 0, 0.4);
+    border: 2px solid rgba(0, 255, 136, 0.3);
+  }
+  
+  @keyframes videntes-scroll {
+    0% {
+      transform: translateX(0);
+    }
+    100% {
+      transform: translateX(-50%);
+    }
+  }
+}
+
+/* === DESKTOP: XafraChat carousel constraints === */
+@media (min-width: 768px) {
+  .xafrachat-carousel-wrapper {
+    max-width: 320px;
+    margin: 0 auto;
+  }
+}
+
+@media (min-width: 1024px) {
+  .xafrachat-carousel-wrapper {
+    max-width: 380px;
+  }
+}
+
 /* === MOBILE STYLES === */
 @media (max-width: 767px) {
   /* LALA AI Mobile Styles */
@@ -948,6 +1009,157 @@ a {
   border: 1px solid rgba(255, 255, 255, 0.1);
 }
 
+/* Padding de secciones */
+.section-padding {
+  padding-top: 4rem;
+  padding-bottom: 4rem;
+}
+
+@media (min-width: 768px) {
+  .section-padding {
+    padding-top: 5rem;
+    padding-bottom: 5rem;
+  }
+}
+
+@media (min-width: 1024px) {
+  .section-padding {
+    padding-top: 6rem;
+    padding-bottom: 6rem;
+  }
+}
+
+/* === DESKTOP: Product hero spacing === */
+@media (min-width: 1024px) {
+  .videntes-hero,
+  .hotsimp-hero,
+  .lala-hero {
+    padding-bottom: 4rem;
+  }
+  
+  .videntes-stats,
+  .hotsimp-stats,
+  .lala-stats,
+  .xafrachat-stats,
+  .vclub-stats {
+    margin-bottom: 2rem;
+  }
+  
+  .videntes-buttons,
+  .hotsimp-buttons,
+  .lala-buttons,
+  .xafrachat-buttons,
+  .vclub-buttons {
+    margin-top: 1rem;
+  }
+  
+  /* Videntes carousel height on large screens */
+  .videntes-carousel-container {
+    max-height: 550px;
+  }
+  
+  .videntes-carousel {
+    max-height: 530px;
+  }
+  
+  .videntes-carousel-img {
+    width: 300px;
+    max-height: 510px;
+  }
+  
+  /* Homepage About section - desktop spacing */
+  .about-stats-grid {
+    margin-bottom: 4rem !important;
+  }
+  
+  .about-features-grid {
+    gap: 2.5rem !important;
+  }
+  
+  .about-section-label {
+    margin-bottom: 1.5rem;
+  }
+  
+  /* LALA AI Desktop - Espaciado entre secciones */
+  .lala-cta-section {
+    padding-top: 6rem !important;
+    padding-bottom: 6rem !important;
+  }
+  
+  /* Hero help banner - desktop adjustments */
+  .hero-help-banner {
+    padding: 1.25rem 2rem !important;
+  }
+  
+  .hero-help-banner > div {
+    gap: 1.5rem !important;
+  }
+  
+  /* === FIX: Center all section containers on desktop === */
+  .section-padding .container-custom {
+    display: flex;
+    flex-direction: column;
+    align-items: center;
+  }
+  
+  .section-padding .container-custom > * {
+    width: 100%;
+  }
+}
+
+/* === FIX: Ensure text-center works over CSS layers === */
+.text-center {
+  text-align: center;
+}
+
+/* Ensure all section headers and key elements are centered */
+.heading-lg,
+.heading-xl {
+  text-align: inherit;
+}
+
+.videntes-como-header,
+.videntes-ligas-header,
+.videntes-cta-title,
+.videntes-cta-card .relative,
+.vclub-features-header,
+.vclub-video-header,
+.xafrachat-features-header,
+.xafrachat-video-header,
+.hotsimp-features-header,
+.lala-especial-header,
+.lala-modelos-header,
+.lala-video-header,
+.lala-cta-title,
+.products-section-label,
+.about-section-label,
+.video-section-title {
+  text-align: center;
+}
+
+/* Hero titles: left on desktop (2-col layout), center on mobile */
+@media (max-width: 767px) {
+  .heading-xl {
+    text-align: center;
+  }
+}
+
+/* Card text centered on desktop */
+@media (min-width: 1024px) {
+  .videntes-paso-card,
+  .videntes-liga-card,
+  .vclub-step-card {
+    text-align: center;
+  }
+  
+  .videntes-cta-card,
+  .hotsimp-cta-card,
+  .xafrachat .card.p-12,
+  .lala-cta-card {
+    text-align: center;
+  }
+}
+
 /* Sección con fondo */
 .section-dark {
   background-color: var(--color-bg-section);
@@ -974,12 +1186,15 @@ a {
   .container-custom {
     padding-left: 4rem;
     padding-right: 4rem;
+    max-width: 1200px;
   }
-  
-  /* LALA AI Desktop - Espaciado entre secciones */
-  .lala-cta-section {
-    padding-top: 6rem !important;
-    padding-bottom: 6rem !important;
+}
+
+@media (min-width: 1440px) {
+  .container-custom {
+    max-width: 1300px;
+    padding-left: 2rem;
+    padding-right: 2rem;
   }
 }
 

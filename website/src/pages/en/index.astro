@@ -1,0 +1,24 @@
+---
+// Homepage - English
+import MainLayout from '../../layouts/MainLayout.astro';
+import Hero from '../../components/sections/Hero.astro';
+import About from '../../components/sections/About.astro';
+import Products from '../../components/sections/Products.astro';
+import VideoSection from '../../components/sections/VideoSection.astro';
+import Contact from '../../components/sections/Contact.astro';
+import { t, type Lang } from '../../i18n/utils';
+
+const lang: Lang = 'en';
+---
+
+<MainLayout 
+  lang={lang}
+  title={t(lang, 'meta.homeTitle')}
+  description={t(lang, 'meta.homeDesc')}
+>
+  <Hero lang={lang} />
+  <VideoSection lang={lang} />
+  <Products lang={lang} />
+  <About lang={lang} />
+  <Contact lang={lang} />
+</MainLayout>
