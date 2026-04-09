@@ -57,20 +57,37 @@ const contactHref = getLocalizedPath(lang, '/#contacto');
       </div>
     </div>
     
-    <!-- Botón menú móvil -->
-    <button 
-      id="menu-toggle" 
-      class="md:hidden flex flex-col gap-1.5 p-2"
-      aria-label={t(lang, 'nav.openMenu')}
-    >
-      <span class="w-6 h-0.5 bg-white transition-all origin-center" id="line1"></span>
-      <span class="w-6 h-0.5 bg-white transition-all" id="line2"></span>
-      <span class="w-6 h-0.5 bg-white transition-all origin-center" id="line3"></span>
-    </button>
+    <!-- Mobile: language flags + hamburger -->
+    <div class="md:hidden flex items-center gap-3">
+      <!-- Language selector compact -->
+      <div class="flex items-center gap-1">
+        {Object.entries(languages).map(([code, { flag }]) => (
+          <a 
+            href={getLocalizedPath(code as Lang, Astro.url.pathname.replace(/^\/(en|zh|hi|fr)(\/|$)/, '/'))}
+            class:list={[
+              "w-7 h-7 flex items-center justify-center rounded-full text-sm transition-all",
+              code === lang ? "bg-[var(--color-primary)]/20 border border-[var(--color-primary)]/50" : "opacity-50 hover:opacity-100"
+            ]}
+          >
+            {flag}
+          </a>
+        ))}
+      </div>
+      <!-- Botón menú móvil -->
+      <button 
+        id="menu-toggle" 
+        class="flex flex-col gap-1.5 p-2"
+        aria-label={t(lang, 'nav.openMenu')}
+      >
+        <span class="w-6 h-0.5 bg-white transition-all origin-center" id="line1"></span>
+        <span class="w-6 h-0.5 bg-white transition-all" id="line2"></span>
+        <span class="w-6 h-0.5 bg-white transition-all origin-center" id="line3"></span>
+      </button>
+    </div>
   </nav>
   
   <!-- Menú móvil -->
-  <div id="mobile-menu" class="md:hidden fixed inset-0 bg-[var(--color-bg-dark)]/98 backdrop-blur-lg -translate-x-full transition-transform duration-300 z-40">
+  <div id="mobile-menu" class="md:hidden fixed inset-0 bg-[#0A0A0F] -translate-x-full transition-transform duration-300 z-[99]">
     <div class="flex flex-col items-center justify-center h-full gap-8 text-2xl">
       <a href={homeHref} class="nav-link-mobile">{t(lang, 'nav.home')}</a>
       <a href={productsHref} class="nav-link-mobile">{t(lang, 'nav.products')}</a>
