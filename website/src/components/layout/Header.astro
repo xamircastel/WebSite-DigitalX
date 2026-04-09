@@ -87,7 +87,7 @@ const contactHref = getLocalizedPath(lang, '/#contacto');
   </nav>
   
   <!-- Menú móvil -->
-  <div id="mobile-menu" class="md:hidden fixed inset-0 bg-[#0A0A0F] -translate-x-full transition-transform duration-300 z-[99]">
+  <div id="mobile-menu" class="md:hidden fixed inset-0 -translate-x-full transition-transform duration-300" style="background:#0A0A0F; z-index:99;">
     <div class="flex flex-col items-center justify-center h-full gap-8 text-2xl">
       <a href={homeHref} class="nav-link-mobile">{t(lang, 'nav.home')}</a>
       <a href={productsHref} class="nav-link-mobile">{t(lang, 'nav.products')}</a>
